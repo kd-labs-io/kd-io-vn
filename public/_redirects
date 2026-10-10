@@ -3,3 +3,7 @@
 /vi            /              301
 /vi/           /              301
 /vi/*          /:splat        301
+
+# Sitemap alias redirect
+/sitemap.xml   /sitemap-index.xml 301
+
