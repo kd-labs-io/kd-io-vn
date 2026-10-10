@@ -5,6 +5,26 @@ import sitemap from '@astrojs/sitemap';
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 
+// Custom integration để nhân bản sitemap-index.xml thành sitemap.xml trực tiếp (tránh redirect 301 gây lỗi GSC)
+function duplicateSitemapXml() {
+  return {
+    name: 'duplicate-sitemap-xml',
+    hooks: {
+      'astro:build:done': async ({ dir }) => {
+        const { copyFileSync, existsSync } = await import('node:fs');
+        const { fileURLToPath } = await import('node:url');
+        const { join } = await import('node:path');
+        const distDir = fileURLToPath(dir);
+        const sitemapIndex = join(distDir, 'sitemap-index.xml');
+        const sitemapTarget = join(distDir, 'sitemap.xml');
+        if (existsSync(sitemapIndex)) {
+          copyFileSync(sitemapIndex, sitemapTarget);
+        }
+      },
+    },
+  };
+}
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://kd.io.vn',
@@ -40,6 +60,7 @@ export default defineConfig({
         return item;
       },
     }),
+    duplicateSitemapXml(),
   ],
   vite: {
     plugins: [tailwindcss()],
@@ -52,7 +73,6 @@ export default defineConfig({
     },
   },
   redirects: {
-    '/sitemap.xml': '/sitemap-index.xml',
     '/vi': '/',
     '/vi/press': '/press',
     '/vi/privacy': '/privacy',

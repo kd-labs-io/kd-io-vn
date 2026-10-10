@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://kd.io.vn/sitemap-index.xml
+Sitemap: https://kd.io.vn/sitemap.xml
