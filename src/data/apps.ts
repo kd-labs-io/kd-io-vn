@@ -17,6 +17,7 @@ export interface AppItem {
   lastUpdated?: string;
   packageName?: string;
   googlePlayUrl: string; // Set to '#' by default for user to update
+  appStoreUrl?: string;
   githubUrl?: string;
   iconImage?: string;
   featureGraphic?: {
@@ -50,19 +51,20 @@ export const appsData: AppItem[] = [
   {
     id: 'simple-otp',
     slug: 'simple-otp',
-    isReleased: false,
-    status: 'coming_soon',
+    isReleased: true,
+    status: 'released',
     name: 'Simple OTP',
     category: {
       vi: 'Bảo mật & Xác thực 2FA',
       en: 'Security & 2FA Authenticator',
     },
-    version: '0.0.1 (Sắp ra mắt)',
+    version: '0.0.3',
     size: '12.4 MB',
-    osRequirement: 'Android 8.0 trở lên (API 26+) & iOS',
-    lastUpdated: 'Tháng 9, 2026',
+    osRequirement: 'iOS 16.4+ & Android 8.0+',
+    lastUpdated: 'Tháng 10, 2026',
     packageName: 'vn.io.kd.simpleotp',
-    googlePlayUrl: '#', // TODO: Thay bằng link Google Play chính thức khi publish
+    appStoreUrl: 'https://apps.apple.com/us/app/simple-otp/id6816673973',
+    googlePlayUrl: '#', // Dự kiến phát hành trên Google Play
     githubUrl: 'https://github.com/kd-labs-io/simple-otp',
     iconImage: '/assets/simple-otp/icon.png',
     featureGraphic: {
@@ -84,40 +86,40 @@ export const appsData: AppItem[] = [
       ],
     },
     shortDescription: {
-      vi: 'Ứng dụng xác thực 2 lớp (2FA/OTP) 100% ngoại tuyến, bảo vệ bằng mã hóa phần cứng an toàn tuyệt đối, đồng hành cùng các trợ thủ ảo tương tác sống động.',
-      en: 'High-security, 100% offline 2FA/OTP authenticator with hardware-backed encryption, paired with joyful interactive companion mascots.',
+      vi: 'Ứng dụng xác thực 2 bước (2FA) hoạt động 100% ngoại tuyến. Khóa bí mật được mã hóa trong két phần cứng và không gửi dữ liệu ra ngoài mạng.',
+      en: '100% offline two-factor authenticator (2FA). Master keys stay in hardware enclaves and never connect to the internet.',
     },
     fullDescription: {
-      vi: 'Simple OTP được xây dựng trên triết lý bảo mật tối thượng: an ninh chuẩn doanh nghiệp phải dễ tiếp cận, minh bạch và đem lại sự an tâm tuyệt đối. Ứng dụng hoạt động 100% offline không cần quyền Internet, khóa bí mật được lưu trữ trong két phần cứng (Android Keystore / iOS Keychain) với mã hóa AES-256-GCM. Đi kèm là hệ thống trợ thủ ảo Bé Khóa (Lock-bot) và các linh vật tương tác giúp việc bảo vệ tài khoản số trở nên gần gũi, thú vị.',
-      en: 'Simple OTP is engineered on a fundamental security principle: enterprise-grade cryptographic security should feel accessible, transparent, and completely peaceful. The app operates 100% offline with zero network permissions. Master Vault Keys are guarded inside hardware enclaves (Android Keystore / iOS Keychain) encrypted via AES-256-GCM. Featuring the Bé Khóa (Lock-bot) companion mascot to make digital authentication approachable and delightful.',
+      vi: 'Simple OTP bảo vệ tài khoản số của bạn bằng phương thức xác thực hai bước (2FA). Ứng dụng hoạt động hoàn toàn ngoại tuyến và không yêu cầu quyền Internet. Mọi khóa bảo mật được lưu trong két phần cứng (iOS Keychain / Android Keystore) với mã hóa AES-256-GCM. Ứng dụng đi kèm các trợ thủ ảo tương tác giúp trải nghiệm bảo mật trở nên đơn giản và thuận tiện.',
+      en: 'Simple OTP protects your accounts with two-factor authentication (2FA). The app operates 100% offline with zero internet permissions. All secret keys are stored in hardware enclaves (iOS Keychain / Android Keystore) encrypted with AES-256-GCM. Animated mascot companions make account security simple and friendly.',
     },
     features: {
       vi: [
-        'Ngoại tuyến 100% (Zero-Network): Không cấp quyền Internet, 0 dữ liệu gửi ra ngoài',
-        'Két mã hóa phần cứng: MVK sinh qua PBKDF2 (100.000 vòng) & AES-256-GCM',
-        'Chuẩn bảo mật RFC 6238 (TOTP) & RFC 4226 (HOTP) hỗ trợ SHA-1, SHA-256, SHA-512',
-        'Nhập mã đa kênh tiện lợi: Quét QR camera, đọc ảnh từ thư viện, tự động bắt link clipboard hoặc nhập tay',
-        'Màn chắn quyền riêng tư: FLAG_SECURE chống chụp ảnh / quay lén màn hình',
-        'Khóa sinh trắc học vân tay & khuôn mặt (Biometrics Auth)',
-        'Trợ thủ ảo tương tác sống động: Bé Khóa, Cipher Cat, Byte Dog, Shield Bunny',
-        'Sao lưu mã hóa mật khẩu an toàn định dạng tệp .simpleotp',
-        'Mã nguồn mở độc lập MIT: Hoàn toàn minh bạch và có thể kiểm tra độc lập',
+        'Ngoại tuyến 100%: Ứng dụng không yêu cầu quyền truy cập mạng.',
+        'Két mã hóa phần cứng: Bảo vệ bằng AES-256-GCM trong iOS Keychain và Android Keystore.',
+        'Tiêu chuẩn quốc tế: Tương thích hoàn toàn chuẩn TOTP (RFC 6238) và HOTP (RFC 4226).',
+        'Quét mã QR linh hoạt: Quét trực tiếp bằng camera, nhận diện từ ảnh chụp hoặc nhập tay.',
+        'Màn chắn quyền riêng tư: Tự động che nội dung khi chuyển ứng dụng.',
+        'Khóa sinh trắc học: Mở khóa an toàn bằng Face ID, Touch ID hoặc vân tay.',
+        'Trợ thủ ảo tương tác: Phản hồi hình ảnh sinh động từ Bé Khóa, Cipher Cat và Byte Dog.',
+        'Sao lưu mã hóa: Xuất tệp .simpleotp có mật khẩu bảo vệ để chuyển sang thiết bị mới.',
+        'Mã nguồn mở MIT: Toàn bộ mã nguồn được công khai minh bạch trên GitHub.',
       ],
       en: [
-        '100% Offline (Zero-Network Architecture): No internet permissions, 0 telemetry sent outwards',
-        'Hardware-backed Vault Key: Derived via PBKDF2 (100k iterations) & AES-256-GCM',
-        'RFC 6238 (TOTP) & RFC 4226 (HOTP) compliant with SHA-1, SHA-256, SHA-512 support',
-        'Multi-channel ingestion: Live camera QR scanner, gallery photo decode, clipboard auto-detect, manual key',
-        'Privacy Shield: System FLAG_SECURE prevents unauthorized screenshots or recording',
-        'Biometric authentication with fingerprint & Face Unlock support',
-        'Interactive companion mascots: Bé Khóa (Lock-bot), Cipher Cat, Byte Dog, Shield Bunny',
-        'Encrypted password-protected backup and restore in .simpleotp format',
-        'Open-Source under MIT: 100% transparent and independently auditable',
+        '100% Offline: The app requests zero internet permissions.',
+        'Hardware Encryption: AES-256-GCM inside iOS Keychain and Android Keystore.',
+        'Industry Standard: Fully compliant with TOTP (RFC 6238) and HOTP (RFC 4226).',
+        'Fast QR Scanning: Scan with camera, import from photos, or enter keys manually.',
+        'Privacy Shield: Automatically obscures app content in the app switcher.',
+        'Biometric Protection: Unlock with Face ID, Touch ID, or fingerprint.',
+        'Animated Companions: Real-time reactions from Bé Khóa, Cipher Cat, and Byte Dog.',
+        'Encrypted Backup: Export password-protected .simpleotp files to transfer devices.',
+        'Open Source MIT: Fully transparent and independently auditable on GitHub.',
       ],
     },
     whatsNew: {
-      vi: '• Chuẩn bị phát hành phiên bản 0.0.1 trên Google Play\n• Tích hợp trọn bộ 3 linh vật trợ thủ bảo mật\n• Kiến trúc Zero-Network đã hoàn thiện kiểm thử 100%',
-      en: '• Preparing release for version 0.0.1 on Google Play\n• Integrated complete trio of interactive security mascots\n• Zero-Network architecture verified with 100% test coverage',
+      vi: '• Phát hành chính thức phiên bản 0.0.3 trên Apple App Store\n• Hỗ trợ đầy đủ chuẩn RFC 6238 (TOTP) và RFC 4226 (HOTP)\n• Kiến trúc Zero-Network 100% ngoại tuyến, bảo mật két phần cứng iOS Keychain\n• Trọn bộ 3 linh vật trợ thủ bảo mật tương tác sống động',
+      en: '• Official release of version 0.0.3 on the Apple App Store\n• Full compliance with RFC 6238 (TOTP) and RFC 4226 (HOTP)\n• 100% offline Zero-Network architecture with iOS Keychain enclave\n• Complete trio of interactive security companion mascots',
     },
     accentColor: '#F76B00',
   },

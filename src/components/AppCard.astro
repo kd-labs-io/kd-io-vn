@@ -23,10 +23,17 @@ const featureGraphic = app.featureGraphic ? app.featureGraphic[currentLang] : nu
       
       <!-- Top Badges & Meta -->
       <div class="flex flex-wrap items-center gap-2.5">
-        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-orange-50 dark:bg-orange-950/40 text-orange-700 dark:text-orange-400 border border-orange-200 dark:border-orange-900/50">
-          <span class="w-1.5 h-1.5 rounded-full bg-orange-600 animate-pulse"></span>
-          {t.showcase.comingSoonBadge}
-        </span>
+        {app.status === 'released' ? (
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-900/50">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+            {t.showcase.releasedBadge}
+          </span>
+        ) : (
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-orange-50 dark:bg-orange-950/40 text-orange-700 dark:text-orange-400 border border-orange-200 dark:border-orange-900/50">
+            <span class="w-1.5 h-1.5 rounded-full bg-orange-600 animate-pulse"></span>
+            {t.showcase.comingSoonBadge}
+          </span>
+        )}
         
         <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-stone-100 dark:bg-stone-800/80 text-stone-600 dark:text-stone-300">
           {app.category[currentLang]}
@@ -96,18 +103,46 @@ const featureGraphic = app.featureGraphic ? app.featureGraphic[currentLang] : nu
 
       <!-- CTA Action Row -->
       <div class="flex flex-wrap items-center gap-3 pt-3">
-        <!-- Download on Google Play Button -->
-        <a
-          href={app.googlePlayUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl bg-orange-600 hover:bg-orange-700 text-white text-xs sm:text-sm font-semibold shadow-sm transition-all duration-200"
-        >
-          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M3.609 1.814L13.793 12 3.61 22.186c-.37-.367-.61-.88-.61-1.464V3.278c0-.584.24-1.097.61-1.464zm1.402-.822L16.273 7.42 14.5 9.193 5.011.992zm9.49 9.873l1.774 1.774-11.264 6.43 9.49-8.204zm2.463-.997l2.827 1.616c.82.469.82 1.233 0 1.701l-2.827 1.616-1.993-1.993 1.993-1.94z"/>
-          </svg>
-          <span>{t.showcase.getOnGooglePlay}</span>
-        </a>
+        <!-- Download on App Store Button -->
+        {app.appStoreUrl && (
+          <a
+            href={app.appStoreUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl bg-orange-600 hover:bg-orange-700 text-white text-xs sm:text-sm font-semibold shadow-sm transition-all duration-200 transform hover:-translate-y-0.5"
+          >
+            <!-- Apple Icon -->
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.42c.62-.75 1.04-1.8 0.93-2.85-.9.04-1.99.6-2.63 1.35-.57.65-1.06 1.71-.93 2.73.99.08 2.02-.48 2.63-1.23z"/>
+            </svg>
+            <span>{t.showcase.getOnAppStore}</span>
+          </a>
+        )}
+
+        <!-- Google Play Button (Active or Coming Soon) -->
+        {app.googlePlayUrl && app.googlePlayUrl !== '#' ? (
+          <a
+            href={app.googlePlayUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl bg-stone-900 hover:bg-black dark:bg-stone-800 dark:hover:bg-stone-700 text-white text-xs sm:text-sm font-semibold shadow-sm transition-all duration-200"
+          >
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M3.609 1.814L13.793 12 3.61 22.186c-.37-.367-.61-.88-.61-1.464V3.278c0-.584.24-1.097.61-1.464zm1.402-.822L16.273 7.42 14.5 9.193 5.011.992zm9.49 9.873l1.774 1.774-11.264 6.43 9.49-8.204zm2.463-.997l2.827 1.616c.82.469.82 1.233 0 1.701l-2.827 1.616-1.993-1.993 1.993-1.94z"/>
+            </svg>
+            <span>{t.showcase.getOnGooglePlay}</span>
+          </a>
+        ) : (
+          <div
+            class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-stone-200 dark:border-stone-800 bg-stone-100/70 dark:bg-stone-900/50 text-stone-500 dark:text-stone-400 text-xs sm:text-sm font-medium select-none"
+            title={t.showcase.googlePlayComingSoon}
+          >
+            <svg class="w-4 h-4 text-stone-400 dark:text-stone-500" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M3.609 1.814L13.793 12 3.61 22.186c-.37-.367-.61-.88-.61-1.464V3.278c0-.584.24-1.097.61-1.464zm1.402-.822L16.273 7.42 14.5 9.193 5.011.992zm9.49 9.873l1.774 1.774-11.264 6.43 9.49-8.204zm2.463-.997l2.827 1.616c.82.469.82 1.233 0 1.701l-2.827 1.616-1.993-1.993 1.993-1.94z"/>
+            </svg>
+            <span>{t.showcase.googlePlayComingSoon}</span>
+          </div>
+        )}
 
         <!-- GitHub Repo Button -->
         {app.githubUrl && (

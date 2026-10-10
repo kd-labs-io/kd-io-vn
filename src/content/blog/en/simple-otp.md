@@ -115,4 +115,6 @@ The complete codebase of Simple OTP is public and transparent under the permissi
 
 Simple OTP is more than a standard 2FA utility. It stands as KD Labs’ manifesto for mindful software development: **minimalist, respectful of user sovereignty, completely private, and timeless.**
 
-The app is currently undergoing final quality assurance and will be available soon on the **Google Play Store**. Stay tuned and experience calm, secure digital peace with Simple OTP!
+Exciting news: **Simple OTP is now officially available on the [Apple App Store](https://apps.apple.com/us/app/simple-otp/id6816673973)** for iPhone and iPad. You can download and experience it today for free. The Android version is also in preparation for its upcoming release on the Google Play Store.
+
+Download today and experience calm, secure digital peace with Simple OTP!

@@ -115,4 +115,6 @@ Toàn bộ mã nguồn của Simple OTP được công khai minh bạch tại kh
 
 Simple OTP không chỉ là một ứng dụng xác thực 2FA. Đó là lời khẳng định của KD Labs về một hướng đi mới cho ứng dụng di động: **tối giản, tôn trọng người dùng, bảo vệ quyền riêng tư tuyệt đối và bền vững theo thời gian.**
 
-Ứng dụng hiện đang hoàn tất các khâu kiểm thử chất lượng cuối cùng và sẽ sớm có mặt trên **Google Play Store**. Hãy cùng đón chờ và trải nghiệm sự an tâm tĩnh tại cùng Simple OTP!
+Tin vui: **Simple OTP hiện đã chính thức có mặt trên [Apple App Store](https://apps.apple.com/us/app/simple-otp/id6816673973)** dành cho các thiết bị iPhone và iPad. Bạn có thể tải về trải nghiệm ngay hôm nay hoàn toàn miễn phí. Phiên bản dành cho Android cũng đang trong quá trình hoàn thiện để sớm có mặt trên Google Play Store.
+
+Hãy cùng tải về và trải nghiệm sự an tâm tĩnh tại cùng Simple OTP!
