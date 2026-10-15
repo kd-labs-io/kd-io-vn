@@ -64,7 +64,7 @@ export interface PrivacyData {
 
 export const privacyData: Record<Locale, PrivacyData> = {
   vi: {
-    metaTitle: 'Chính Sách Quyền Riêng Tư Toàn Diện • KD Labs',
+    metaTitle: 'Chính Sách Quyền Riêng Tư Toàn Diện • KD Labs - Phát triển bởi Bùi Khương Duy',
     metaDescription:
       'Chính sách quyền riêng tư chi tiết của KD Labs: Kiến trúc 100% ngoại tuyến (Zero-Network), mã hóa phần cứng Keystore, tuân thủ Google Play Data Safety, Nghị định 13/2023/NĐ-CP và GDPR.',
     badge: 'Văn Bản Pháp Lý & Cam Kết Kỹ Thuật • Tháng 09/2026',
@@ -449,7 +449,7 @@ export const privacyData: Record<Locale, PrivacyData> = {
   },
 
   en: {
-    metaTitle: 'Comprehensive Privacy Policy • KD Labs',
+    metaTitle: 'Comprehensive Privacy Policy • KD Labs - Developed by Bui Khuong Duy',
     metaDescription:
       'Detailed Privacy Policy of KD Labs: 100% Offline (Zero-Network Architecture), hardware-backed Keystore encryption, compliant with Google Play Data Safety, VN Decree 13/2023/ND-CP, GDPR, and CCPA.',
     badge: 'Legal & Technical Compliance Document • September 2026',

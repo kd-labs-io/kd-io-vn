@@ -36,10 +36,13 @@ const blogJsonLd = {
   ...(post.data.updatedDate ? { dateModified: post.data.updatedDate.toISOString() } : {}),
   author: {
     '@type': 'Person',
-    name: post.data.author || 'KD Labs',
+    '@id': `${siteUrl}/#person`,
+    name: post.data.author && post.data.author !== 'KD Labs' ? post.data.author : 'Bùi Khương Duy',
+    url: siteUrl,
   },
   publisher: {
     '@type': 'Organization',
+    '@id': `${siteUrl}/#organization`,
     name: 'KD Labs',
     logo: {
       '@type': 'ImageObject',
@@ -55,7 +58,7 @@ const blogJsonLd = {
 
 <Layout
   lang={lang}
-  title={`${post.data.title} • KD Labs Blog`}
+  title={`${post.data.title} • KD Labs - Phát triển bởi Bùi Khương Duy`}
   description={post.data.description}
   image={blogOgImage}
   imageAlt={post.data.title}

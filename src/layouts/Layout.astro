@@ -1,6 +1,7 @@
 ---
 import type { Locale } from '../data/i18n';
 import { getLocalizedPath } from '../data/i18n';
+import { siteConfig } from '../config/site';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
@@ -20,7 +21,7 @@ interface Props {
 }
 
 const {
-  title = 'KD Labs • Keep Developing Software with Passion & Security',
+  title: initialTitle,
   description = 'KD Labs - Software Studio. Tối giản trong thiết kế, thanh tịnh trong trải nghiệm.',
   lang,
   image,
@@ -32,6 +33,12 @@ const {
   tags,
   jsonLd,
 } = Astro.props;
+
+const fallbackTitle = lang === 'vi'
+  ? 'KD Labs - Phát triển bởi Bùi Khương Duy • Keep Developing Software with Passion & Security'
+  : 'KD Labs - Developed by Bui Khuong Duy • Keep Developing Software with Passion & Security';
+
+const title = initialTitle || fallbackTitle;
 
 const siteUrl = Astro.site ? Astro.site.origin : 'https://kd.io.vn';
 const pathname = Astro.url.pathname;
@@ -76,10 +83,22 @@ const modifiedIso = modifiedTime
   ? (typeof modifiedTime === 'string' ? new Date(modifiedTime).toISOString() : modifiedTime.toISOString())
   : undefined;
 
-// Base Organization and WebSite JSON-LD
+// Base Person, Organization and WebSite JSON-LD
 const defaultJsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
+    {
+      '@type': 'Person',
+      '@id': `${siteUrl}/#person`,
+      name: siteConfig.author.name,
+      alternateName: siteConfig.author.alternateName,
+      jobTitle: siteConfig.author.jobTitle,
+      url: siteUrl,
+      sameAs: siteConfig.author.sameAs,
+      worksFor: {
+        '@id': `${siteUrl}/#organization`,
+      },
+    },
     {
       '@type': 'Organization',
       '@id': `${siteUrl}/#organization`,
@@ -92,12 +111,17 @@ const defaultJsonLd = {
         contentUrl: `${siteUrl}/assets/branding/kd-labs-icon.png`,
         caption: 'KD Labs Logo',
       },
+      founder: {
+        '@id': `${siteUrl}/#person`,
+      },
       sameAs: [
-        'https://play.google.com/store/apps/dev?id=7744040993303027729',
+        siteConfig.googlePlayDevUrl,
+        siteConfig.githubUrl,
+        siteConfig.twitterUrl,
       ],
       contactPoint: {
         '@type': 'ContactPoint',
-        email: 'contact@kd.io.vn',
+        email: siteConfig.contactEmail,
         contactType: 'customer support',
       },
     },
@@ -106,6 +130,9 @@ const defaultJsonLd = {
       '@id': `${siteUrl}/#website`,
       url: siteUrl,
       name: 'KD Labs',
+      creator: {
+        '@id': `${siteUrl}/#person`,
+      },
       publisher: {
         '@id': `${siteUrl}/#organization`,
       },

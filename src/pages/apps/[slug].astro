@@ -45,16 +45,26 @@ const appJsonLd = {
     },
   } : {}),
   author: {
+    '@type': 'Person',
+    '@id': `${siteUrl}/#person`,
+    name: 'Bùi Khương Duy',
+  },
+  creator: {
+    '@type': 'Person',
+    '@id': `${siteUrl}/#person`,
+    name: 'Bùi Khương Duy',
+  },
+  publisher: {
     '@type': 'Organization',
+    '@id': `${siteUrl}/#organization`,
     name: 'KD Labs',
-    url: siteUrl,
   },
 };
 ---
 
 <Layout
   lang={lang}
-  title={`${app.name} • KD Labs`}
+  title={`${app.name} • KD Labs - Phát triển bởi Bùi Khương Duy`}
   description={app.shortDescription[lang]}
   image={appOgImage}
   imageAlt={`${app.name} - ${app.shortDescription[lang]}`}
