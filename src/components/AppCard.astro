@@ -10,7 +10,7 @@ interface Props {
 
 const { app, currentLang } = Astro.props;
 const t = getTranslations(currentLang);
-const detailUrl = currentLang === 'vi' ? `/apps/${app.slug}` : `/${currentLang}/apps/${app.slug}`;
+const detailUrl = currentLang === 'vi' ? `/apps/${app.slug}/` : `/${currentLang}/apps/${app.slug}/`;
 const featureGraphic = app.featureGraphic ? app.featureGraphic[currentLang] : null;
 ---
 

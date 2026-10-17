@@ -41,7 +41,8 @@ const fallbackTitle = lang === 'vi'
 const title = initialTitle || fallbackTitle;
 
 const siteUrl = Astro.site ? Astro.site.origin : 'https://kd.io.vn';
-const pathname = Astro.url.pathname;
+const rawPathname = Astro.url.pathname;
+const pathname = rawPathname.endsWith('/') ? rawPathname : `${rawPathname}/`;
 const canonicalURL = new URL(pathname, siteUrl);
 
 const viPath = getLocalizedPath(pathname, 'vi');

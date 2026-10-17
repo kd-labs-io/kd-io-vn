@@ -10,10 +10,10 @@ interface Props {
 const { currentLang } = Astro.props;
 const t = getTranslations(currentLang);
 const homeUrl = currentLang === 'vi' ? '/' : `/${currentLang}/`;
-const pressUrl = currentLang === 'vi' ? '/press' : `/${currentLang}/press`;
-const privacyUrl = currentLang === 'vi' ? '/privacy' : `/${currentLang}/privacy`;
-const termsUrl = currentLang === 'vi' ? '/terms' : `/${currentLang}/terms`;
-const blogUrl = currentLang === 'vi' ? '/blog' : `/${currentLang}/blog`;
+const pressUrl = currentLang === 'vi' ? '/press/' : `/${currentLang}/press/`;
+const privacyUrl = currentLang === 'vi' ? '/privacy/' : `/${currentLang}/privacy/`;
+const termsUrl = currentLang === 'vi' ? '/terms/' : `/${currentLang}/terms/`;
+const blogUrl = currentLang === 'vi' ? '/blog/' : `/${currentLang}/blog/`;
 const currentYear = new Date().getFullYear();
 ---
 

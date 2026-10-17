@@ -28,6 +28,7 @@ function duplicateSitemapXml() {
 // https://astro.build/config
 export default defineConfig({
   site: 'https://kd.io.vn',
+  trailingSlash: 'always',
   integrations: [
     mdx(),
     sitemap({
@@ -74,11 +75,11 @@ export default defineConfig({
   },
   redirects: {
     '/vi': '/',
-    '/vi/press': '/press',
-    '/vi/privacy': '/privacy',
-    '/vi/terms': '/terms',
+    '/vi/press': '/press/',
+    '/vi/privacy': '/privacy/',
+    '/vi/terms': '/terms/',
     '/vi/apps/[slug]': '/apps/[slug]',
-    '/vi/blog': '/blog',
+    '/vi/blog': '/blog/',
     '/vi/blog/[slug]': '/blog/[slug]',
   },
 });

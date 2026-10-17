@@ -16,9 +16,9 @@ const homeUrl = currentLang === 'vi' ? '/' : `/${currentLang}/`;
 const isHomePage = currentLang === 'vi'
   ? (Astro.url.pathname === '/' || Astro.url.pathname === '')
   : (Astro.url.pathname === `/${currentLang}/` || Astro.url.pathname === `/${currentLang}`);
-const pressUrl = currentLang === 'vi' ? '/press' : `/${currentLang}/press`;
-const privacyUrl = currentLang === 'vi' ? '/privacy' : `/${currentLang}/privacy`;
-const blogUrl = currentLang === 'vi' ? '/blog' : `/${currentLang}/blog`;
+const pressUrl = currentLang === 'vi' ? '/press/' : `/${currentLang}/press/`;
+const privacyUrl = currentLang === 'vi' ? '/privacy/' : `/${currentLang}/privacy/`;
+const blogUrl = currentLang === 'vi' ? '/blog/' : `/${currentLang}/blog/`;
 ---
 
 <header class="sticky top-0 z-50 transition-colors duration-200">

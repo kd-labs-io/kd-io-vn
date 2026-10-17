@@ -942,6 +942,9 @@ export function getLocalizedPath(pathname: string, targetLang: Locale): string {
   if (!cleanPath.startsWith('/')) {
     cleanPath = '/' + cleanPath;
   }
+  if (!cleanPath.endsWith('/')) {
+    cleanPath = cleanPath + '/';
+  }
 
   if (targetLang === 'vi') {
     return cleanPath;

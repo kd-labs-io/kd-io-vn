@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /cdn-cgi/
 
 Sitemap: https://kd.io.vn/sitemap-index.xml
 Sitemap: https://kd.io.vn/sitemap.xml

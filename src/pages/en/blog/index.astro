@@ -57,7 +57,7 @@ const allTags = Array.from(new Set(posts.flatMap((p) => p.data.tags || [])));
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {posts.map((post) => {
             const slug = post.id.replace(/^en\//, '');
-            const postUrl = `/en/blog/${slug}`;
+            const postUrl = `/en/blog/${slug}/`;
 
             return (
               <article class="flex flex-col rounded-3xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-[#161412] overflow-hidden hover:border-orange-500/40 dark:hover:border-orange-500/40 hover:shadow-xl transition-all duration-300 group">
