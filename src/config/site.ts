@@ -13,7 +13,7 @@ export const siteConfig = {
     name: 'Bùi Khương Duy',
     alternateName: 'Bui Khuong Duy',
     jobTitle: 'Founder & Software Engineer',
-    url: 'https://kd.io.vn',
+    url: 'https://kd.io.vn/',
     sameAs: [
       'https://www.linkedin.com/in/kd168/',
       'https://x.com/khuongduy1897',

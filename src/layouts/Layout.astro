@@ -35,12 +35,14 @@ const {
 } = Astro.props;
 
 const fallbackTitle = lang === 'vi'
-  ? 'KD Labs - Phát triển bởi Bùi Khương Duy • Keep Developing Software with Passion & Security'
-  : 'KD Labs - Developed by Bui Khuong Duy • Keep Developing Software with Passion & Security';
+  ? 'KD Labs • Bùi Khương Duy — Indie Software Studio'
+  : 'KD Labs • Bui Khuong Duy — Indie Software Studio';
 
 const title = initialTitle || fallbackTitle;
+const authorName = author || (lang === 'vi' ? siteConfig.author.name : siteConfig.author.alternateName);
 
 const siteUrl = Astro.site ? Astro.site.origin : 'https://kd.io.vn';
+const rootUrl = `${siteUrl}/`;
 const rawPathname = Astro.url.pathname;
 const pathname = rawPathname.endsWith('/') ? rawPathname : `${rawPathname}/`;
 const canonicalURL = new URL(pathname, siteUrl);
@@ -84,7 +86,7 @@ const modifiedIso = modifiedTime
   ? (typeof modifiedTime === 'string' ? new Date(modifiedTime).toISOString() : modifiedTime.toISOString())
   : undefined;
 
-// Base Person, Organization and WebSite JSON-LD
+// Base Person, Organization and WebSite JSON-LD (Google Site Name & Entity Guidelines)
 const defaultJsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -94,7 +96,7 @@ const defaultJsonLd = {
       name: siteConfig.author.name,
       alternateName: siteConfig.author.alternateName,
       jobTitle: siteConfig.author.jobTitle,
-      url: siteUrl,
+      url: rootUrl,
       sameAs: siteConfig.author.sameAs,
       worksFor: {
         '@id': `${siteUrl}/#organization`,
@@ -104,12 +106,15 @@ const defaultJsonLd = {
       '@type': 'Organization',
       '@id': `${siteUrl}/#organization`,
       name: 'KD Labs',
-      url: siteUrl,
+      alternateName: 'KD Labs Studio',
+      url: rootUrl,
       logo: {
         '@type': 'ImageObject',
         '@id': `${siteUrl}/#logo`,
         url: `${siteUrl}/assets/branding/kd-labs-icon.png`,
         contentUrl: `${siteUrl}/assets/branding/kd-labs-icon.png`,
+        width: 512,
+        height: 512,
         caption: 'KD Labs Logo',
       },
       founder: {
@@ -119,6 +124,7 @@ const defaultJsonLd = {
         siteConfig.googlePlayDevUrl,
         siteConfig.githubUrl,
         siteConfig.twitterUrl,
+        siteConfig.linkedinUrl,
       ],
       contactPoint: {
         '@type': 'ContactPoint',
@@ -129,8 +135,9 @@ const defaultJsonLd = {
     {
       '@type': 'WebSite',
       '@id': `${siteUrl}/#website`,
-      url: siteUrl,
+      url: rootUrl,
       name: 'KD Labs',
+      alternateName: ['KD Labs Studio', 'kd.io.vn'],
       creator: {
         '@id': `${siteUrl}/#person`,
       },
@@ -156,6 +163,8 @@ const finalJsonLdArray = jsonLd
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="application-name" content="KD Labs" />
+    <meta name="author" content={authorName} />
 
     <!-- Google Fonts: Plus Jakarta Sans (Pure Modern Sans-Serif) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

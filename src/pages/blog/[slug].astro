@@ -38,7 +38,7 @@ const blogJsonLd = {
     '@type': 'Person',
     '@id': `${siteUrl}/#person`,
     name: post.data.author && post.data.author !== 'KD Labs' ? post.data.author : 'Bùi Khương Duy',
-    url: siteUrl,
+    url: `${siteUrl}/`,
   },
   publisher: {
     '@type': 'Organization',
@@ -58,7 +58,7 @@ const blogJsonLd = {
 
 <Layout
   lang={lang}
-  title={`${post.data.title} • KD Labs - Phát triển bởi Bùi Khương Duy`}
+  title={`${post.data.title} • KD Labs`}
   description={post.data.description}
   image={blogOgImage}
   imageAlt={post.data.title}
@@ -461,5 +461,39 @@ const blogJsonLd = {
     border: none;
     border-top: 1px solid var(--border-primary);
     margin: 2.5rem 0;
+  }
+
+  .blog-prose table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.75rem 0;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    border: 1px solid var(--border-primary);
+  }
+
+  .blog-prose thead {
+    background-color: rgba(234, 88, 12, 0.08);
+    border-bottom: 1px solid var(--border-primary);
+  }
+
+  .dark .blog-prose thead {
+    background-color: rgba(251, 113, 59, 0.12);
+  }
+
+  .blog-prose th {
+    text-align: left;
+    padding: 0.75rem 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .blog-prose td {
+    padding: 0.75rem 1rem;
+    color: var(--text-secondary);
+    border-top: 1px solid var(--border-subtle);
+    vertical-align: top;
   }
 </style>

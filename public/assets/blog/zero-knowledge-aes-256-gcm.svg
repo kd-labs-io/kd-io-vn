@@ -1,0 +1,130 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E0903"/>
+      <stop offset="45%" stop-color="#120502"/>
+      <stop offset="100%" stop-color="#080201"/>
+    </linearGradient>
+
+    <radialGradient id="centerGlow" cx="50%" cy="42%" r="60%">
+      <stop offset="0%" stop-color="#EA580C" stop-opacity="0.28"/>
+      <stop offset="50%" stop-color="#EA580C" stop-opacity="0.09"/>
+      <stop offset="100%" stop-color="#EA580C" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EA580C" stop-opacity="0.75"/>
+      <stop offset="50%" stop-color="#FB923C" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#7C2D12" stop-opacity="0.4"/>
+    </linearGradient>
+
+    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7F1D1D"/>
+      <stop offset="100%" stop-color="#FB713B"/>
+    </linearGradient>
+
+    <pattern id="gridPattern" width="36" height="36" patternUnits="userSpaceOnUse">
+      <circle cx="18" cy="18" r="1.1" fill="#EA580C" fill-opacity="0.12"/>
+    </pattern>
+
+    <filter id="cardShadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#000000" flood-opacity="0.65"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="675" fill="url(#bgGrad)"/>
+  <rect width="1200" height="675" fill="url(#centerGlow)"/>
+  <rect width="1200" height="675" fill="url(#gridPattern)"/>
+
+  <!-- Subtle Enso Zen Circle Watermark -->
+  <g transform="translate(1030, 130) scale(3.2) translate(-50, -50)" opacity="0.07">
+    <path d="M 56.1 13.1 A 37.2 37.2 0 1 0 85.6 65.1" stroke="#EA580C" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="65.2" cy="28.3" r="6" fill="#FB923C"/>
+    <circle cx="78.4" cy="48.1" r="6" fill="#FB923C"/>
+  </g>
+
+  <!-- Outer Frame -->
+  <rect x="24" y="24" width="1152" height="627" rx="28" fill="none" stroke="url(#borderGrad)" stroke-width="1.5"/>
+
+  <!-- Top Header Badge & KD Labs Identity -->
+  <g transform="translate(64, 58)">
+    <!-- KD Labs Mini Icon -->
+    <rect x="0" y="0" width="38" height="38" rx="11" fill="#EA580C"/>
+    <text x="19" y="25" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="900" fill="#FFFFFF">KD</text>
+    <text x="52" y="25" font-family="sans-serif" font-size="18" font-weight="800" fill="#FFFFFF" letter-spacing="-0.3">KD Labs</text>
+    <text x="132" y="25" font-family="monospace" font-size="14" fill="#FB923C">• SECURITY &amp; ENGINEERING</text>
+
+    <!-- Right Pill Badge -->
+    <rect x="652" y="2" width="420" height="34" rx="17" fill="#220D05" stroke="#EA580C" stroke-opacity="0.6" stroke-width="1.2"/>
+    <text x="862" y="23" text-anchor="middle" font-family="monospace" font-size="11.5" font-weight="700" fill="#FED7AA" letter-spacing="0.6">● AUTHENTICATED ENCRYPTION • ZERO-KNOWLEDGE</text>
+  </g>
+
+  <!-- Central Technical Diagram Illustration -->
+  
+      <!-- Pipeline Diagram: Passphrase -> KDF -> AES-256-GCM -> Authenticated Vault -->
+      <g transform="translate(125, 155)">
+        <!-- Stage 1: Passphrase + Salt -> KDF -->
+        <g transform="translate(0, 20)">
+          <rect x="0" y="0" width="260" height="230" rx="22" fill="#1A0C05" stroke="#EA580C" stroke-width="1.8" filter="url(#cardShadow)"/>
+          <text x="24" y="38" font-family="monospace" font-size="12" font-weight="700" fill="#FB923C">1. KEY DERIVATION (KDF)</text>
+          <rect x="20" y="54" width="220" height="42" rx="10" fill="#271207" stroke="#7C2D12"/>
+          <text x="34" y="80" font-family="monospace" font-size="13" fill="#FFFFFF">Passphrase + 128b Salt</text>
+          
+          <path d="M130 102 L130 124" stroke="#FB713B" stroke-width="2"/>
+          <rect x="20" y="126" width="220" height="46" rx="10" fill="#2A1408" stroke="#EA580C"/>
+          <text x="130" y="154" text-anchor="middle" font-family="monospace" font-size="13" font-weight="700" fill="#FDBA74">PBKDF2 / Argon2id</text>
+          <text x="130" y="204" text-anchor="middle" font-family="monospace" font-size="12" fill="#4ADE80">256-bit Master Key (DEK)</text>
+        </g>
+
+        <!-- Arrow 1 -->
+        <path d="M270 135 L320 135" stroke="#EA580C" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="295" cy="135" r="5" fill="#FB713B"/>
+
+        <!-- Stage 2: AES-256-GCM Engine -->
+        <g transform="translate(330, 0)">
+          <rect x="0" y="0" width="300" height="270" rx="26" fill="#210D04" stroke="url(#borderGrad)" stroke-width="2.5" filter="url(#cardShadow)"/>
+          <circle cx="150" cy="76" r="38" fill="#2E1306" stroke="#EA580C" stroke-width="2"/>
+          <!-- Padlock Icon -->
+          <rect x="136" y="72" width="28" height="22" rx="5" fill="#FB713B"/>
+          <path d="M141 72 V64 A9 9 0 0 1 159 64 V72" fill="none" stroke="#FFFFFF" stroke-width="3"/>
+          
+          <text x="150" y="142" text-anchor="middle" font-family="sans-serif" font-size="22" font-weight="800" fill="#FFFFFF">AES-256-GCM</text>
+          <text x="150" y="168" text-anchor="middle" font-family="monospace" font-size="12" fill="#FDBA74">Galois / Counter Mode (AEAD)</text>
+
+          <g transform="translate(24, 188)">
+            <rect x="0" y="0" width="120" height="54" rx="10" fill="#140702" stroke="#EA580C" stroke-opacity="0.4"/>
+            <text x="60" y="24" text-anchor="middle" font-family="monospace" font-size="11" fill="#A8A29E">NONCE / IV</text>
+            <text x="60" y="42" text-anchor="middle" font-family="monospace" font-size="13" font-weight="700" fill="#FFFFFF">96-bit Unique</text>
+
+            <rect x="132" y="0" width="120" height="54" rx="10" fill="#140702" stroke="#EA580C" stroke-opacity="0.4"/>
+            <text x="192" y="24" text-anchor="middle" font-family="monospace" font-size="11" fill="#A8A29E">AUTH TAG</text>
+            <text x="192" y="42" text-anchor="middle" font-family="monospace" font-size="13" font-weight="700" fill="#4ADE80">128-bit GMAC</text>
+          </g>
+        </g>
+
+        <!-- Arrow 2 -->
+        <path d="M640 135 L690 135" stroke="#EA580C" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="665" cy="135" r="5" fill="#FB713B"/>
+
+        <!-- Stage 3: Zero-Knowledge Container (.simpleotp) -->
+        <g transform="translate(700, 20)">
+          <rect x="0" y="0" width="250" height="230" rx="22" fill="#1A0C05" stroke="#22C55E" stroke-opacity="0.6" stroke-width="1.8" filter="url(#cardShadow)"/>
+          <text x="24" y="38" font-family="monospace" font-size="12" font-weight="700" fill="#4ADE80">3. SEALED ARTIFACT</text>
+          <rect x="24" y="56" width="202" height="110" rx="14" fill="#120703" stroke="#EA580C" stroke-opacity="0.35"/>
+          <text x="125" y="92" text-anchor="middle" font-family="monospace" font-size="16" font-weight="800" fill="#FFFFFF">vault.simpleotp</text>
+          <text x="125" y="118" text-anchor="middle" font-family="monospace" font-size="12" fill="#FDBA74">Ciphertext + GMAC Tag</text>
+          <text x="125" y="144" text-anchor="middle" font-family="monospace" font-size="11" fill="#A8A29E">Zero Server Visibility</text>
+          <text x="125" y="200" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#4ADE80">✓ Tamper-Proof Integrity</text>
+        </g>
+      </g>
+    
+
+  <!-- Bottom Title & Subtitle Bar -->
+  <g transform="translate(64, 515)">
+    <line x1="0" y1="-22" x2="1072" y2="-22" stroke="#EA580C" stroke-opacity="0.22" stroke-width="1"/>
+    <text x="0" y="24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="38" font-weight="800" fill="#FFFFFF" letter-spacing="-0.8">Zero-Knowledge &amp; AES-256-GCM</text>
+    <text x="0" y="62" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="19" font-weight="500" fill="#D6D3D1">Client-Side Encryption, KDF Hardening &amp; Tamper-Evident Auth Tags</text>
+    <text x="1072" y="62" text-anchor="end" font-family="monospace" font-size="15" font-weight="700" fill="#FB713B">kd.io.vn/blog</text>
+  </g>
+</svg>
