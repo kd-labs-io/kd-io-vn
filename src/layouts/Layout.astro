@@ -22,7 +22,7 @@ interface Props {
 
 const {
   title: initialTitle,
-  description = 'KD Labs - Software Studio. Tối giản trong thiết kế, thanh tịnh trong trải nghiệm.',
+  description: initialDescription,
   lang,
   image,
   imageAlt,
@@ -35,11 +35,19 @@ const {
 } = Astro.props;
 
 const fallbackTitle = lang === 'vi'
-  ? 'KD Labs • Bùi Khương Duy — Indie Software Studio'
-  : 'KD Labs • Bui Khuong Duy — Indie Software Studio';
+  ? 'KD Labs • Bùi Khương Duy — AI-Native Developer, System Architecture & Research Lab'
+  : 'KD Labs • Bui Khuong Duy — AI-Native Developer, Systems Architect & Research Lab';
+
+const fallbackDescription = lang === 'vi'
+  ? 'KD Labs là AI-Native Engineering & Research Lab của Bùi Khương Duy — phát triển Web, Mobile App bảo mật phần cứng (Simple OTP), thiết kế hệ thống, DevOps, Kubernetes (K8s) và nghiên cứu công nghệ.'
+  : 'KD Labs is an AI-Native Engineering & Research Lab by Bui Khuong Duy — specializing in Web & Mobile Apps, System Architecture, DevOps, Kubernetes (K8s), and Applied Research.';
 
 const title = initialTitle || fallbackTitle;
+const description = initialDescription || fallbackDescription;
 const authorName = author || (lang === 'vi' ? siteConfig.author.name : siteConfig.author.alternateName);
+const keywordsList = tags && tags.length > 0
+  ? [...tags, ...siteConfig.keywords[lang]]
+  : siteConfig.keywords[lang];
 
 const siteUrl = Astro.site ? Astro.site.origin : 'https://kd.io.vn';
 const rootUrl = `${siteUrl}/`;
@@ -70,8 +78,8 @@ if (image) {
 }
 
 const defaultImageAlt = lang === 'vi'
-  ? 'KD Labs • Indie Mobile Studio - Tối giản trong thiết kế, thanh tịnh trong trải nghiệm'
-  : 'KD Labs • Indie Mobile Studio - Minimalist by Design, Serene in Experience';
+  ? 'KD Labs • Bùi Khương Duy — AI-Native Developer, Web & Mobile, System Architecture, DevOps/K8s & Research Lab'
+  : 'KD Labs • Bui Khuong Duy — AI-Native Developer, Web & Mobile, System Architecture, DevOps/K8s & Research Lab';
 
 const finalImageAlt = imageAlt || (ogType === 'article' ? title : defaultImageAlt);
 
@@ -96,6 +104,8 @@ const defaultJsonLd = {
       name: siteConfig.author.name,
       alternateName: siteConfig.author.alternateName,
       jobTitle: siteConfig.author.jobTitle,
+      description: siteConfig.author.description[lang],
+      knowsAbout: siteConfig.author.knowsAbout,
       url: rootUrl,
       sameAs: siteConfig.author.sameAs,
       worksFor: {
@@ -106,8 +116,14 @@ const defaultJsonLd = {
       '@type': 'Organization',
       '@id': `${siteUrl}/#organization`,
       name: 'KD Labs',
-      alternateName: 'KD Labs Studio',
+      alternateName: [
+        'KD Labs Studio',
+        'KD Labs — AI-Native Engineering & Research Lab',
+      ],
+      description: fallbackDescription,
+      knowsAbout: siteConfig.author.knowsAbout,
       url: rootUrl,
+      foundingDate: String(siteConfig.foundedYear),
       logo: {
         '@type': 'ImageObject',
         '@id': `${siteUrl}/#logo`,
@@ -137,7 +153,12 @@ const defaultJsonLd = {
       '@id': `${siteUrl}/#website`,
       url: rootUrl,
       name: 'KD Labs',
-      alternateName: ['KD Labs Studio', 'kd.io.vn'],
+      alternateName: [
+        'KD Labs Studio',
+        'KD Labs — AI-Native Engineering & Research Lab',
+        'kd.io.vn',
+      ],
+      description: fallbackDescription,
       creator: {
         '@id': `${siteUrl}/#person`,
       },
@@ -165,6 +186,7 @@ const finalJsonLdArray = jsonLd
     <meta name="generator" content={Astro.generator} />
     <meta name="application-name" content="KD Labs" />
     <meta name="author" content={authorName} />
+    <meta name="keywords" content={keywordsList.join(', ')} />
 
     <!-- Google Fonts: Plus Jakarta Sans (Pure Modern Sans-Serif) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

@@ -1,221 +1,931 @@
 ---
 import type { Locale } from '../data/i18n';
-import { getTranslations } from '../data/i18n';
-import { siteConfig } from '../config/site';
 import { appsData } from '../data/apps';
+import { siteConfig } from '../config/site';
 
 interface Props {
   currentLang: Locale;
 }
 
 const { currentLang } = Astro.props;
-const t = getTranslations(currentLang);
 const simpleOtp = appsData.find((a) => a.id === 'simple-otp');
+const blogPath = currentLang === 'vi' ? '/blog/' : '/en/blog/';
+
+const slides = currentLang === 'vi'
+  ? [
+      {
+        id: 'ai-native',
+        tabLabel: 'AI-Native & Agents',
+        badge: 'AI-Native Developer',
+        badgeSubtitle: 'Bùi Khương Duy • KD Labs',
+        titleLine1: 'Kiến trúc AI-Native.',
+        titleLine2: 'Tăng tốc từ Ý tưởng đến Sản phẩm.',
+        description:
+          'Nghiên cứu và phát triển các hệ thống phần mềm thế hệ mới tích hợp AI Agent, tự động hóa quy trình kỹ thuật từ Web, Mobile đến vận hành hạ tầng đám mây quy mô lớn.',
+        primaryCta: {
+          label: 'Khám phá Hệ sinh thái',
+          href: '#showcase',
+          external: false,
+          icon: 'spark',
+        },
+        secondaryCta: {
+          label: 'Đọc Blog Nghiên cứu',
+          href: blogPath,
+          external: false,
+        },
+        stats: [
+          { value: 'AI-Native', label: 'Multi-Agent & LLM' },
+          { value: 'Full-Stack', label: 'Web & Mobile Apps' },
+          { value: 'Cloud K8s', label: 'DevOps & GitOps' },
+          { value: 'Zero-Trust', label: 'Bảo mật & Mật mã' },
+        ],
+      },
+      {
+        id: 'mobile-security',
+        tabLabel: 'Mobile & Bảo mật',
+        badge: 'Flagship Mobile App',
+        badgeSubtitle: 'iOS & Android • 100% Offline',
+        titleLine1: 'Thiết kế tối giản.',
+        titleLine2: 'Bảo mật phần cứng.',
+        description:
+          'KD Labs phát triển ứng dụng di động 100% ngoại tuyến như Simple OTP 2FA. Mọi dữ liệu được mã hóa phần cứng AES-256-GCM và chỉ lưu trên thiết bị của bạn.',
+        primaryCta: {
+          label: 'Tải trên App Store',
+          href: simpleOtp?.appStoreUrl || 'https://apps.apple.com/us/app/simple-otp/id6816673973',
+          external: true,
+          icon: 'apple',
+        },
+        secondaryCta: {
+          label: 'Chi tiết Simple OTP',
+          href: '/apps/simple-otp/',
+          external: false,
+        },
+        stats: [
+          { value: '100%', label: '100% Ngoại tuyến' },
+          { value: 'AES-256', label: 'Két phần cứng' },
+          { value: '0% Ads', label: 'Không quảng cáo' },
+          { value: 'MIT', label: 'Mã nguồn mở MIT' },
+        ],
+      },
+      {
+        id: 'web-systems',
+        tabLabel: 'Web & Hệ thống',
+        badge: 'Web & System Architecture',
+        badgeSubtitle: 'High-Performance • Distributed',
+        titleLine1: 'Web Siêu tốc.',
+        titleLine2: 'Thiết kế Hệ thống Phân tán.',
+        description:
+          'Kiến trúc nền tảng Web hiện đại, Edge Computing và hệ thống Microservices chịu tải cao. Tối ưu hóa độ trễ mili-giây, khả năng mở rộng ngang và chuẩn SEO kỹ thuật.',
+        primaryCta: {
+          label: 'Xem Tiêu chuẩn Kỹ thuật',
+          href: '#philosophy',
+          external: false,
+          icon: 'layers',
+        },
+        secondaryCta: {
+          label: 'GitHub @001123',
+          href: siteConfig.githubUrl,
+          external: true,
+        },
+        stats: [
+          { value: '100/100', label: 'Core Web Vitals' },
+          { value: '< 15ms', label: 'Độ trễ tại Edge' },
+          { value: 'High-Scale', label: 'Kiến trúc Phân tán' },
+          { value: 'Modern UI', label: 'Tối giản & Tinh gọn' },
+        ],
+      },
+      {
+        id: 'devops-k8s',
+        tabLabel: 'DevOps & K8s',
+        badge: 'Cloud-Native Infrastructure',
+        badgeSubtitle: 'Kubernetes • GitOps • CI/CD',
+        titleLine1: 'Hạ tầng Tự động hóa.',
+        titleLine2: 'Làm chủ Kubernetes (K8s).',
+        description:
+          'Thiết kế hệ thống DevOps chuẩn Cloud-Native, điều phối container với Kubernetes (K8s), tự động hóa CI/CD theo mô hình GitOps, giám sát sâu (Observability) và bảo mật DevSecOps.',
+        primaryCta: {
+          label: 'Liên hệ Hợp tác & Tư vấn',
+          href: '#contact',
+          external: false,
+          icon: 'terminal',
+        },
+        secondaryCta: {
+          label: 'Kết nối LinkedIn',
+          href: siteConfig.linkedinUrl,
+          external: true,
+        },
+        stats: [
+          { value: '99.99%', label: 'Độ sẵn sàng (SLA)' },
+          { value: 'K8s', label: 'Container Orchestration' },
+          { value: 'GitOps', label: 'IaC & Tự động hóa' },
+          { value: 'DevSecOps', label: 'Bảo mật Hạ tầng' },
+        ],
+      },
+      {
+        id: 'research',
+        tabLabel: 'Research & R&D',
+        badge: 'Applied Research Lab',
+        badgeSubtitle: 'AI • Cryptography • Zero-Trust',
+        titleLine1: 'Nghiên cứu Chuyên sâu.',
+        titleLine2: 'Mật mã học & Trí tuệ Nhân tạo.',
+        description:
+          'Phân tích chuyên sâu về kiến trúc Zero-Knowledge, phần cứng bảo mật Secure Enclave / Keystore, chuẩn xác thực không mật khẩu FIDO2/Passkeys và ứng dụng mô hình AI.',
+        primaryCta: {
+          label: 'Đọc các Bài Nghiên cứu',
+          href: blogPath,
+          external: false,
+          icon: 'book',
+        },
+        secondaryCta: {
+          label: 'Tìm hiểu Triết lý Lab',
+          href: '#philosophy',
+          external: false,
+        },
+        stats: [
+          { value: 'RFC 6238', label: 'Chuẩn Mật mã học' },
+          { value: 'FIDO2', label: 'Passkeys & WebAuthn' },
+          { value: 'Zero-Trust', label: 'Kiến trúc An toàn' },
+          { value: 'Open R&D', label: 'Chia sẻ Cộng đồng' },
+        ],
+      },
+    ]
+  : [
+      {
+        id: 'ai-native',
+        tabLabel: 'AI-Native & Agents',
+        badge: 'AI-Native Developer',
+        badgeSubtitle: 'Bui Khuong Duy • KD Labs',
+        titleLine1: 'AI-Native Engineering.',
+        titleLine2: 'From Concept to Production Scale.',
+        description:
+          'Architecting next-generation software systems powered by AI Agents, accelerating engineering workflows across Web, Mobile, Distributed Systems, and Cloud-Native Infrastructure.',
+        primaryCta: {
+          label: 'Explore Ecosystem',
+          href: '#showcase',
+          external: false,
+          icon: 'spark',
+        },
+        secondaryCta: {
+          label: 'Read Research Blog',
+          href: blogPath,
+          external: false,
+        },
+        stats: [
+          { value: 'AI-Native', label: 'Multi-Agent & LLM' },
+          { value: 'Full-Stack', label: 'Web & Mobile Apps' },
+          { value: 'Cloud K8s', label: 'DevOps & GitOps' },
+          { value: 'Zero-Trust', label: 'Security & Crypto' },
+        ],
+      },
+      {
+        id: 'mobile-security',
+        tabLabel: 'Mobile & Security',
+        badge: 'Flagship Mobile App',
+        badgeSubtitle: 'iOS & Android • 100% Offline',
+        titleLine1: 'Minimalist Design.',
+        titleLine2: 'Hardware-Grade Security.',
+        description:
+          'KD Labs builds 100% offline mobile apps like Simple OTP 2FA. Your secret keys are encrypted with AES-256-GCM hardware security and stay exclusively on your device.',
+        primaryCta: {
+          label: 'Download on App Store',
+          href: simpleOtp?.appStoreUrl || 'https://apps.apple.com/us/app/simple-otp/id6816673973',
+          external: true,
+          icon: 'apple',
+        },
+        secondaryCta: {
+          label: 'Explore Simple OTP',
+          href: '/en/apps/simple-otp/',
+          external: false,
+        },
+        stats: [
+          { value: '100%', label: '100% Offline Core' },
+          { value: 'AES-256', label: 'Hardware Enclave' },
+          { value: '0% Ads', label: 'Zero Tracking' },
+          { value: 'MIT', label: 'Open Source MIT' },
+        ],
+      },
+      {
+        id: 'web-systems',
+        tabLabel: 'Web & Systems',
+        badge: 'Web & System Architecture',
+        badgeSubtitle: 'High-Performance • Distributed',
+        titleLine1: 'Ultra-Fast Web.',
+        titleLine2: 'Distributed System Design.',
+        description:
+          'Engineering modern web platforms, edge-computed applications, and high-throughput microservices. Optimized for sub-millisecond latency, horizontal scale, and technical SEO.',
+        primaryCta: {
+          label: 'Engineering Standards',
+          href: '#philosophy',
+          external: false,
+          icon: 'layers',
+        },
+        secondaryCta: {
+          label: 'GitHub @001123',
+          href: siteConfig.githubUrl,
+          external: true,
+        },
+        stats: [
+          { value: '100/100', label: 'Core Web Vitals' },
+          { value: '< 15ms', label: 'Global Edge Latency' },
+          { value: 'High-Scale', label: 'System Architecture' },
+          { value: 'Modern UI', label: 'Refined Zen Craft' },
+        ],
+      },
+      {
+        id: 'devops-k8s',
+        tabLabel: 'DevOps & K8s',
+        badge: 'Cloud-Native Infrastructure',
+        badgeSubtitle: 'Kubernetes • GitOps • CI/CD',
+        titleLine1: 'Automated Infrastructure.',
+        titleLine2: 'Kubernetes (K8s) at Scale.',
+        description:
+          'Designing resilient Cloud-Native DevOps architectures, Kubernetes (K8s) container orchestration, GitOps continuous delivery, deep observability, and Zero-Trust DevSecOps.',
+        primaryCta: {
+          label: 'Connect & Collaborate',
+          href: '#contact',
+          external: false,
+          icon: 'terminal',
+        },
+        secondaryCta: {
+          label: 'LinkedIn Profile',
+          href: siteConfig.linkedinUrl,
+          external: true,
+        },
+        stats: [
+          { value: '99.99%', label: 'High Availability' },
+          { value: 'K8s', label: 'Cluster Orchestration' },
+          { value: 'GitOps', label: 'Declarative IaC' },
+          { value: 'DevSecOps', label: 'Hardened Runtime' },
+        ],
+      },
+      {
+        id: 'research',
+        tabLabel: 'Research & R&D',
+        badge: 'Applied Research Lab',
+        badgeSubtitle: 'AI • Cryptography • Zero-Trust',
+        titleLine1: 'Deep-Tech Research.',
+        titleLine2: 'Cryptography & Applied AI.',
+        description:
+          'In-depth technical research into Zero-Knowledge architectures, Secure Enclave & Keystore hardware, FIDO2/Passkeys authentication standards, and applied LLM systems.',
+        primaryCta: {
+          label: 'Read Research Papers',
+          href: blogPath,
+          external: false,
+          icon: 'book',
+        },
+        secondaryCta: {
+          label: 'Lab Philosophy',
+          href: '#philosophy',
+          external: false,
+        },
+        stats: [
+          { value: 'RFC 6238', label: 'Cryptographic Spec' },
+          { value: 'FIDO2', label: 'Passkeys & WebAuthn' },
+          { value: 'Zero-Trust', label: 'Privacy Architecture' },
+          { value: 'Open R&D', label: 'Public Knowledge' },
+        ],
+      },
+    ];
 ---
 
-<section class="relative overflow-hidden pt-12 pb-20 sm:pt-20 sm:pb-28">
+<section id="hero-slider-section" class="relative overflow-hidden pt-8 pb-16 sm:pt-14 sm:pb-24">
   <!-- Subtle Zen Enso ambient aura in background -->
-  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] sm:w-[750px] sm:h-[750px] rounded-full zen-circle-gradient pointer-events-none -z-10"></div>
-  
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] sm:w-[780px] sm:h-[780px] rounded-full zen-circle-gradient pointer-events-none -z-10"></div>
+
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-      
-      <!-- Left Content Column (7 cols) -->
-      <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-        
-        <!-- Live Developer Tag -->
-        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-orange-200 dark:border-orange-950/80 bg-orange-50/80 dark:bg-orange-950/30 text-orange-800 dark:text-orange-300 text-xs font-semibold tracking-wide">
-          <span class="flex h-2 w-2 relative">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-2 w-2 bg-orange-600 dark:bg-orange-500"></span>
-          </span>
-          <span>{t.hero.badge}</span>
-          <span class="text-orange-400 dark:text-orange-700">•</span>
-          <span class="text-stone-500 dark:text-stone-400 font-normal">{t.hero.badgeSubtitle}</span>
-        </div>
 
-        <!-- Big Zen Heading -->
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-stone-900 dark:text-stone-100 leading-[1.12]">
-          {t.hero.titleLine1}
-          <span class="block text-orange-600 dark:text-orange-500 mt-1">
-            {t.hero.titleLine2}
-          </span>
-        </h1>
-
-        <!-- Studio Description -->
-        <p class="text-base sm:text-lg text-stone-600 dark:text-stone-300 max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal">
-          {t.hero.description}
-        </p>
-
-        <!-- CTA Buttons -->
-        <div data-nosnippet class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
-          <!-- Apple App Store CTA -->
-          <a
-            href={simpleOtp?.appStoreUrl || 'https://apps.apple.com/us/app/simple-otp/id6816673973'}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-3 px-6 py-3.5 rounded-2xl bg-orange-600 hover:bg-orange-700 text-white font-semibold text-sm shadow-md hover:shadow-orange-500/25 transition-all duration-200 transform hover:-translate-y-0.5"
+    <!-- Top Domain Slide Navigation Bar -->
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8 sm:mb-12">
+      <!-- Domain Pills / Tabs -->
+      <div
+        role="tablist"
+        aria-label={currentLang === 'vi' ? 'Các lĩnh vực cốt lõi của KD Labs' : 'KD Labs Core Engineering Domains'}
+        class="flex items-center gap-1.5 sm:gap-2 p-1.5 rounded-2xl border border-stone-200/90 dark:border-stone-800/90 bg-white/80 dark:bg-stone-900/70 backdrop-blur-md overflow-x-auto max-w-full no-scrollbar shadow-sm"
+      >
+        {slides.map((slide, index) => (
+          <button
+            type="button"
+            role="tab"
+            id={`hero-tab-${slide.id}`}
+            aria-selected={index === 0 ? 'true' : 'false'}
+            aria-controls={`hero-slide-${slide.id}`}
+            data-slide-target={index}
+            class={`hero-tab-btn relative flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all duration-200 cursor-pointer overflow-hidden ${
+              index === 0
+                ? 'bg-orange-600 text-white shadow-sm'
+                : 'text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-200 hover:bg-stone-100/80 dark:hover:bg-stone-800/60'
+            }`}
           >
-            <!-- Apple Icon -->
-            <svg class="w-5 h-5 text-white fill-current" viewBox="0 0 24 24">
-              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.42c.62-.75 1.04-1.8 0.93-2.85-.9.04-1.99.6-2.63 1.35-.57.65-1.06 1.71-.93 2.73.99.08 2.02-.48 2.63-1.23z"/>
-            </svg>
-            <span>{t.hero.ctaAppStore}</span>
-          </a>
-
-          <!-- Browse Apps Anchor -->
-          <a
-            href="#showcase"
-            class="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl border border-stone-300 dark:border-stone-700 hover:border-orange-500 text-stone-800 dark:text-stone-200 hover:text-orange-600 dark:hover:text-orange-400 bg-white/70 dark:bg-stone-900/60 font-medium text-sm transition-all duration-200 backdrop-blur-sm"
-          >
-            <span>{t.hero.ctaBrowseApps}</span>
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
-          </a>
-        </div>
-
-        <!-- Trust Badges -->
-        <div data-nosnippet class="pt-4 grid grid-cols-2 sm:grid-cols-4 gap-3 text-left border-t border-stone-200/80 dark:border-stone-800/80 max-w-lg mx-auto lg:mx-0">
-          <div>
-            <div class="text-xl font-bold text-stone-900 dark:text-stone-100">100%</div>
-            <div class="text-xs text-stone-600 dark:text-stone-300">{t.hero.statsOffline}</div>
-          </div>
-          <div>
-            <div class="text-xl font-bold text-orange-600 dark:text-orange-500">AES-256</div>
-            <div class="text-xs text-stone-600 dark:text-stone-300">{t.hero.statsSecurity}</div>
-          </div>
-          <div>
-            <div class="text-xl font-bold text-stone-900 dark:text-stone-100">0% Ads</div>
-            <div class="text-xs text-stone-600 dark:text-stone-300">{t.hero.statsAdFree}</div>
-          </div>
-          <div>
-            <div class="text-xl font-bold text-stone-900 dark:text-stone-100">MIT</div>
-            <div class="text-xs text-stone-600 dark:text-stone-300">{t.hero.statsOpenSource}</div>
-          </div>
-        </div>
-
+            <span class="font-mono text-[10px] opacity-75">0{index + 1}</span>
+            <span>{slide.tabLabel}</span>
+            <!-- Progress bar indicator inside active tab -->
+            <span
+              data-tab-progress={index}
+              class="absolute bottom-0 left-0 h-0.5 bg-white/80 transition-none"
+              style="width: 0%;"
+            ></span>
+          </button>
+        ))}
       </div>
 
-      <!-- Right Mockup Column (5 cols) -->
-      <div data-nosnippet class="lg:col-span-5 flex justify-center">
-        <!-- Interactive Zen Phone Mockup Previewing 'Simple OTP' -->
-        <div class="relative w-full max-w-[340px] rounded-[40px] p-3.5 bg-gradient-to-b from-stone-200 via-stone-300 to-stone-400 dark:from-stone-800 dark:via-stone-900 dark:to-stone-950 shadow-2xl border border-stone-300 dark:border-stone-700">
-          
-          <!-- Speaker notch -->
-          <div class="absolute top-6 left-1/2 -translate-x-1/2 w-18 h-4 bg-stone-900 rounded-full z-20 flex items-center justify-center">
-            <div class="w-2.5 h-2.5 rounded-full bg-stone-800 border border-stone-700"></div>
-          </div>
-
-          <!-- Phone Inner Screen -->
-          <div class="relative w-full rounded-[32px] overflow-hidden bg-stone-950 text-stone-100 p-5 pt-9 flex flex-col justify-between aspect-[9/18.5] shadow-inner border border-stone-800">
-            
-            <!-- App Top Header -->
-            <div class="flex items-center justify-between text-xs pb-3 border-b border-stone-800/80">
-              <div class="flex items-center gap-2">
-                <img src="/assets/simple-otp/icon.png" alt="Simple OTP Icon" class="w-5 h-5 rounded-md object-cover shadow-sm" />
-                <span class="tracking-wide font-bold text-orange-400">Simple OTP</span>
-              </div>
-              <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-stone-900 text-[10px] text-emerald-400 border border-emerald-900/40">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                100% Offline
-              </span>
-            </div>
-
-            <!-- TOTP Cards List -->
-            <div class="space-y-3 my-auto py-2">
-              
-              <!-- Card 1: Google Account -->
-              <div class="rounded-2xl bg-stone-900/90 border border-stone-800 p-3 space-y-2 shadow-sm">
-                <div class="flex items-center justify-between">
-                  <div class="flex items-center gap-2">
-                    <div class="w-6 h-6 rounded-lg bg-orange-500/20 text-orange-400 flex items-center justify-center font-bold text-[10px]">
-                      G
-                    </div>
-                    <div>
-                      <div class="text-xs font-semibold text-white leading-tight">Google</div>
-                      <div class="text-[10px] text-stone-400">duybk@gmail.com</div>
-                    </div>
-                  </div>
-                  
-                  <!-- 30s Countdown ring -->
-                  <div class="relative w-6 h-6 flex items-center justify-center">
-                    <svg class="w-full h-full -rotate-90" viewBox="0 0 24 24">
-                      <circle cx="12" cy="12" r="10" stroke="#333" stroke-width="2.5" fill="none" />
-                      <circle cx="12" cy="12" r="10" stroke="#F76B00" stroke-width="2.5" stroke-dasharray="62.8" stroke-dashoffset="15" stroke-linecap="round" fill="none" />
-                    </svg>
-                    <span class="absolute text-[8px] font-mono text-stone-300">22</span>
-                  </div>
-                </div>
-
-                <!-- OTP digits -->
-                <div class="flex items-center justify-between pt-1">
-                  <span class="text-xl font-mono font-bold tracking-wider text-orange-400">
-                    582 910
-                  </span>
-                  <span class="px-2 py-0.5 rounded-md bg-stone-800 text-[10px] text-stone-300 font-medium">
-                    1-tap copy
-                  </span>
-                </div>
-              </div>
-
-              <!-- Card 2: GitHub Account -->
-              <div class="rounded-2xl bg-stone-900/90 border border-stone-800 p-3 space-y-2 shadow-sm">
-                <div class="flex items-center justify-between">
-                  <div class="flex items-center gap-2">
-                    <div class="w-6 h-6 rounded-lg bg-stone-800 text-stone-200 flex items-center justify-center font-bold text-[10px]">
-                      GH
-                    </div>
-                    <div>
-                      <div class="text-xs font-semibold text-white leading-tight">GitHub</div>
-                      <div class="text-[10px] text-stone-400">001123</div>
-                    </div>
-                  </div>
-                  
-                  <!-- Countdown ring -->
-                  <div class="relative w-6 h-6 flex items-center justify-center">
-                    <svg class="w-full h-full -rotate-90" viewBox="0 0 24 24">
-                      <circle cx="12" cy="12" r="10" stroke="#333" stroke-width="2.5" fill="none" />
-                      <circle cx="12" cy="12" r="10" stroke="#F76B00" stroke-width="62.8" stroke-dasharray="62.8" stroke-dashoffset="35" stroke-linecap="round" fill="none" />
-                    </svg>
-                    <span class="absolute text-[8px] font-mono text-stone-300">14</span>
-                  </div>
-                </div>
-
-                <!-- OTP digits -->
-                <div class="flex items-center justify-between pt-1">
-                  <span class="text-xl font-mono font-bold tracking-wider text-white">
-                    734 182
-                  </span>
-                  <span class="px-2 py-0.5 rounded-md bg-stone-800 text-[10px] text-stone-300 font-medium">
-                    1-tap copy
-                  </span>
-                </div>
-              </div>
-
-            </div>
-
-            <!-- Bottom Mascot Companion Speech Bar -->
-            <div class="pt-2 border-t border-stone-800/80 flex items-center justify-between">
-              <div class="flex items-center gap-2">
-                <!-- Lock-bot Mascot Avatar -->
-                <div class="w-7 h-7 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center text-stone-950 font-bold text-xs shadow-sm">
-                  🔒
-                </div>
-                <div class="text-[10px] text-stone-300">
-                  <span class="text-orange-400 font-semibold">Bé Khóa:</span> Sẵn sàng bảo vệ!
-                </div>
-              </div>
-
-              <div class="w-6 h-6 rounded-full bg-orange-600 text-white flex items-center justify-center font-bold text-xs shadow-sm">
-                +
-              </div>
-            </div>
-
-          </div>
-        </div>
+      <!-- Prev / Pause / Next Controls -->
+      <div class="hidden sm:flex items-center gap-2">
+        <button
+          type="button"
+          id="hero-prev-btn"
+          aria-label={currentLang === 'vi' ? 'Slide trước' : 'Previous slide'}
+          class="w-9 h-9 rounded-xl border border-stone-200 dark:border-stone-800 bg-white/80 dark:bg-stone-900/70 text-stone-600 dark:text-stone-300 hover:border-orange-500 hover:text-orange-600 dark:hover:text-orange-400 flex items-center justify-center transition-colors cursor-pointer"
+        >
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <button
+          type="button"
+          id="hero-next-btn"
+          aria-label={currentLang === 'vi' ? 'Slide tiếp theo' : 'Next slide'}
+          class="w-9 h-9 rounded-xl border border-stone-200 dark:border-stone-800 bg-white/80 dark:bg-stone-900/70 text-stone-600 dark:text-stone-300 hover:border-orange-500 hover:text-orange-600 dark:hover:text-orange-400 flex items-center justify-center transition-colors cursor-pointer"
+        >
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
       </div>
-
     </div>
+
+    <!-- Slides Wrapper -->
+    <div class="relative">
+      {slides.map((slide, index) => {
+        const HeadingTag = index === 0 ? 'h1' : 'h2';
+        return (
+          <div
+            id={`hero-slide-${slide.id}`}
+            role="tabpanel"
+            aria-labelledby={`hero-tab-${slide.id}`}
+            data-slide-panel={index}
+            class={`hero-slide-panel transition-opacity duration-300 ${
+              index === 0 ? 'block opacity-100' : 'hidden opacity-0'
+            }`}
+          >
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+              
+              <!-- Left Content Column (7 cols) -->
+              <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                
+                <!-- Live Domain Tag -->
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-orange-200 dark:border-orange-950/80 bg-orange-50/80 dark:bg-orange-950/30 text-orange-800 dark:text-orange-300 text-xs font-semibold tracking-wide">
+                  <span class="flex h-2 w-2 relative">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-orange-600 dark:bg-orange-500"></span>
+                  </span>
+                  <span>{slide.badge}</span>
+                  <span class="text-orange-400 dark:text-orange-700">•</span>
+                  <span class="text-stone-500 dark:text-stone-400 font-normal">{slide.badgeSubtitle}</span>
+                </div>
+
+                <!-- Big Zen Heading -->
+                <HeadingTag class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-stone-900 dark:text-stone-100 leading-[1.12]">
+                  {slide.titleLine1}
+                  <span class="block text-orange-600 dark:text-orange-500 mt-1">
+                    {slide.titleLine2}
+                  </span>
+                </HeadingTag>
+
+                <!-- Domain Description -->
+                <p class="text-base sm:text-lg text-stone-600 dark:text-stone-300 max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal">
+                  {slide.description}
+                </p>
+
+                <!-- CTA Buttons -->
+                <div data-nosnippet class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+                  <a
+                    href={slide.primaryCta.href}
+                    target={slide.primaryCta.external ? '_blank' : undefined}
+                    rel={slide.primaryCta.external ? 'noopener noreferrer' : undefined}
+                    class="inline-flex items-center gap-3 px-6 py-3.5 rounded-2xl bg-orange-600 hover:bg-orange-700 text-white font-semibold text-sm shadow-md hover:shadow-orange-500/25 transition-all duration-200 transform hover:-translate-y-0.5"
+                  >
+                    {slide.primaryCta.icon === 'apple' && (
+                      <svg class="w-5 h-5 text-white fill-current" viewBox="0 0 24 24">
+                        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.42c.62-.75 1.04-1.8 0.93-2.85-.9.04-1.99.6-2.63 1.35-.57.65-1.06 1.71-.93 2.73.99.08 2.02-.48 2.63-1.23z"/>
+                      </svg>
+                    )}
+                    {slide.primaryCta.icon === 'spark' && (
+                      <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      </svg>
+                    )}
+                    {slide.primaryCta.icon === 'layers' && (
+                      <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                      </svg>
+                    )}
+                    {slide.primaryCta.icon === 'terminal' && (
+                      <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                    )}
+                    {slide.primaryCta.icon === 'book' && (
+                      <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                      </svg>
+                    )}
+                    <span>{slide.primaryCta.label}</span>
+                  </a>
+
+                  <a
+                    href={slide.secondaryCta.href}
+                    target={slide.secondaryCta.external ? '_blank' : undefined}
+                    rel={slide.secondaryCta.external ? 'noopener noreferrer' : undefined}
+                    class="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl border border-stone-300 dark:border-stone-700 hover:border-orange-500 text-stone-800 dark:text-stone-200 hover:text-orange-600 dark:hover:text-orange-400 bg-white/70 dark:bg-stone-900/60 font-medium text-sm transition-all duration-200 backdrop-blur-sm"
+                  >
+                    <span>{slide.secondaryCta.label}</span>
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </a>
+                </div>
+
+                <!-- Domain Key Metrics -->
+                <div data-nosnippet class="pt-4 grid grid-cols-2 sm:grid-cols-4 gap-3 text-left border-t border-stone-200/80 dark:border-stone-800/80 max-w-lg mx-auto lg:mx-0">
+                  {slide.stats.map((st, sIdx) => (
+                    <div>
+                      <div class={`text-xl font-bold ${sIdx === 1 ? 'text-orange-600 dark:text-orange-500' : 'text-stone-900 dark:text-stone-100'}`}>
+                        {st.value}
+                      </div>
+                      <div class="text-xs text-stone-600 dark:text-stone-300">{st.label}</div>
+                    </div>
+                  ))}
+                </div>
+
+              </div>
+
+              <!-- Right Visual Mockup Column (5 cols) -->
+              <div data-nosnippet class="lg:col-span-5 flex justify-center">
+                
+                {/* VISUAL 1: AI-Native Multi-Agent & Architecture Console */}
+                {slide.id === 'ai-native' && (
+                  <div class="w-full max-w-[400px] rounded-3xl p-5 bg-stone-950 text-stone-100 shadow-2xl border border-stone-800 space-y-4">
+                    <div class="flex items-center justify-between pb-3 border-b border-stone-800">
+                      <div class="flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-orange-500 animate-pulse"></span>
+                        <span class="text-xs font-mono font-bold text-stone-200">kd-agent-orchestrator v2.4</span>
+                      </div>
+                      <span class="px-2 py-0.5 rounded-full bg-orange-500/15 text-orange-400 border border-orange-500/30 text-[10px] font-mono">
+                        AI-Native Pipeline
+                      </span>
+                    </div>
+
+                    <div class="space-y-2.5 font-mono text-xs">
+                      <div class="p-3 rounded-2xl bg-stone-900/90 border border-stone-800 flex items-center justify-between">
+                        <div class="flex items-center gap-2.5">
+                          <span class="w-6 h-6 rounded-lg bg-orange-500/20 text-orange-400 flex items-center justify-center font-bold text-[11px]">01</span>
+                          <div>
+                            <div class="text-stone-100 font-semibold">System Architect Agent</div>
+                            <div class="text-[10px] text-stone-400">Spec → Distributed Graph & API Schema</div>
+                          </div>
+                        </div>
+                        <span class="text-[10px] text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded-md border border-emerald-800/50">Done 0.4s</span>
+                      </div>
+
+                      <div class="p-3 rounded-2xl bg-stone-900/90 border border-stone-800 flex items-center justify-between">
+                        <div class="flex items-center gap-2.5">
+                          <span class="w-6 h-6 rounded-lg bg-orange-500/20 text-orange-400 flex items-center justify-center font-bold text-[11px]">02</span>
+                          <div>
+                            <div class="text-stone-100 font-semibold">Full-Stack & Mobile Synth</div>
+                            <div class="text-[10px] text-stone-400">Astro Edge Web + Native Enclave Core</div>
+                          </div>
+                        </div>
+                        <span class="text-[10px] text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded-md border border-emerald-800/50">Verified</span>
+                      </div>
+
+                      <div class="p-3 rounded-2xl bg-stone-900/90 border border-orange-500/40 flex items-center justify-between shadow-sm">
+                        <div class="flex items-center gap-2.5">
+                          <span class="w-6 h-6 rounded-lg bg-orange-600 text-white flex items-center justify-center font-bold text-[11px]">03</span>
+                          <div>
+                            <div class="text-orange-300 font-semibold">SecOps & K8s Autodeploy</div>
+                            <div class="text-[10px] text-stone-400">Zero-Trust Audit → K8s Rolling Sync</div>
+                          </div>
+                        </div>
+                        <span class="text-[10px] text-orange-300 bg-orange-950/60 px-2 py-0.5 rounded-md border border-orange-700/50 animate-pulse">Active</span>
+                      </div>
+                    </div>
+
+                    <div class="pt-2 border-t border-stone-800/80 grid grid-cols-3 gap-2 text-center font-mono">
+                      <div class="p-2 rounded-xl bg-stone-900/60 border border-stone-800/80">
+                        <div class="text-[10px] text-stone-400">Domains</div>
+                        <div class="text-xs font-bold text-white mt-0.5">Web•App•K8s</div>
+                      </div>
+                      <div class="p-2 rounded-xl bg-stone-900/60 border border-stone-800/80">
+                        <div class="text-[10px] text-stone-400">Security</div>
+                        <div class="text-xs font-bold text-orange-400 mt-0.5">Zero-Trust</div>
+                      </div>
+                      <div class="p-2 rounded-xl bg-stone-900/60 border border-stone-800/80">
+                        <div class="text-[10px] text-stone-400">Status</div>
+                        <div class="text-xs font-bold text-emerald-400 mt-0.5">Production</div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* VISUAL 2: Simple OTP Phone Mockup */}
+                {slide.id === 'mobile-security' && (
+                  <div class="relative w-full max-w-[340px] rounded-[40px] p-3.5 bg-gradient-to-b from-stone-200 via-stone-300 to-stone-400 dark:from-stone-800 dark:via-stone-900 dark:to-stone-950 shadow-2xl border border-stone-300 dark:border-stone-700">
+                    <div class="absolute top-6 left-1/2 -translate-x-1/2 w-18 h-4 bg-stone-900 rounded-full z-20 flex items-center justify-center">
+                      <div class="w-2.5 h-2.5 rounded-full bg-stone-800 border border-stone-700"></div>
+                    </div>
+
+                    <div class="relative w-full rounded-[32px] overflow-hidden bg-stone-950 text-stone-100 p-5 pt-9 flex flex-col justify-between aspect-[9/17] shadow-inner border border-stone-800">
+                      <div class="flex items-center justify-between text-xs pb-3 border-b border-stone-800/80">
+                        <div class="flex items-center gap-2">
+                          <img src="/assets/simple-otp/icon.png" alt="Simple OTP Icon" class="w-5 h-5 rounded-md object-cover shadow-sm" />
+                          <span class="tracking-wide font-bold text-orange-400">Simple OTP</span>
+                        </div>
+                        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-stone-900 text-[10px] text-emerald-400 border border-emerald-900/40">
+                          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                          100% Offline
+                        </span>
+                      </div>
+
+                      <div class="space-y-3 my-auto py-2">
+                        <div class="rounded-2xl bg-stone-900/90 border border-stone-800 p-3 space-y-2 shadow-sm">
+                          <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                              <div class="w-6 h-6 rounded-lg bg-orange-500/20 text-orange-400 flex items-center justify-center font-bold text-[10px]">
+                                G
+                              </div>
+                              <div>
+                                <div class="text-xs font-semibold text-white leading-tight">Google</div>
+                                <div class="text-[10px] text-stone-400">duybk@gmail.com</div>
+                              </div>
+                            </div>
+                            <div class="relative w-6 h-6 flex items-center justify-center">
+                              <svg class="w-full h-full -rotate-90" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10" stroke="#333" stroke-width="2.5" fill="none" />
+                                <circle cx="12" cy="12" r="10" stroke="#F76B00" stroke-width="2.5" stroke-dasharray="62.8" stroke-dashoffset="15" stroke-linecap="round" fill="none" />
+                              </svg>
+                              <span class="absolute text-[8px] font-mono text-stone-300">22</span>
+                            </div>
+                          </div>
+                          <div class="flex items-center justify-between pt-1">
+                            <span class="text-xl font-mono font-bold tracking-wider text-orange-400">582 910</span>
+                            <span class="px-2 py-0.5 rounded-md bg-stone-800 text-[10px] text-stone-300 font-medium">1-tap copy</span>
+                          </div>
+                        </div>
+
+                        <div class="rounded-2xl bg-stone-900/90 border border-stone-800 p-3 space-y-2 shadow-sm">
+                          <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                              <div class="w-6 h-6 rounded-lg bg-stone-800 text-stone-200 flex items-center justify-center font-bold text-[10px]">
+                                GH
+                              </div>
+                              <div>
+                                <div class="text-xs font-semibold text-white leading-tight">GitHub</div>
+                                <div class="text-[10px] text-stone-400">001123</div>
+                              </div>
+                            </div>
+                            <div class="relative w-6 h-6 flex items-center justify-center">
+                              <svg class="w-full h-full -rotate-90" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10" stroke="#333" stroke-width="2.5" fill="none" />
+                                <circle cx="12" cy="12" r="10" stroke="#F76B00" stroke-width="2.5" stroke-dasharray="62.8" stroke-dashoffset="35" stroke-linecap="round" fill="none" />
+                              </svg>
+                              <span class="absolute text-[8px] font-mono text-stone-300">14</span>
+                            </div>
+                          </div>
+                          <div class="flex items-center justify-between pt-1">
+                            <span class="text-xl font-mono font-bold tracking-wider text-white">734 182</span>
+                            <span class="px-2 py-0.5 rounded-md bg-stone-800 text-[10px] text-stone-300 font-medium">1-tap copy</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="pt-2 border-t border-stone-800/80 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                          <div class="w-7 h-7 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center text-stone-950 font-bold text-xs shadow-sm">
+                            🔒
+                          </div>
+                          <div class="text-[10px] text-stone-300">
+                            <span class="text-orange-400 font-semibold">Bé Khóa:</span> {currentLang === 'vi' ? 'Sẵn sàng bảo vệ!' : 'Hardware Locked!'}
+                          </div>
+                        </div>
+                        <div class="w-6 h-6 rounded-full bg-orange-600 text-white flex items-center justify-center font-bold text-xs shadow-sm">+</div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* VISUAL 3: Web & Distributed System Architecture Blueprint */}
+                {slide.id === 'web-systems' && (
+                  <div class="w-full max-w-[400px] rounded-3xl p-5 bg-stone-950 text-stone-100 shadow-2xl border border-stone-800 space-y-4">
+                    <div class="flex items-center justify-between pb-3 border-b border-stone-800">
+                      <div class="flex items-center gap-1.5">
+                        <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80"></span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
+                        <span class="ml-2 text-xs font-mono text-stone-300">system-topology://kd.io.vn</span>
+                      </div>
+                      <span class="text-[10px] font-mono text-emerald-400">Edge Mesh</span>
+                    </div>
+
+                    <!-- Lighthouse 100/100 Score Row -->
+                    <div class="grid grid-cols-4 gap-2 text-center py-1">
+                      {[
+                        { label: 'Perf', score: '100' },
+                        { label: 'A11y', score: '100' },
+                        { label: 'Best', score: '100' },
+                        { label: 'SEO', score: '100' },
+                      ].map((metric) => (
+                        <div class="p-2 rounded-2xl bg-stone-900/90 border border-emerald-900/50 flex flex-col items-center">
+                          <span class="text-sm font-mono font-bold text-emerald-400">{metric.score}</span>
+                          <span class="text-[10px] text-stone-400 mt-0.5">{metric.label}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <!-- Architecture Layers -->
+                    <div class="space-y-2 font-mono text-xs">
+                      <div class="p-3 rounded-2xl bg-stone-900/80 border border-stone-800 flex items-center justify-between">
+                        <div>
+                          <div class="text-orange-400 font-semibold">Global Edge Network & SSR/SSG</div>
+                          <div class="text-[10px] text-stone-400">Cloudflare Workers • Astro • Zero-JS Default</div>
+                        </div>
+                        <span class="text-[10px] text-stone-300">11ms TTFB</span>
+                      </div>
+
+                      <div class="p-3 rounded-2xl bg-stone-900/80 border border-stone-800 flex items-center justify-between">
+                        <div>
+                          <div class="text-stone-100 font-semibold">API Gateway & Event Mesh</div>
+                          <div class="text-[10px] text-stone-400">gRPC • GraphQL • Distributed Rate-Limiting</div>
+                        </div>
+                        <span class="text-[10px] text-emerald-400">99.99%</span>
+                      </div>
+
+                      <div class="p-3 rounded-2xl bg-stone-900/80 border border-stone-800 flex items-center justify-between">
+                        <div>
+                          <div class="text-stone-100 font-semibold">Data & High-Throughput Storage</div>
+                          <div class="text-[10px] text-stone-400">Multi-Region Replicas • Redis • Zero-Lock</div>
+                        </div>
+                        <span class="text-[10px] text-orange-400">Auto-Scale</span>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* VISUAL 4: DevOps & Kubernetes Cluster Console */}
+                {slide.id === 'devops-k8s' && (
+                  <div class="w-full max-w-[400px] rounded-3xl p-5 bg-stone-950 text-stone-100 shadow-2xl border border-stone-800 space-y-4 font-mono">
+                    <div class="flex items-center justify-between pb-3 border-b border-stone-800">
+                      <div class="flex items-center gap-2">
+                        <span class="text-orange-500 font-bold text-xs">$</span>
+                        <span class="text-xs text-stone-200">kubectl get pods -n prod-cluster</span>
+                      </div>
+                      <span class="px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-400 border border-emerald-800/60 text-[10px]">
+                        K8s v1.31
+                      </span>
+                    </div>
+
+                    <div class="space-y-2 text-[11px]">
+                      <div class="grid grid-cols-12 text-stone-500 pb-1 border-b border-stone-800/80">
+                        <span class="col-span-6">NAME</span>
+                        <span class="col-span-2">READY</span>
+                        <span class="col-span-4 text-right">STATUS</span>
+                      </div>
+                      <div class="grid grid-cols-12 items-center text-stone-200">
+                        <span class="col-span-6 truncate">ai-gateway-7f9d8b-x9k</span>
+                        <span class="col-span-2 text-stone-400">3/3</span>
+                        <span class="col-span-4 text-right text-emerald-400">Running</span>
+                      </div>
+                      <div class="grid grid-cols-12 items-center text-stone-200">
+                        <span class="col-span-6 truncate">web-edge-mesh-6c4b2-m2p</span>
+                        <span class="col-span-2 text-stone-400">5/5</span>
+                        <span class="col-span-4 text-right text-emerald-400">Running</span>
+                      </div>
+                      <div class="grid grid-cols-12 items-center text-stone-200">
+                        <span class="col-span-6 truncate">zero-trust-vault-0</span>
+                        <span class="col-span-2 text-stone-400">2/2</span>
+                        <span class="col-span-4 text-right text-emerald-400">Running</span>
+                      </div>
+                      <div class="grid grid-cols-12 items-center text-stone-200">
+                        <span class="col-span-6 truncate">otel-collector-ds-8q1</span>
+                        <span class="col-span-2 text-stone-400">1/1</span>
+                        <span class="col-span-4 text-right text-orange-400">Synced</span>
+                      </div>
+                    </div>
+
+                    <div class="p-3 rounded-2xl bg-stone-900/90 border border-stone-800 space-y-2">
+                      <div class="flex items-center justify-between text-[11px]">
+                        <span class="text-stone-400">ArgoCD GitOps</span>
+                        <span class="text-emerald-400 font-semibold">● Healthy & Synced</span>
+                      </div>
+                      <div class="w-full h-1.5 rounded-full bg-stone-800 overflow-hidden">
+                        <div class="w-4/5 h-full bg-gradient-to-r from-orange-500 to-emerald-400 rounded-full"></div>
+                      </div>
+                      <div class="flex justify-between text-[10px] text-stone-400">
+                        <span>Helm • Terraform • Prometheus</span>
+                        <span>Zero-Downtime</span>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* VISUAL 5: Applied Research & Cryptography Lab */}
+                {slide.id === 'research' && (
+                  <div class="w-full max-w-[400px] rounded-3xl p-5 bg-stone-950 text-stone-100 shadow-2xl border border-stone-800 space-y-3.5">
+                    <div class="flex items-center justify-between pb-3 border-b border-stone-800">
+                      <div class="flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-orange-500"></span>
+                        <span class="text-xs font-mono font-bold text-stone-200">KD Labs Research Index</span>
+                      </div>
+                      <span class="text-[10px] font-mono text-orange-400">Peer-Auditable</span>
+                    </div>
+
+                    <div class="space-y-2.5">
+                      <a href={`${blogPath}secure-enclave-vs-android-keystore/`} class="block p-3 rounded-2xl bg-stone-900/90 border border-stone-800 hover:border-orange-500/50 transition-colors">
+                        <div class="flex items-center justify-between text-[10px] text-orange-400 font-mono mb-1">
+                          <span>HARDWARE CRYPTOGRAPHY</span>
+                          <span>iOS / Android</span>
+                        </div>
+                        <div class="text-xs font-semibold text-stone-100">
+                          Secure Enclave vs. Android Keystore Deep-Dive
+                        </div>
+                      </a>
+
+                      <a href={`${blogPath}zero-knowledge-aes-256-gcm/`} class="block p-3 rounded-2xl bg-stone-900/90 border border-stone-800 hover:border-orange-500/50 transition-colors">
+                        <div class="flex items-center justify-between text-[10px] text-emerald-400 font-mono mb-1">
+                          <span>ZERO-KNOWLEDGE</span>
+                          <span>AES-256-GCM</span>
+                        </div>
+                        <div class="text-xs font-semibold text-stone-100">
+                          Zero-Knowledge Architecture & PBKDF2 Key Derivation
+                        </div>
+                      </a>
+
+                      <a href={`${blogPath}passkeys-fido2-vs-2fa-hardware-keys/`} class="block p-3 rounded-2xl bg-stone-900/90 border border-stone-800 hover:border-orange-500/50 transition-colors">
+                        <div class="flex items-center justify-between text-[10px] text-amber-400 font-mono mb-1">
+                          <span>AUTH STANDARDS</span>
+                          <span>FIDO2 / WebAuthn</span>
+                        </div>
+                        <div class="text-xs font-semibold text-stone-100">
+                          Passkeys (FIDO2), TOTP RFC 6238 & Hardware Keys
+                        </div>
+                      </a>
+                    </div>
+
+                    <div class="pt-2 border-t border-stone-800/80 flex items-center justify-between text-[11px] text-stone-400">
+                      <span>Open-Access Engineering Notes</span>
+                      <a href={blogPath} class="text-orange-400 hover:underline font-semibold">
+                        {currentLang === 'vi' ? 'Xem tất cả →' : 'View all →'}
+                      </a>
+                    </div>
+                  </div>
+                )}
+
+              </div>
+
+            </div>
+          </div>
+        );
+      })}
+    </div>
+
+    <!-- Bottom Slide Dots Indicator (Mobile & Desktop quick status) -->
+    <div class="flex items-center justify-center lg:justify-start gap-2 mt-8">
+      {slides.map((slide, index) => (
+        <button
+          type="button"
+          aria-label={`Slide ${index + 1}: ${slide.tabLabel}`}
+          data-slide-dot={index}
+          class={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+            index === 0
+              ? 'w-8 bg-orange-600 dark:bg-orange-500'
+              : 'w-2 bg-stone-300 dark:bg-stone-700 hover:bg-orange-400'
+          }`}
+        ></button>
+      ))}
+    </div>
+
   </div>
 </section>
+
+<script is:inline>
+  (function () {
+    const section = document.getElementById('hero-slider-section');
+    if (!section) return;
+
+    const tabs = Array.from(section.querySelectorAll('[data-slide-target]'));
+    const panels = Array.from(section.querySelectorAll('[data-slide-panel]'));
+    const dots = Array.from(section.querySelectorAll('[data-slide-dot]'));
+    const progressBars = Array.from(section.querySelectorAll('[data-tab-progress]'));
+    const prevBtn = document.getElementById('hero-prev-btn');
+    const nextBtn = document.getElementById('hero-next-btn');
+
+    const total = panels.length;
+    if (total === 0) return;
+
+    let current = 0;
+    let isPaused = false;
+    const DURATION = 6500;
+    let elapsed = 0;
+    let lastTick = performance.now();
+
+    function activateSlide(index) {
+      current = (index + total) % total;
+      elapsed = 0;
+
+      panels.forEach((panel, i) => {
+        if (i === current) {
+          panel.classList.remove('hidden', 'opacity-0');
+          panel.classList.add('block', 'opacity-100');
+        } else {
+          panel.classList.add('hidden', 'opacity-0');
+          panel.classList.remove('block', 'opacity-100');
+        }
+      });
+
+      tabs.forEach((tab, i) => {
+        const active = i === current;
+        tab.setAttribute('aria-selected', active ? 'true' : 'false');
+        if (active) {
+          tab.classList.add('bg-orange-600', 'text-white', 'shadow-sm');
+          tab.classList.remove(
+            'text-stone-600',
+            'dark:text-stone-400',
+            'hover:text-stone-900',
+            'dark:hover:text-stone-200',
+            'hover:bg-stone-100/80',
+            'dark:hover:bg-stone-800/60'
+          );
+        } else {
+          tab.classList.remove('bg-orange-600', 'text-white', 'shadow-sm');
+          tab.classList.add(
+            'text-stone-600',
+            'dark:text-stone-400',
+            'hover:text-stone-900',
+            'dark:hover:text-stone-200',
+            'hover:bg-stone-100/80',
+            'dark:hover:bg-stone-800/60'
+          );
+        }
+      });
+
+      dots.forEach((dot, i) => {
+        if (i === current) {
+          dot.classList.add('w-8', 'bg-orange-600', 'dark:bg-orange-500');
+          dot.classList.remove('w-2', 'bg-stone-300', 'dark:bg-stone-700');
+        } else {
+          dot.classList.remove('w-8', 'bg-orange-600', 'dark:bg-orange-500');
+          dot.classList.add('w-2', 'bg-stone-300', 'dark:bg-stone-700');
+        }
+      });
+
+      progressBars.forEach((bar) => {
+        bar.style.width = '0%';
+      });
+    }
+
+    tabs.forEach((tab, idx) => {
+      tab.addEventListener('click', () => {
+        activateSlide(idx);
+      });
+    });
+
+    dots.forEach((dot, idx) => {
+      dot.addEventListener('click', () => {
+        activateSlide(idx);
+      });
+    });
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => activateSlide(current - 1));
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => activateSlide(current + 1));
+    }
+
+    section.addEventListener('mouseenter', () => {
+      isPaused = true;
+    });
+    section.addEventListener('mouseleave', () => {
+      isPaused = false;
+      lastTick = performance.now();
+    });
+
+    function loop(now) {
+      const dt = now - lastTick;
+      lastTick = now;
+
+      if (!isPaused) {
+        elapsed += dt;
+        const pct = Math.min(100, (elapsed / DURATION) * 100);
+        if (progressBars[current]) {
+          progressBars[current].style.width = pct + '%';
+        }
+        if (elapsed >= DURATION) {
+          activateSlide(current + 1);
+        }
+      }
+      requestAnimationFrame(loop);
+    }
+
+    requestAnimationFrame(loop);
+  })();
+</script>
