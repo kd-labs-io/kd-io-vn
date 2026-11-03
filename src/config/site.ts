@@ -10,7 +10,7 @@ export const siteConfig = {
   supportEmail: 'support@kd.io.vn',
   githubUrl: 'https://github.com/001123',
   twitterUrl: 'https://x.com/khuongduy1897',
-  linkedinUrl: 'https://www.linkedin.com/in/kd168/',
+  linkedinUrl: 'https://www.linkedin.com/in/duybk/',
   foundedYear: 2024,
   location: 'Vietnam',
   keywords: {
@@ -68,7 +68,7 @@ export const siteConfig = {
     ],
     url: 'https://kd.io.vn/',
     sameAs: [
-      'https://www.linkedin.com/in/kd168/',
+      'https://www.linkedin.com/in/duybk/',
       'https://x.com/khuongduy1897',
       'https://github.com/001123',
     ],
