@@ -15,9 +15,9 @@ const slides = currentLang === 'vi'
   ? [
       {
         id: 'ai-native',
-        tabLabel: 'AI-Native & Agents',
+        tabLabel: 'AI-Native',
         badge: 'AI-Native Developer',
-        badgeSubtitle: 'Bùi Khương Duy • KD Labs',
+        badgeSubtitle: 'Bùi Khương Duy • Multi-Agent & LLM',
         titleLine1: 'Kiến trúc AI-Native.',
         titleLine2: 'Tăng tốc từ Ý tưởng đến Sản phẩm.',
         description:
@@ -41,35 +41,8 @@ const slides = currentLang === 'vi'
         ],
       },
       {
-        id: 'mobile-security',
-        tabLabel: 'Mobile & Bảo mật',
-        badge: 'Flagship Mobile App',
-        badgeSubtitle: 'iOS & Android • 100% Offline',
-        titleLine1: 'Thiết kế tối giản.',
-        titleLine2: 'Bảo mật phần cứng.',
-        description:
-          'KD Labs phát triển ứng dụng di động 100% ngoại tuyến như Simple OTP 2FA. Mọi dữ liệu được mã hóa phần cứng AES-256-GCM và chỉ lưu trên thiết bị của bạn.',
-        primaryCta: {
-          label: 'Tải trên App Store',
-          href: simpleOtp?.appStoreUrl || 'https://apps.apple.com/us/app/simple-otp/id6816673973',
-          external: true,
-          icon: 'apple',
-        },
-        secondaryCta: {
-          label: 'Chi tiết Simple OTP',
-          href: '/apps/simple-otp/',
-          external: false,
-        },
-        stats: [
-          { value: '100%', label: '100% Ngoại tuyến' },
-          { value: 'AES-256', label: 'Két phần cứng' },
-          { value: '0% Ads', label: 'Không quảng cáo' },
-          { value: 'MIT', label: 'Mã nguồn mở MIT' },
-        ],
-      },
-      {
         id: 'web-engineering',
-        tabLabel: 'Web',
+        tabLabel: 'Web Apps',
         badge: 'Full-Stack Web Engineering',
         badgeSubtitle: 'Edge SSR/SSG • Modern UI/UX',
         titleLine1: 'Web Siêu tốc.',
@@ -92,6 +65,33 @@ const slides = currentLang === 'vi'
           { value: '< 15ms', label: 'Độ trễ tại Edge' },
           { value: 'SSR/SSG', label: 'Kiến trúc Hybrid' },
           { value: 'Tech SEO', label: 'Schema & Ngữ nghĩa' },
+        ],
+      },
+      {
+        id: 'mobile-security',
+        tabLabel: 'Mobile Apps',
+        badge: 'Flagship Mobile App',
+        badgeSubtitle: 'iOS & Android • 100% Offline',
+        titleLine1: 'Thiết kế tối giản.',
+        titleLine2: 'Bảo mật phần cứng.',
+        description:
+          'KD Labs phát triển ứng dụng di động 100% ngoại tuyến như Simple OTP 2FA. Mọi dữ liệu được mã hóa phần cứng AES-256-GCM và chỉ lưu trên thiết bị của bạn.',
+        primaryCta: {
+          label: 'Tải trên App Store',
+          href: simpleOtp?.appStoreUrl || 'https://apps.apple.com/us/app/simple-otp/id6816673973',
+          external: true,
+          icon: 'apple',
+        },
+        secondaryCta: {
+          label: 'Chi tiết Simple OTP',
+          href: '/apps/simple-otp/',
+          external: false,
+        },
+        stats: [
+          { value: '100%', label: '100% Ngoại tuyến' },
+          { value: 'AES-256', label: 'Két phần cứng' },
+          { value: '0% Ads', label: 'Không quảng cáo' },
+          { value: 'MIT', label: 'Mã nguồn mở MIT' },
         ],
       },
       {
@@ -150,7 +150,7 @@ const slides = currentLang === 'vi'
       },
       {
         id: 'research',
-        tabLabel: 'Research & R&D',
+        tabLabel: 'R&D',
         badge: 'Applied Research Lab',
         badgeSubtitle: 'AI • Cryptography • Zero-Trust',
         titleLine1: 'Nghiên cứu Chuyên sâu.',
@@ -179,9 +179,9 @@ const slides = currentLang === 'vi'
   : [
       {
         id: 'ai-native',
-        tabLabel: 'AI-Native & Agents',
+        tabLabel: 'AI-Native',
         badge: 'AI-Native Developer',
-        badgeSubtitle: 'Bui Khuong Duy • KD Labs',
+        badgeSubtitle: 'Bui Khuong Duy • Multi-Agent & LLM',
         titleLine1: 'AI-Native Engineering.',
         titleLine2: 'From Concept to Production Scale.',
         description:
@@ -205,35 +205,8 @@ const slides = currentLang === 'vi'
         ],
       },
       {
-        id: 'mobile-security',
-        tabLabel: 'Mobile & Security',
-        badge: 'Flagship Mobile App',
-        badgeSubtitle: 'iOS & Android • 100% Offline',
-        titleLine1: 'Minimalist Design.',
-        titleLine2: 'Hardware-Grade Security.',
-        description:
-          'KD Labs builds 100% offline mobile apps like Simple OTP 2FA. Your secret keys are encrypted with AES-256-GCM hardware security and stay exclusively on your device.',
-        primaryCta: {
-          label: 'Download on App Store',
-          href: simpleOtp?.appStoreUrl || 'https://apps.apple.com/us/app/simple-otp/id6816673973',
-          external: true,
-          icon: 'apple',
-        },
-        secondaryCta: {
-          label: 'Explore Simple OTP',
-          href: '/en/apps/simple-otp/',
-          external: false,
-        },
-        stats: [
-          { value: '100%', label: '100% Offline Core' },
-          { value: 'AES-256', label: 'Hardware Enclave' },
-          { value: '0% Ads', label: 'Zero Tracking' },
-          { value: 'MIT', label: 'Open Source MIT' },
-        ],
-      },
-      {
         id: 'web-engineering',
-        tabLabel: 'Web',
+        tabLabel: 'Web Apps',
         badge: 'Full-Stack Web Engineering',
         badgeSubtitle: 'Edge SSR/SSG • Modern UI/UX',
         titleLine1: 'Ultra-Fast Web.',
@@ -256,6 +229,33 @@ const slides = currentLang === 'vi'
           { value: '< 15ms', label: 'Global Edge TTFB' },
           { value: 'SSR/SSG', label: 'Hybrid Rendering' },
           { value: 'Tech SEO', label: 'Schema & Semantics' },
+        ],
+      },
+      {
+        id: 'mobile-security',
+        tabLabel: 'Mobile Apps',
+        badge: 'Flagship Mobile App',
+        badgeSubtitle: 'iOS & Android • 100% Offline',
+        titleLine1: 'Minimalist Design.',
+        titleLine2: 'Hardware-Grade Security.',
+        description:
+          'KD Labs builds 100% offline mobile apps like Simple OTP 2FA. Your secret keys are encrypted with AES-256-GCM hardware security and stay exclusively on your device.',
+        primaryCta: {
+          label: 'Download on App Store',
+          href: simpleOtp?.appStoreUrl || 'https://apps.apple.com/us/app/simple-otp/id6816673973',
+          external: true,
+          icon: 'apple',
+        },
+        secondaryCta: {
+          label: 'Explore Simple OTP',
+          href: '/en/apps/simple-otp/',
+          external: false,
+        },
+        stats: [
+          { value: '100%', label: '100% Offline Core' },
+          { value: 'AES-256', label: 'Hardware Enclave' },
+          { value: '0% Ads', label: 'Zero Tracking' },
+          { value: 'MIT', label: 'Open Source MIT' },
         ],
       },
       {
@@ -314,7 +314,7 @@ const slides = currentLang === 'vi'
       },
       {
         id: 'research',
-        tabLabel: 'Research & R&D',
+        tabLabel: 'R&D',
         badge: 'Applied Research Lab',
         badgeSubtitle: 'AI • Cryptography • Zero-Trust',
         titleLine1: 'Deep-Tech Research.',
@@ -586,7 +586,66 @@ const slides = currentLang === 'vi'
                   </div>
                 )}
 
-                {/* VISUAL 2: Simple OTP Phone Mockup */}
+                {/* VISUAL 2: Web Engineering & Core Web Vitals Showcase */}
+                {slide.id === 'web-engineering' && (
+                  <div class="w-full max-w-[400px] rounded-3xl p-5 bg-stone-950 text-stone-100 shadow-2xl border border-stone-800 space-y-4">
+                    <div class="flex items-center justify-between pb-3 border-b border-stone-800">
+                      <div class="flex items-center gap-1.5">
+                        <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80"></span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
+                        <span class="ml-2 text-xs font-mono text-stone-300">https://kd.io.vn</span>
+                      </div>
+                      <span class="text-[10px] font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded-full border border-emerald-800/50">
+                        Edge SSR/SSG
+                      </span>
+                    </div>
+
+                    <!-- Lighthouse 100/100 Score Row -->
+                    <div class="grid grid-cols-4 gap-2 text-center py-1">
+                      {[
+                        { label: 'Perf', score: '100' },
+                        { label: 'A11y', score: '100' },
+                        { label: 'Best', score: '100' },
+                        { label: 'SEO', score: '100' },
+                      ].map((metric) => (
+                        <div class="p-2 rounded-2xl bg-stone-900/90 border border-emerald-900/50 flex flex-col items-center">
+                          <span class="text-sm font-mono font-bold text-emerald-400">{metric.score}</span>
+                          <span class="text-[10px] text-stone-400 mt-0.5">{metric.label}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <!-- Web Stack & SEO Architecture -->
+                    <div class="space-y-2 font-mono text-xs">
+                      <div class="p-3 rounded-2xl bg-stone-900/80 border border-stone-800 flex items-center justify-between">
+                        <div>
+                          <div class="text-orange-400 font-semibold">Modern Frontend & Islands</div>
+                          <div class="text-[10px] text-stone-400">Astro • React • Next.js • Tailwind CSS</div>
+                        </div>
+                        <span class="text-[10px] text-emerald-400">Zero-Bloat</span>
+                      </div>
+
+                      <div class="p-3 rounded-2xl bg-stone-900/80 border border-stone-800 flex items-center justify-between">
+                        <div>
+                          <div class="text-stone-100 font-semibold">Global Edge Delivery</div>
+                          <div class="text-[10px] text-stone-400">Cloudflare Workers • 300+ Edge PoPs</div>
+                        </div>
+                        <span class="text-[10px] text-stone-300">11ms TTFB</span>
+                      </div>
+
+                      <div class="p-3 rounded-2xl bg-stone-900/80 border border-stone-800 flex items-center justify-between">
+                        <div>
+                          <div class="text-stone-100 font-semibold">Semantic SEO & Schema Graph</div>
+                          <div class="text-[10px] text-stone-400">JSON-LD Entities • Bilingual Hreflang</div>
+                        </div>
+                        <span class="text-[10px] text-orange-400">Indexed</span>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* VISUAL 3: Simple OTP Phone Mockup */}
                 {slide.id === 'mobile-security' && (
                   <div class="relative w-full max-w-[340px] rounded-[40px] p-3.5 bg-gradient-to-b from-stone-200 via-stone-300 to-stone-400 dark:from-stone-800 dark:via-stone-900 dark:to-stone-950 shadow-2xl border border-stone-300 dark:border-stone-700">
                     <div class="absolute top-6 left-1/2 -translate-x-1/2 w-18 h-4 bg-stone-900 rounded-full z-20 flex items-center justify-center">
@@ -667,65 +726,6 @@ const slides = currentLang === 'vi'
                           </div>
                         </div>
                         <div class="w-6 h-6 rounded-full bg-orange-600 text-white flex items-center justify-center font-bold text-xs shadow-sm">+</div>
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {/* VISUAL 3: Web Engineering & Core Web Vitals Showcase */}
-                {slide.id === 'web-engineering' && (
-                  <div class="w-full max-w-[400px] rounded-3xl p-5 bg-stone-950 text-stone-100 shadow-2xl border border-stone-800 space-y-4">
-                    <div class="flex items-center justify-between pb-3 border-b border-stone-800">
-                      <div class="flex items-center gap-1.5">
-                        <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80"></span>
-                        <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span>
-                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
-                        <span class="ml-2 text-xs font-mono text-stone-300">https://kd.io.vn</span>
-                      </div>
-                      <span class="text-[10px] font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded-full border border-emerald-800/50">
-                        Edge SSR/SSG
-                      </span>
-                    </div>
-
-                    <!-- Lighthouse 100/100 Score Row -->
-                    <div class="grid grid-cols-4 gap-2 text-center py-1">
-                      {[
-                        { label: 'Perf', score: '100' },
-                        { label: 'A11y', score: '100' },
-                        { label: 'Best', score: '100' },
-                        { label: 'SEO', score: '100' },
-                      ].map((metric) => (
-                        <div class="p-2 rounded-2xl bg-stone-900/90 border border-emerald-900/50 flex flex-col items-center">
-                          <span class="text-sm font-mono font-bold text-emerald-400">{metric.score}</span>
-                          <span class="text-[10px] text-stone-400 mt-0.5">{metric.label}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    <!-- Web Stack & SEO Architecture -->
-                    <div class="space-y-2 font-mono text-xs">
-                      <div class="p-3 rounded-2xl bg-stone-900/80 border border-stone-800 flex items-center justify-between">
-                        <div>
-                          <div class="text-orange-400 font-semibold">Modern Frontend & Islands</div>
-                          <div class="text-[10px] text-stone-400">Astro • React • Next.js • Tailwind CSS</div>
-                        </div>
-                        <span class="text-[10px] text-emerald-400">Zero-Bloat</span>
-                      </div>
-
-                      <div class="p-3 rounded-2xl bg-stone-900/80 border border-stone-800 flex items-center justify-between">
-                        <div>
-                          <div class="text-stone-100 font-semibold">Global Edge Delivery</div>
-                          <div class="text-[10px] text-stone-400">Cloudflare Workers • 300+ Edge PoPs</div>
-                        </div>
-                        <span class="text-[10px] text-stone-300">11ms TTFB</span>
-                      </div>
-
-                      <div class="p-3 rounded-2xl bg-stone-900/80 border border-stone-800 flex items-center justify-between">
-                        <div>
-                          <div class="text-stone-100 font-semibold">Semantic SEO & Schema Graph</div>
-                          <div class="text-[10px] text-stone-400">JSON-LD Entities • Bilingual Hreflang</div>
-                        </div>
-                        <span class="text-[10px] text-orange-400">Indexed</span>
                       </div>
                     </div>
                   </div>

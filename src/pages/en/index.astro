@@ -8,10 +8,8 @@ import Philosophy from '../../components/Philosophy.astro';
 import DataSafetyBanner from '../../components/DataSafetyBanner.astro';
 import ContactSection from '../../components/ContactSection.astro';
 import { appsData } from '../../data/apps';
-import { getTranslations } from '../../data/i18n';
 
 const lang = 'en';
-const t = getTranslations(lang);
 
 const flagshipApp = appsData.find((app) => app.id === 'simple-otp') || appsData[0];
 const otherSlots = appsData.filter((app) => app.id !== flagshipApp.id);
@@ -35,32 +33,43 @@ const otherSlots = appsData.filter((app) => app.id !== flagshipApp.id);
       <!-- Section Header -->
       <div class="text-center max-w-2xl mx-auto space-y-4 mb-14">
         <span class="inline-block text-xs font-bold uppercase tracking-widest text-orange-600 dark:text-orange-500">
-          {t.showcase.tagline}
+          Products & Engineering Ecosystem
         </span>
         <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-stone-900 dark:text-stone-100">
-          {t.showcase.title}
+          From Production Apps to Core Systems
         </h2>
         <p class="text-base text-stone-600 dark:text-stone-300 leading-relaxed font-normal">
-          {t.showcase.subtitle}
+          Officially released software and active R&D tracks across AI-Native Systems, Web Platforms, Distributed Architecture, and Kubernetes at KD Labs.
         </p>
       </div>
 
-      <!-- Featured Flagship Upcoming App: Simple OTP -->
-      <div class="space-y-8 mb-16">
+      <!-- Featured Flagship Released App: Simple OTP -->
+      <div class="space-y-4 mb-16">
+        <div class="flex items-center justify-between border-b border-stone-200 dark:border-stone-800 pb-3">
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            <h3 class="text-sm font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300">
+              Flagship Product (Mobile Apps • Released)
+            </h3>
+          </div>
+          <span class="text-xs text-stone-600 dark:text-stone-300 font-mono">
+            iOS & Android
+          </span>
+        </div>
         <AppCard app={flagshipApp} currentLang={lang} />
       </div>
 
-      <!-- Upcoming Lab Slots Grid -->
+      <!-- Active Engineering & R&D Lab Tracks -->
       <div class="space-y-4">
         <div class="flex items-center justify-between border-b border-stone-200 dark:border-stone-800 pb-3">
           <div class="flex items-center gap-2">
             <span class="w-2 h-2 rounded-full bg-orange-500"></span>
             <h3 class="text-sm font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300">
-              Projects in Development
+              Active Engineering & R&D Tracks (AI-Native • Web • K8s)
             </h3>
           </div>
           <span class="text-xs text-stone-600 dark:text-stone-300 font-mono">
-            {otherSlots.length} slots
+            {otherSlots.length} R&D tracks
           </span>
         </div>
 
