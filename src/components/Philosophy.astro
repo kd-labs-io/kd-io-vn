@@ -37,26 +37,26 @@ const pillars = [
 ];
 ---
 
-<section id="philosophy" class="py-20 sm:py-28 relative">
+<section id="philosophy" class="py-14 sm:py-28 relative">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <!-- Section Heading -->
-    <div class="text-center max-w-2xl mx-auto space-y-4 mb-16">
+    <div class="text-center max-w-2xl mx-auto space-y-3 sm:space-y-4 mb-10 sm:mb-16">
       <span class="inline-block text-xs font-bold uppercase tracking-widest text-orange-600 dark:text-orange-500">
         {t.philosophy.tagline}
       </span>
-      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-stone-900 dark:text-stone-100">
+      <h2 class="text-2xl sm:text-4xl font-bold tracking-tight text-stone-900 dark:text-stone-100 text-balance">
         {t.philosophy.title}
       </h2>
-      <p class="text-base text-stone-600 dark:text-stone-300 leading-relaxed">
+      <p class="text-sm sm:text-base text-stone-600 dark:text-stone-300 leading-relaxed text-pretty">
         {t.philosophy.subtitle}
       </p>
     </div>
 
     <!-- 4 Pillars Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
       {pillars.map((pillar) => (
-        <div class="relative rounded-3xl border border-stone-200 dark:border-stone-800 bg-white/70 dark:bg-[#151412]/80 p-6 sm:p-7 backdrop-blur-sm hover:border-orange-500/40 transition-colors duration-200 flex flex-col justify-between group">
+        <div class="relative rounded-3xl border border-stone-200 dark:border-stone-800 bg-white/80 dark:bg-[#151412]/80 p-5 sm:p-7 backdrop-blur-sm hover:border-orange-500/40 transition-colors duration-200 flex flex-col justify-between group">
           <div class="space-y-4">
             
             <div class="flex items-center justify-between">

@@ -98,3 +98,19 @@ body {
 .dark .zen-circle-gradient {
   background: radial-gradient(circle at 50% 50%, rgba(251, 113, 59, 0.16) 0%, rgba(251, 113, 59, 0.03) 55%, transparent 70%);
 }
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Clean mobile tap highlight */
+a, button {
+  -webkit-tap-highlight-color: transparent;
+}

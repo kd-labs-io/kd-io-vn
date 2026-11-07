@@ -27,32 +27,32 @@ const otherSlots = appsData.filter((app) => app.id !== flagshipApp.id);
   <StatsBar currentLang={lang} />
 
   <!-- Showcase Section -->
-  <section id="showcase" class="py-20 sm:py-28 relative">
+  <section id="showcase" class="py-14 sm:py-28 relative">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Section Header -->
-      <div class="text-center max-w-2xl mx-auto space-y-4 mb-14">
+      <div class="text-center max-w-2xl mx-auto space-y-3 sm:space-y-4 mb-10 sm:mb-14">
         <span class="inline-block text-xs font-bold uppercase tracking-widest text-orange-600 dark:text-orange-500">
           Hệ sinh thái Sản phẩm & Kỹ thuật
         </span>
-        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-stone-900 dark:text-stone-100">
+        <h2 class="text-2xl sm:text-4xl font-bold tracking-tight text-stone-900 dark:text-stone-100 text-balance">
           Từ Ứng dụng Thực tế đến Kiến trúc Lõi
         </h2>
-        <p class="text-base text-stone-600 dark:text-stone-300 leading-relaxed font-normal">
+        <p class="text-sm sm:text-base text-stone-600 dark:text-stone-300 leading-relaxed font-normal text-pretty">
           Các sản phẩm đã phát hành chính thức và những dự án nghiên cứu chuyên sâu về AI-Native, Web, Hệ thống phân tán & Kubernetes tại KD Labs.
         </p>
       </div>
 
       <!-- Featured Flagship Released App: Simple OTP -->
-      <div class="space-y-4 mb-16">
-        <div class="flex items-center justify-between border-b border-stone-200 dark:border-stone-800 pb-3">
-          <div class="flex items-center gap-2">
-            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-            <h3 class="text-sm font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300">
-              Sản Phẩm Tiêu Biểu (Mobile Apps • Đã Phát Hành)
+      <div class="space-y-4 mb-12 sm:mb-16">
+        <div class="flex items-center justify-between gap-3 border-b border-stone-200 dark:border-stone-800 pb-3">
+          <div class="flex items-center gap-2 min-w-0">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 shrink-0"></span>
+            <h3 class="text-xs sm:text-sm font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300 leading-snug">
+              Sản Phẩm Tiêu Biểu <span class="hidden sm:inline">(Mobile Apps • Đã Phát Hành)</span>
             </h3>
           </div>
-          <span class="text-xs text-stone-600 dark:text-stone-300 font-mono">
+          <span class="shrink-0 whitespace-nowrap text-[11px] sm:text-xs text-stone-600 dark:text-stone-300 font-mono px-2.5 py-0.5 rounded-full bg-stone-100 dark:bg-stone-800/80">
             iOS & Android
           </span>
         </div>
@@ -61,14 +61,14 @@ const otherSlots = appsData.filter((app) => app.id !== flagshipApp.id);
 
       <!-- Active Engineering & R&D Lab Tracks -->
       <div class="space-y-4">
-        <div class="flex items-center justify-between border-b border-stone-200 dark:border-stone-800 pb-3">
-          <div class="flex items-center gap-2">
-            <span class="w-2 h-2 rounded-full bg-orange-500"></span>
-            <h3 class="text-sm font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300">
-              Dự Án & Hạ Tầng Đang Nghiên Cứu (AI-Native • Web • K8s)
+        <div class="flex items-center justify-between gap-3 border-b border-stone-200 dark:border-stone-800 pb-3">
+          <div class="flex items-center gap-2 min-w-0">
+            <span class="w-2 h-2 rounded-full bg-orange-500 shrink-0"></span>
+            <h3 class="text-xs sm:text-sm font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300 leading-snug">
+              Dự Án & Hạ Tầng Đang Nghiên Cứu <span class="hidden sm:inline">(AI-Native • Web • K8s)</span>
             </h3>
           </div>
-          <span class="text-xs text-stone-600 dark:text-stone-300 font-mono">
+          <span class="shrink-0 whitespace-nowrap text-[11px] sm:text-xs text-stone-600 dark:text-stone-300 font-mono px-2.5 py-0.5 rounded-full bg-stone-100 dark:bg-stone-800/80">
             {otherSlots.length} R&D tracks
           </span>
         </div>

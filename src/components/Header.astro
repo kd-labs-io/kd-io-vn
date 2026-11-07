@@ -30,10 +30,10 @@ const blogUrl = currentLang === 'vi' ? '/blog/' : `/${currentLang}/blog/`;
     <div class="flex items-center justify-between h-16 sm:h-20">
       
       <!-- Logo KD Labs -->
-      <a href={homeUrl} class="group flex items-center space-x-3 text-inherit no-underline">
+      <a href={homeUrl} class="group flex items-center space-x-2.5 sm:space-x-3 text-inherit no-underline shrink-0">
         <!-- Zen Enso Ring Logo -->
-        <div class="relative w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-xl bg-orange-500/10 dark:bg-orange-500/15 border border-orange-500/30 group-hover:border-orange-500 transition-colors duration-300">
-          <svg class="w-6 h-6 text-orange-600 dark:text-orange-500 transition-transform duration-300 group-hover:scale-105" viewBox="0 0 24 24" fill="none">
+        <div class="relative w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-xl bg-orange-500/10 dark:bg-orange-500/15 border border-orange-500/30 group-hover:border-orange-500 transition-colors duration-300 shrink-0">
+          <svg class="w-5 h-5 sm:w-6 sm:h-6 text-orange-600 dark:text-orange-500 transition-transform duration-300 group-hover:scale-105" viewBox="0 0 24 24" fill="none">
             <!-- Zen Enso open circle & 2 circles (Key & Data) -->
             <path
               d="M 13.5 3.1 A 8.9 8.9 0 1 0 20.5 15.6"
@@ -47,10 +47,10 @@ const blogUrl = currentLang === 'vi' ? '/blog/' : `/${currentLang}/blog/`;
         </div>
         
         <div class="flex flex-col">
-          <span class="text-lg sm:text-xl font-bold tracking-tight text-stone-900 dark:text-stone-100 flex items-center gap-1.5">
+          <span class="text-base sm:text-xl font-bold tracking-tight text-stone-900 dark:text-stone-100 leading-tight flex items-center gap-1.5">
             KD Labs
           </span>
-          <span class="text-[10px] uppercase tracking-widest text-stone-600 dark:text-stone-300 font-medium">
+          <span class="text-[9px] sm:text-[10px] uppercase tracking-wider sm:tracking-widest text-stone-500 dark:text-stone-400 font-medium">
             Keep Development
           </span>
         </div>
@@ -128,18 +128,22 @@ const blogUrl = currentLang === 'vi' ? '/blog/' : `/${currentLang}/blog/`;
       </div>
 
       <!-- Mobile Menu Button -->
-      <div class="flex items-center space-x-2 md:hidden">
+      <div class="flex items-center space-x-1.5 sm:space-x-2 md:hidden">
         <LanguagePicker currentLang={currentLang} />
         <ThemeToggle />
         
         <button
           id="mobile-menu-btn"
           type="button"
-          class="p-2 rounded-lg text-stone-600 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white hover:bg-stone-200/50 dark:hover:bg-stone-800/50"
+          class="inline-flex items-center justify-center p-2 rounded-full border border-stone-200 dark:border-stone-800 bg-stone-100/70 dark:bg-stone-900/80 text-stone-700 dark:text-stone-300 hover:text-orange-600 dark:hover:text-orange-400 hover:border-orange-300 dark:hover:border-orange-800/60 transition-all duration-200 shadow-sm cursor-pointer active:scale-95"
           aria-label="Toggle Navigation Menu"
+          aria-expanded="false"
         >
-          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg id="mobile-menu-icon-open" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="mobile-menu-icon-close" class="w-4 h-4 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
       </div>
@@ -148,62 +152,80 @@ const blogUrl = currentLang === 'vi' ? '/blog/' : `/${currentLang}/blog/`;
   </div>
 
   <!-- Mobile Drawer -->
-  <div id="mobile-menu" class="hidden md:hidden border-t border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-[#121110] px-4 pt-3 pb-6 space-y-3">
+  <div id="mobile-menu" class="hidden md:hidden border-t border-stone-200/80 dark:border-stone-800/80 bg-stone-50/95 dark:bg-[#121110]/95 backdrop-blur-xl px-4 pt-3 pb-5 space-y-1.5 shadow-xl">
     <a
       href={isHomePage ? '#showcase' : `${homeUrl}#showcase`}
-      class="block py-2 text-base font-medium text-stone-700 dark:text-stone-300 hover:text-orange-600 dark:hover:text-orange-400"
+      class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium text-stone-700 dark:text-stone-200 hover:bg-orange-500/10 hover:text-orange-600 dark:hover:text-orange-400 transition-colors"
     >
-      {t.nav.apps}
+      <span>{t.nav.apps}</span>
+      <svg class="w-4 h-4 text-stone-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
     </a>
     <a
       href={isHomePage ? '#philosophy' : `${homeUrl}#philosophy`}
-      class="block py-2 text-base font-medium text-stone-700 dark:text-stone-300 hover:text-orange-600 dark:hover:text-orange-400"
+      class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium text-stone-700 dark:text-stone-200 hover:bg-orange-500/10 hover:text-orange-600 dark:hover:text-orange-400 transition-colors"
     >
-      {t.nav.philosophy}
+      <span>{t.nav.philosophy}</span>
+      <svg class="w-4 h-4 text-stone-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
     </a>
     <a
       href={blogUrl}
-      class={`block py-2 text-base font-medium ${
+      class={`flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium transition-colors ${
         Astro.url.pathname.includes('/blog')
-          ? 'text-orange-600 dark:text-orange-400 font-semibold'
-          : 'text-stone-700 dark:text-stone-300 hover:text-orange-600 dark:hover:text-orange-400'
+          ? 'bg-orange-500/10 text-orange-600 dark:text-orange-400 font-semibold'
+          : 'text-stone-700 dark:text-stone-200 hover:bg-orange-500/10 hover:text-orange-600 dark:hover:text-orange-400'
       }`}
     >
-      {t.nav.blog}
+      <span>{t.nav.blog}</span>
+      <svg class="w-4 h-4 text-stone-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
     </a>
     <a
       href={pressUrl}
-      class={`block py-2 text-base font-medium ${
+      class={`flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium transition-colors ${
         Astro.url.pathname.includes('/press')
-          ? 'text-orange-600 dark:text-orange-400 font-semibold'
-          : 'text-stone-700 dark:text-stone-300 hover:text-orange-600 dark:hover:text-orange-400'
+          ? 'bg-orange-500/10 text-orange-600 dark:text-orange-400 font-semibold'
+          : 'text-stone-700 dark:text-stone-200 hover:bg-orange-500/10 hover:text-orange-600 dark:hover:text-orange-400'
       }`}
     >
-      {t.nav.press}
+      <span>{t.nav.press}</span>
+      <svg class="w-4 h-4 text-stone-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
     </a>
     <a
       href={privacyUrl}
-      class="block py-2 text-base font-medium text-stone-700 dark:text-stone-300 hover:text-orange-600 dark:hover:text-orange-400"
+      class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium text-stone-700 dark:text-stone-200 hover:bg-orange-500/10 hover:text-orange-600 dark:hover:text-orange-400 transition-colors"
     >
-      {t.nav.privacy}
+      <span>{t.nav.privacy}</span>
+      <svg class="w-4 h-4 text-stone-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
     </a>
     <a
       href={isHomePage ? '#contact' : `${homeUrl}#contact`}
-      class="block py-2 text-base font-medium text-stone-700 dark:text-stone-300 hover:text-orange-600 dark:hover:text-orange-400"
+      class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium text-stone-700 dark:text-stone-200 hover:bg-orange-500/10 hover:text-orange-600 dark:hover:text-orange-400 transition-colors"
     >
-      {t.nav.support}
+      <span>{t.nav.support}</span>
+      <svg class="w-4 h-4 text-stone-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
     </a>
-    <div class="pt-2">
+    <div class="pt-2.5 mt-1 border-t border-stone-200/80 dark:border-stone-800/80">
       <a
         href={siteConfig.googlePlayDevUrl}
         target="_blank"
         rel="noopener noreferrer"
-        class="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-sm font-semibold bg-orange-600 text-white shadow-sm hover:bg-orange-700"
+        class="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-xs font-semibold bg-orange-600 text-white shadow-sm hover:bg-orange-700 active:scale-[0.99] transition-all"
       >
-        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
           <path d="M3.609 1.814L13.793 12 3.61 22.186c-.37-.367-.61-.88-.61-1.464V3.278c0-.584.24-1.097.61-1.464zm1.402-.822L16.273 7.42 14.5 9.193 5.011.992zm9.49 9.873l1.774 1.774-11.264 6.43 9.49-8.204zm2.463-.997l2.827 1.616c.82.469.82 1.233 0 1.701l-2.827 1.616-1.993-1.993 1.993-1.94z"/>
         </svg>
-        <span>KD Labs trên Google Play</span>
+        <span>{currentLang === 'vi' ? 'KD Labs trên Google Play' : 'KD Labs on Google Play'}</span>
       </a>
     </div>
   </div>
@@ -214,15 +236,27 @@ const blogUrl = currentLang === 'vi' ? '/blog/' : `/${currentLang}/blog/`;
   function setupMobileMenu() {
     const btn = document.getElementById('mobile-menu-btn');
     const menu = document.getElementById('mobile-menu');
+    const iconOpen = document.getElementById('mobile-menu-icon-open');
+    const iconClose = document.getElementById('mobile-menu-icon-close');
     if (!btn || !menu) return;
 
+    function syncMenuState(isOpen) {
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      if (iconOpen && iconClose) {
+        iconOpen.classList.toggle('hidden', isOpen);
+        iconClose.classList.toggle('hidden', !isOpen);
+      }
+    }
+
     btn.addEventListener('click', () => {
-      menu.classList.toggle('hidden');
+      const isHidden = menu.classList.toggle('hidden');
+      syncMenuState(!isHidden);
     });
 
     menu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         menu.classList.add('hidden');
+        syncMenuState(false);
       });
     });
   }

@@ -17,13 +17,13 @@ const blogUrl = currentLang === 'vi' ? '/blog/' : `/${currentLang}/blog/`;
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="border-t border-stone-200/80 dark:border-stone-800/80 bg-stone-100/60 dark:bg-[#0C0B0A] text-stone-600 dark:text-stone-300 py-16 transition-colors duration-200">
+<footer class="border-t border-stone-200/80 dark:border-stone-800/80 bg-stone-100/60 dark:bg-[#0C0B0A] text-stone-600 dark:text-stone-300 py-12 sm:py-16 transition-colors duration-200">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-stone-200 dark:border-stone-800/80">
+    <div class="grid grid-cols-2 md:grid-cols-12 gap-8 sm:gap-10 pb-10 sm:pb-12 border-b border-stone-200 dark:border-stone-800/80">
       
-      <!-- Studio Intro (5 cols) -->
-      <div class="md:col-span-5 space-y-4">
+      <!-- Studio Intro (Full width on mobile, 5 cols on desktop) -->
+      <div class="col-span-2 md:col-span-5 space-y-4">
         <a href={homeUrl} class="inline-flex items-center space-x-3 text-inherit no-underline">
           <div class="w-8 h-8 rounded-xl bg-orange-500/15 border border-orange-500/30 flex items-center justify-center text-orange-600 dark:text-orange-500">
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none">
@@ -40,12 +40,12 @@ const currentYear = new Date().getFullYear();
         </p>
 
         <!-- Google Play Developer Badge Link -->
-        <div class="pt-2">
+        <div class="pt-1 sm:pt-2">
           <a
             href={siteConfig.googlePlayDevUrl}
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-stone-900 text-stone-100 dark:bg-stone-800 dark:text-stone-100 text-xs font-medium hover:bg-orange-600 dark:hover:bg-orange-600 transition-colors"
+            class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-stone-900 text-stone-100 dark:bg-stone-800 dark:text-stone-100 text-xs font-medium hover:bg-orange-600 dark:hover:bg-orange-600 transition-colors"
           >
             <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
               <path d="M3.609 1.814L13.793 12 3.61 22.186c-.37-.367-.61-.88-.61-1.464V3.278c0-.584.24-1.097.61-1.464zm1.402-.822L16.273 7.42 14.5 9.193 5.011.992zm9.49 9.873l1.774 1.774-11.264 6.43 9.49-8.204zm2.463-.997l2.827 1.616c.82.469.82 1.233 0 1.701l-2.827 1.616-1.993-1.993 1.993-1.94z"/>
@@ -55,12 +55,12 @@ const currentYear = new Date().getFullYear();
         </div>
       </div>
 
-      <!-- Quick Links (3 cols) -->
-      <div class="md:col-span-3 space-y-3">
+      <!-- Quick Links (Left col on mobile, 3 cols on desktop) -->
+      <div class="col-span-1 md:col-span-3 space-y-3">
         <h4 class="text-xs uppercase font-bold tracking-wider text-stone-900 dark:text-stone-100">
           {t.footer.quickLinks}
         </h4>
-        <ul class="space-y-2 text-xs sm:text-sm">
+        <ul class="space-y-2.5 text-xs sm:text-sm">
           <li>
             <a href={`${homeUrl}#showcase`} class="hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
               {t.nav.apps}
@@ -89,12 +89,12 @@ const currentYear = new Date().getFullYear();
         </ul>
       </div>
 
-      <!-- Legal (4 cols) -->
-      <div class="md:col-span-4 space-y-3">
+      <!-- Legal (Right col on mobile, 4 cols on desktop) -->
+      <div class="col-span-1 md:col-span-4 space-y-3">
         <h4 class="text-xs uppercase font-bold tracking-wider text-stone-900 dark:text-stone-100">
           {t.footer.legal}
         </h4>
-        <ul class="space-y-2 text-xs sm:text-sm">
+        <ul class="space-y-2.5 text-xs sm:text-sm">
           <li>
             <a href={privacyUrl} class="hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
               {t.footer.privacyPolicy}

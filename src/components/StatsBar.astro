@@ -86,25 +86,25 @@ const items = currentLang === 'vi'
     ];
 ---
 
-<div class="border-y border-stone-200/80 dark:border-stone-800/80 bg-stone-100/50 dark:bg-stone-900/40 backdrop-blur-sm py-8 transition-colors duration-200">
+<div class="border-y border-stone-200/80 dark:border-stone-800/80 bg-stone-100/50 dark:bg-stone-900/40 backdrop-blur-sm py-6 sm:py-8 transition-colors duration-200">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+    <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 lg:gap-8">
       {items.map((item) => (
         <button
           type="button"
           data-jump-slide={item.slideIndex}
-          class="flex items-start gap-3.5 text-left group cursor-pointer rounded-2xl p-2.5 -m-2.5 hover:bg-stone-200/50 dark:hover:bg-stone-800/40 transition-colors"
+          class="flex flex-col sm:flex-row items-start gap-2.5 sm:gap-3.5 text-left group cursor-pointer rounded-2xl p-3.5 sm:p-2.5 sm:-m-2.5 bg-white/75 dark:bg-stone-900/60 sm:bg-transparent border border-stone-200/80 dark:border-stone-800/80 sm:border-0 hover:bg-stone-200/50 dark:hover:bg-stone-800/40 active:scale-[0.98] transition-all shadow-2xs sm:shadow-none"
         >
-          <div class="flex-shrink-0 w-10 h-10 rounded-xl bg-orange-500/10 dark:bg-orange-500/15 border border-orange-500/25 group-hover:bg-orange-600 group-hover:text-white flex items-center justify-center text-orange-600 dark:text-orange-500 transition-colors">
-            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div class="flex-shrink-0 w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-orange-500/10 dark:bg-orange-500/15 border border-orange-500/25 group-hover:bg-orange-600 group-hover:text-white flex items-center justify-center text-orange-600 dark:text-orange-500 transition-colors">
+            <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={item.icon} />
             </svg>
           </div>
           <div>
-            <h3 class="text-sm font-semibold text-stone-900 dark:text-stone-100 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">
+            <h3 class="text-xs sm:text-sm font-bold sm:font-semibold text-stone-900 dark:text-stone-100 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">
               {item.title}
             </h3>
-            <p class="text-xs text-stone-600 dark:text-stone-300 mt-0.5 leading-relaxed">
+            <p class="text-[11px] sm:text-xs text-stone-600 dark:text-stone-300 mt-0.5 leading-relaxed">
               {item.desc}
             </p>
           </div>
