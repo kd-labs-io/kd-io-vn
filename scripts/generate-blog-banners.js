@@ -326,6 +326,345 @@ const banners = [
       </g>
     `,
   },
+  {
+    slug: 'post-quantum-cryptography-kyber-dilithium',
+    badge: 'NIST STANDARDS • LATTICE-BASED CRYPTOGRAPHY',
+    title: 'Post-Quantum Cryptography & ML-KEM',
+    subtitle: 'Thwarting Shor Algorithm & Harvest Now, Decrypt Later Threats',
+    accent: '#EA580C',
+    secondary: '#38BDF8',
+    illustration: `
+      <!-- Post-Quantum Cryptography Visualization -->
+      <g transform="translate(130, 145)">
+        <!-- Left: Classical Vulnerability (RSA/ECC Shor Threat) -->
+        <g transform="translate(0, 10)">
+          <rect x="0" y="0" width="290" height="260" rx="24" fill="#180C08" stroke="#7F1D1D" stroke-width="1.8" stroke-dasharray="6 4" filter="url(#cardShadow)"/>
+          <rect x="24" y="24" width="48" height="48" rx="14" fill="#380808" stroke="#EF4444" stroke-width="1.5"/>
+          <path d="M40 48 L56 48 M48 40 L48 56" stroke="#F87171" stroke-width="3" stroke-linecap="round"/>
+          <text x="86" y="44" font-family="sans-serif" font-size="17" font-weight="800" fill="#FFFFFF">Classical Crypto</text>
+          <text x="86" y="64" font-family="monospace" font-size="11" fill="#F87171">RSA-4096 / ECC P-256</text>
+
+          <line x1="24" y1="90" x2="266" y2="90" stroke="#7F1D1D" stroke-opacity="0.4"/>
+          <text x="24" y="122" font-family="monospace" font-size="12" fill="#D6D3D1">• Discrete Log Problem</text>
+          <text x="24" y="148" font-family="monospace" font-size="12" fill="#D6D3D1">• Prime Factorization</text>
+          <text x="24" y="174" font-family="monospace" font-size="12" fill="#FCA5A5">⚠ Broken by Shor's Algo</text>
+          <rect x="24" y="202" width="242" height="34" rx="10" fill="#2E0A0A" stroke="#EF4444" stroke-opacity="0.6"/>
+          <text x="145" y="224" text-anchor="middle" font-family="monospace" font-size="11" font-weight="700" fill="#F87171">HARVEST NOW, DECRYPT LATER</text>
+        </g>
+
+        <!-- Center: Quantum Transition Engine / Hybrid Exchange -->
+        <g transform="translate(325, -5)">
+          <rect x="0" y="0" width="290" height="275" rx="24" fill="#1C0D05" stroke="url(#borderGrad)" stroke-width="2.5" filter="url(#cardShadow)"/>
+          <rect x="24" y="24" width="48" height="48" rx="14" fill="#EA580C"/>
+          <circle cx="48" cy="48" r="14" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-dasharray="4 2"/>
+          <circle cx="48" cy="48" r="6" fill="#FFFFFF"/>
+          <text x="86" y="44" font-family="sans-serif" font-size="17" font-weight="800" fill="#FFFFFF">Hybrid KEM</text>
+          <text x="86" y="64" font-family="monospace" font-size="11" fill="#FDBA74">X25519 + ML-KEM-768</text>
+
+          <line x1="24" y1="90" x2="266" y2="90" stroke="#EA580C" stroke-opacity="0.3"/>
+          <text x="24" y="122" font-family="monospace" font-size="12" fill="#FFFFFF">• Dual Key Exchange</text>
+          <text x="24" y="148" font-family="monospace" font-size="12" fill="#FFFFFF">• Defense-In-Depth</text>
+          <text x="24" y="174" font-family="monospace" font-size="12" fill="#FFFFFF">• FIPS 203 Standardized</text>
+          <rect x="24" y="210" width="242" height="40" rx="10" fill="#0C253B" stroke="#38BDF8" stroke-width="1.2"/>
+          <text x="145" y="235" text-anchor="middle" font-family="monospace" font-size="11.5" font-weight="700" fill="#7DD3FC">QUANTUM-RESISTANT VAULT</text>
+        </g>
+
+        <!-- Right: Lattice-Based NIST Suite (ML-KEM / ML-DSA) -->
+        <g transform="translate(650, 10)">
+          <rect x="0" y="0" width="290" height="260" rx="24" fill="#180C08" stroke="#EA580C" stroke-width="1.8" filter="url(#cardShadow)"/>
+          <rect x="24" y="24" width="48" height="48" rx="14" fill="#2E1306" stroke="#FB713B" stroke-width="1.5"/>
+          <path d="M38 48 L48 38 L58 48 L48 58 Z" fill="none" stroke="#FDBA74" stroke-width="2.5"/>
+          <text x="86" y="44" font-family="sans-serif" font-size="17" font-weight="800" fill="#FFFFFF">Lattice Math</text>
+          <text x="86" y="64" font-family="monospace" font-size="11" fill="#FB923C">Module-LWE Vectors</text>
+
+          <line x1="24" y1="90" x2="266" y2="90" stroke="#EA580C" stroke-opacity="0.25"/>
+          <text x="24" y="122" font-family="monospace" font-size="12" fill="#E7E5E4">• ML-KEM (Kyber)</text>
+          <text x="24" y="148" font-family="monospace" font-size="12" fill="#E7E5E4">• ML-DSA (Dilithium)</text>
+          <text x="24" y="174" font-family="monospace" font-size="12" fill="#E7E5E4">• SLH-DSA (SPHINCS+)</text>
+          <rect x="24" y="202" width="242" height="34" rx="10" fill="#241006" stroke="#EA580C" stroke-opacity="0.6"/>
+          <text x="145" y="224" text-anchor="middle" font-family="monospace" font-size="11" font-weight="700" fill="#FDBA74">NIST FIPS 203 / 204 / 205</text>
+        </g>
+      </g>
+    `,
+  },
+  {
+    slug: 'memory-safety-rust-swift-systems-programming',
+    badge: 'SYSTEMS PROGRAMMING • MEMORY SAFETY',
+    title: 'Anatomy of Memory Safety: Rust & Swift',
+    subtitle: 'Eliminating Use-After-Free, Buffer Overflows & Data Races at Compile Time',
+    accent: '#EA580C',
+    secondary: '#FB923C',
+    illustration: `
+      <g transform="translate(130, 145)">
+        <!-- Left: Memory Corruption Flaws -->
+        <g transform="translate(0, 10)">
+          <rect x="0" y="0" width="280" height="260" rx="24" fill="#180C08" stroke="#7F1D1D" stroke-width="1.8" filter="url(#cardShadow)"/>
+          <rect x="24" y="24" width="48" height="48" rx="14" fill="#3B0A0A" stroke="#EF4444" stroke-width="1.5"/>
+          <text x="48" y="55" text-anchor="middle" font-family="monospace" font-size="16" font-weight="800" fill="#F87171">C++</text>
+          <text x="86" y="44" font-family="sans-serif" font-size="17" font-weight="800" fill="#FFFFFF">Memory Pitfalls</text>
+          <text x="86" y="64" font-family="monospace" font-size="11" fill="#F87171">70%+ of High-Severity CVEs</text>
+
+          <line x1="24" y1="90" x2="256" y2="90" stroke="#7F1D1D" stroke-opacity="0.4"/>
+          <text x="24" y="122" font-family="monospace" font-size="12" fill="#FCA5A5">✗ Use-After-Free (UAF)</text>
+          <text x="24" y="148" font-family="monospace" font-size="12" fill="#FCA5A5">✗ Out-of-Bounds Write</text>
+          <text x="24" y="174" font-family="monospace" font-size="12" fill="#FCA5A5">✗ Data Races &amp; Dangling Ptr</text>
+          <rect x="24" y="202" width="232" height="34" rx="10" fill="#2E0A0A" stroke="#EF4444" stroke-opacity="0.6"/>
+          <text x="140" y="224" text-anchor="middle" font-family="monospace" font-size="11" font-weight="700" fill="#F87171">EXPLOITABLE PRIMITIVES</text>
+        </g>
+
+        <!-- Center: Rust Ownership Model -->
+        <g transform="translate(315, -5)">
+          <rect x="0" y="0" width="300" height="275" rx="24" fill="#1E0D05" stroke="url(#borderGrad)" stroke-width="2.5" filter="url(#cardShadow)"/>
+          <rect x="24" y="24" width="48" height="48" rx="14" fill="#EA580C"/>
+          <text x="48" y="55" text-anchor="middle" font-family="monospace" font-size="16" font-weight="900" fill="#FFFFFF">RS</text>
+          <text x="86" y="44" font-family="sans-serif" font-size="17" font-weight="800" fill="#FFFFFF">Rust Ownership</text>
+          <text x="86" y="64" font-family="monospace" font-size="11" fill="#FDBA74">Compile-Time Verification</text>
+
+          <line x1="24" y1="90" x2="276" y2="90" stroke="#EA580C" stroke-opacity="0.3"/>
+          <text x="24" y="122" font-family="monospace" font-size="12" fill="#FFFFFF">• Single Exclusive Owner</text>
+          <text x="24" y="148" font-family="monospace" font-size="12" fill="#FFFFFF">• Borrow Checker (Aliasing XOR Mut)</text>
+          <text x="24" y="174" font-family="monospace" font-size="12" fill="#FFFFFF">• Zero-Cost Abstractions</text>
+          <rect x="24" y="210" width="252" height="40" rx="10" fill="#052E16" stroke="#22C55E" stroke-width="1.2"/>
+          <text x="150" y="235" text-anchor="middle" font-family="monospace" font-size="11.5" font-weight="700" fill="#4ADE80">ZERO RUNTIME OVERHEAD</text>
+        </g>
+
+        <!-- Right: Swift Strict Concurrency -->
+        <g transform="translate(650, 10)">
+          <rect x="0" y="0" width="280" height="260" rx="24" fill="#180C08" stroke="#EA580C" stroke-width="1.8" filter="url(#cardShadow)"/>
+          <rect x="24" y="24" width="48" height="48" rx="14" fill="#2E1306" stroke="#FB713B" stroke-width="1.5"/>
+          <text x="48" y="55" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="900" fill="#FB923C">SW</text>
+          <text x="86" y="44" font-family="sans-serif" font-size="17" font-weight="800" fill="#FFFFFF">Swift 6 Concurrency</text>
+          <text x="86" y="64" font-family="monospace" font-size="11" fill="#FB923C">Data-Race Free Guarantee</text>
+
+          <line x1="24" y1="90" x2="256" y2="90" stroke="#EA580C" stroke-opacity="0.25"/>
+          <text x="24" y="122" font-family="monospace" font-size="12" fill="#E7E5E4">• Actor Isolation Model</text>
+          <text x="24" y="148" font-family="monospace" font-size="12" fill="#E7E5E4">• Sendable Protocol Bounds</text>
+          <text x="24" y="174" font-family="monospace" font-size="12" fill="#E7E5E4">• Automatic Reference Count</text>
+          <rect x="24" y="202" width="232" height="34" rx="10" fill="#241006" stroke="#EA580C" stroke-opacity="0.6"/>
+          <text x="140" y="224" text-anchor="middle" font-family="monospace" font-size="11" font-weight="700" fill="#FDBA74">NATIVE APP ROBUSTNESS</text>
+        </g>
+      </g>
+    `,
+  },
+  {
+    slug: 'local-first-software-crdt-architecture',
+    badge: 'OFFLINE-FIRST • DISTRIBUTED DATA',
+    title: 'Local-First Architecture & CRDTs',
+    subtitle: 'Conflict-Free Replicated Data Types & Zero-Cloud Dependent Sync',
+    accent: '#EA580C',
+    secondary: '#4ADE80',
+    illustration: `
+      <!-- 3 Peer Nodes Replicating without Central Master -->
+      <g transform="translate(130, 145)">
+        <!-- Node A: Client Local Storage -->
+        <g transform="translate(0, 20)">
+          <rect x="0" y="0" width="260" height="235" rx="22" fill="#180C08" stroke="#EA580C" stroke-width="1.8" filter="url(#cardShadow)"/>
+          <circle cx="44" cy="44" r="18" fill="#2E1306" stroke="#FB713B" stroke-width="1.5"/>
+          <text x="44" y="50" text-anchor="middle" font-family="monospace" font-size="14" font-weight="800" fill="#FFFFFF">A</text>
+          <text x="76" y="42" font-family="sans-serif" font-size="16" font-weight="800" fill="#FFFFFF">Device Peer A</text>
+          <text x="76" y="60" font-family="monospace" font-size="11" fill="#4ADE80">100% Offline Replica</text>
+
+          <rect x="20" y="80" width="220" height="74" rx="12" fill="#241208" stroke="#EA580C" stroke-opacity="0.4"/>
+          <text x="32" y="104" font-family="monospace" font-size="11.5" fill="#FED7AA">State: Document v4</text>
+          <text x="32" y="124" font-family="monospace" font-size="11" fill="#A8A29E">Op: Insert("Hello", 0)</text>
+          <text x="32" y="142" font-family="monospace" font-size="11" fill="#A8A29E">Lamport Clock: 12</text>
+          <rect x="20" y="170" width="220" height="34" rx="10" fill="#052E16" stroke="#22C55E" stroke-width="1"/>
+          <text x="130" y="192" text-anchor="middle" font-family="monospace" font-size="11.5" font-weight="700" fill="#4ADE80">ZERO SERVER LOCK</text>
+        </g>
+
+        <!-- Center: CRDT Mathematical Convergence -->
+        <g transform="translate(295, 0)">
+          <rect x="0" y="0" width="340" height="270" rx="26" fill="#1F0D05" stroke="url(#borderGrad)" stroke-width="2.5" filter="url(#cardShadow)"/>
+          <rect x="24" y="24" width="48" height="48" rx="14" fill="#EA580C"/>
+          <path d="M40 54 L48 38 L56 54" stroke="#FFFFFF" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <text x="86" y="44" font-family="sans-serif" font-size="17" font-weight="800" fill="#FFFFFF">CRDT Convergence</text>
+          <text x="86" y="64" font-family="monospace" font-size="11" fill="#FDBA74">Join-Semilattice Math</text>
+
+          <g transform="translate(24, 88)">
+            <rect x="0" y="0" width="292" height="66" rx="12" fill="#291207" stroke="#EA580C" stroke-opacity="0.4"/>
+            <text x="146" y="26" text-anchor="middle" font-family="monospace" font-size="12" font-weight="700" fill="#FED7AA">Commutative: a ⊔ b = b ⊔ a</text>
+            <text x="146" y="48" text-anchor="middle" font-family="monospace" font-size="12" font-weight="700" fill="#FED7AA">Associative: (a ⊔ b) ⊔ c = a ⊔ (b ⊔ c)</text>
+          </g>
+
+          <g transform="translate(24, 170)">
+            <rect x="0" y="0" width="292" height="74" rx="14" fill="#140702" stroke="#22C55E" stroke-opacity="0.6"/>
+            <text x="146" y="28" text-anchor="middle" font-family="monospace" font-size="12" font-weight="700" fill="#4ADE80">Strong Eventual Consistency</text>
+            <text x="146" y="52" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#D6D3D1">No Central Arbiter • No Conflicts</text>
+          </g>
+        </g>
+
+        <!-- Node B: Peer Replica B -->
+        <g transform="translate(670, 20)">
+          <rect x="0" y="0" width="260" height="235" rx="22" fill="#180C08" stroke="#EA580C" stroke-width="1.8" filter="url(#cardShadow)"/>
+          <circle cx="44" cy="44" r="18" fill="#2E1306" stroke="#FB713B" stroke-width="1.5"/>
+          <text x="44" y="50" text-anchor="middle" font-family="monospace" font-size="14" font-weight="800" fill="#FFFFFF">B</text>
+          <text x="76" y="42" font-family="sans-serif" font-size="16" font-weight="800" fill="#FFFFFF">Device Peer B</text>
+          <text x="76" y="60" font-family="monospace" font-size="11" fill="#4ADE80">100% Offline Replica</text>
+
+          <rect x="20" y="80" width="220" height="74" rx="12" fill="#241208" stroke="#EA580C" stroke-opacity="0.4"/>
+          <text x="32" y="104" font-family="monospace" font-size="11.5" fill="#FED7AA">State: Document v4</text>
+          <text x="32" y="124" font-family="monospace" font-size="11" fill="#A8A29E">Op: Insert(" World", 5)</text>
+          <text x="32" y="142" font-family="monospace" font-size="11" fill="#A8A29E">Lamport Clock: 13</text>
+          <rect x="20" y="170" width="220" height="34" rx="10" fill="#052E16" stroke="#22C55E" stroke-width="1"/>
+          <text x="130" y="192" text-anchor="middle" font-family="monospace" font-size="11.5" font-weight="700" fill="#4ADE80">PEER-TO-PEER ENCRYPTED</text>
+        </g>
+      </g>
+    `,
+  },
+  {
+    slug: 'hsm-vs-cloud-kms-envelope-encryption',
+    badge: 'KEY MANAGEMENT • HARDWARE INTEGRITY',
+    title: 'Hardware HSM vs Cloud KMS & Envelope Encryption',
+    subtitle: 'Hierarchical KEK/DEK Key Governance for High-Throughput Vaults',
+    accent: '#EA580C',
+    secondary: '#F59E0B',
+    illustration: `
+      <!-- Envelope Encryption Pipeline -->
+      <g transform="translate(120, 140)">
+        <!-- Layer 1: Hardware HSM / Root Key -->
+        <g transform="translate(0, 15)">
+          <rect x="0" y="0" width="280" height="250" rx="24" fill="#1C0E06" stroke="#EA580C" stroke-width="2" filter="url(#cardShadow)"/>
+          <rect x="24" y="24" width="48" height="48" rx="14" fill="#3D1807" stroke="#F59E0B" stroke-width="1.5"/>
+          <rect x="36" y="38" width="24" height="20" rx="4" fill="none" stroke="#FDBA74" stroke-width="2.5"/>
+          <circle cx="48" cy="48" r="3" fill="#F59E0B"/>
+          <text x="86" y="44" font-family="sans-serif" font-size="17" font-weight="800" fill="#FFFFFF">HSM / KMS</text>
+          <text x="86" y="64" font-family="monospace" font-size="11" fill="#F59E0B">FIPS 140-3 Level 3/4</text>
+
+          <line x1="24" y1="90" x2="256" y2="90" stroke="#EA580C" stroke-opacity="0.3"/>
+          <rect x="24" y="106" width="232" height="60" rx="12" fill="#291207" stroke="#EA580C" stroke-opacity="0.5"/>
+          <text x="140" y="130" text-anchor="middle" font-family="monospace" font-size="11" fill="#A8A29E">ROOT KEY (KEK)</text>
+          <text x="140" y="152" text-anchor="middle" font-family="monospace" font-size="13" font-weight="700" fill="#FFFFFF">Never Leaves Silicon</text>
+          <rect x="24" y="186" width="232" height="34" rx="10" fill="#241006" stroke="#EA580C" stroke-opacity="0.6"/>
+          <text x="140" y="208" text-anchor="middle" font-family="monospace" font-size="11" font-weight="700" fill="#FDBA74">WRAP / UNWRAP KEY API</text>
+        </g>
+
+        <!-- Arrow 1 -->
+        <g transform="translate(295, 125)">
+          <path d="M0 15 L35 15" stroke="url(#accentLine)" stroke-width="3" stroke-linecap="round"/>
+          <path d="M25 5 L40 15 L25 25" fill="none" stroke="#FB713B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="20" y="-8" text-anchor="middle" font-family="monospace" font-size="10" fill="#FED7AA">Unwrap DEK</text>
+        </g>
+
+        <!-- Layer 2: Envelope Encryption Engine -->
+        <g transform="translate(350, 0)">
+          <rect x="0" y="0" width="310" height="275" rx="26" fill="#210D04" stroke="url(#borderGrad)" stroke-width="2.5" filter="url(#cardShadow)"/>
+          <rect x="24" y="24" width="48" height="48" rx="14" fill="#EA580C"/>
+          <!-- Envelope Icon -->
+          <rect x="36" y="38" width="24" height="18" rx="3" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+          <path d="M36 40 L48 49 L60 40" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+          <text x="86" y="44" font-family="sans-serif" font-size="17" font-weight="800" fill="#FFFFFF">Envelope Mode</text>
+          <text x="86" y="64" font-family="monospace" font-size="11" fill="#FDBA74">DEK Encrypted by KEK</text>
+
+          <g transform="translate(24, 88)">
+            <rect x="0" y="0" width="262" height="74" rx="12" fill="#140702" stroke="#EA580C" stroke-opacity="0.4"/>
+            <text x="20" y="28" font-family="monospace" font-size="11" fill="#A8A29E">Plaintext DEK (RAM only)</text>
+            <text x="20" y="48" font-family="monospace" font-size="13" font-weight="700" fill="#4ADE80">AES-256 Fast Local Enc</text>
+            <text x="20" y="66" font-family="monospace" font-size="10" fill="#FED7AA">Instant Zeroization in RAM</text>
+          </g>
+
+          <rect x="24" y="180" width="262" height="66" rx="12" fill="#2B1408" stroke="#EA580C" stroke-opacity="0.6"/>
+          <text x="155" y="206" text-anchor="middle" font-family="monospace" font-size="11" fill="#A8A29E">ENCRYPTED DEK (EDEK)</text>
+          <text x="155" y="230" text-anchor="middle" font-family="monospace" font-size="13" font-weight="700" fill="#FFFFFF">Stored With Ciphertext</text>
+        </g>
+
+        <!-- Arrow 2 -->
+        <g transform="translate(675, 125)">
+          <path d="M0 15 L35 15" stroke="url(#accentLine)" stroke-width="3" stroke-linecap="round"/>
+          <path d="M25 5 L40 15 L25 25" fill="none" stroke="#FB713B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="20" y="-8" text-anchor="middle" font-family="monospace" font-size="10" fill="#4ADE80">Cipher Data</text>
+        </g>
+
+        <!-- Layer 3: Encrypted Storage -->
+        <g transform="translate(730, 15)">
+          <rect x="0" y="0" width="240" height="250" rx="24" fill="#1A0C05" stroke="#22C55E" stroke-opacity="0.6" stroke-width="1.8" filter="url(#cardShadow)"/>
+          <rect x="20" y="24" width="44" height="44" rx="12" fill="#0A2C18" stroke="#22C55E"/>
+          <path d="M36 46 L42 52 L52 38" stroke="#4ADE80" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <text x="74" y="44" font-family="sans-serif" font-size="16" font-weight="800" fill="#FFFFFF">Encrypted Blob</text>
+          <text x="74" y="62" font-family="monospace" font-size="11" fill="#4ADE80">Data at Rest</text>
+
+          <rect x="20" y="90" width="200" height="85" rx="12" fill="#120703" stroke="#EA580C" stroke-opacity="0.3"/>
+          <text x="120" y="118" text-anchor="middle" font-family="monospace" font-size="12" font-weight="700" fill="#FFFFFF">[ EDEK Header ]</text>
+          <text x="120" y="140" text-anchor="middle" font-family="monospace" font-size="12" fill="#FDBA74">[ AES-GCM Cipher ]</text>
+          <text x="120" y="160" text-anchor="middle" font-family="monospace" font-size="11" fill="#A8A29E">[ Auth GMAC Tag ]</text>
+
+          <rect x="20" y="190" width="200" height="34" rx="10" fill="#052E16" stroke="#22C55E" stroke-width="1"/>
+          <text x="120" y="212" text-anchor="middle" font-family="monospace" font-size="11" font-weight="700" fill="#4ADE80">ZERO CLOUD EXPOSURE</text>
+        </g>
+      </g>
+    `,
+  },
+  {
+    slug: 'mobile-app-anti-reverse-engineering-protection',
+    badge: 'RUNTIME PROTECTION • MOBILE SHIELDING',
+    title: 'Mobile App Shielding & Anti-Reversing',
+    subtitle: 'Defeating Frida Dynamic Hooking, Magisk Root Bypass & Binary Disassembly',
+    accent: '#EA580C',
+    secondary: '#EF4444',
+    illustration: `
+      <!-- Defense in Depth Shielding Layers -->
+      <g transform="translate(125, 140)">
+        <!-- Attacker Toolset -->
+        <g transform="translate(0, 15)">
+          <rect x="0" y="0" width="260" height="250" rx="22" fill="#180B07" stroke="#7F1D1D" stroke-width="1.8" filter="url(#cardShadow)"/>
+          <rect x="20" y="20" width="44" height="44" rx="12" fill="#3B0A0A" stroke="#EF4444"/>
+          <text x="42" y="47" text-anchor="middle" font-family="monospace" font-size="14" font-weight="800" fill="#F87171">ATK</text>
+          <text x="74" y="40" font-family="sans-serif" font-size="16" font-weight="800" fill="#FFFFFF">Adversary Vectors</text>
+          <text x="74" y="58" font-family="monospace" font-size="11" fill="#F87171">Dynamic &amp; Static</text>
+
+          <line x1="20" y1="78" x2="240" y2="78" stroke="#7F1D1D" stroke-opacity="0.4"/>
+          <text x="20" y="108" font-family="monospace" font-size="11.5" fill="#FCA5A5">• Frida / Xposed Hooks</text>
+          <text x="20" y="134" font-family="monospace" font-size="11.5" fill="#FCA5A5">• Magisk / Zygisk Root</text>
+          <text x="20" y="160" font-family="monospace" font-size="11.5" fill="#FCA5A5">• Ghidra / IDA Pro Reversing</text>
+          <text x="20" y="186" font-family="monospace" font-size="11.5" fill="#FCA5A5">• Repackaging &amp; Smali Edit</text>
+
+          <rect x="20" y="202" width="220" height="30" rx="8" fill="#2E0A0A" stroke="#EF4444" stroke-opacity="0.6"/>
+          <text x="130" y="222" text-anchor="middle" font-family="monospace" font-size="11" font-weight="700" fill="#F87171">HOSTILE RUNTIME</text>
+        </g>
+
+        <!-- Center: Shielding Engine -->
+        <g transform="translate(285, 0)">
+          <rect x="0" y="0" width="370" height="280" rx="26" fill="#210D04" stroke="url(#borderGrad)" stroke-width="2.5" filter="url(#cardShadow)"/>
+          <rect x="24" y="24" width="48" height="48" rx="14" fill="#EA580C"/>
+          <path d="M48 36 L60 42 V50 C60 58 54 64 48 68 C42 64 36 58 36 50 V42 Z" fill="#FFFFFF"/>
+          <text x="86" y="44" font-family="sans-serif" font-size="17" font-weight="800" fill="#FFFFFF">Shielding Matrix</text>
+          <text x="86" y="64" font-family="monospace" font-size="11" fill="#FDBA74">Multi-Layered Anti-Tamper</text>
+
+          <g transform="translate(24, 88)">
+            <rect x="0" y="0" width="322" height="46" rx="10" fill="#140702" stroke="#EA580C" stroke-opacity="0.4"/>
+            <text x="16" y="28" font-family="monospace" font-size="12" font-weight="700" fill="#FED7AA">1. Anti-Debugging:</text>
+            <text x="165" y="28" font-family="monospace" font-size="11.5" fill="#E7E5E4">ptrace(PTRACE_TRACEME)</text>
+
+            <rect x="0" y="56" width="322" height="46" rx="10" fill="#140702" stroke="#EA580C" stroke-opacity="0.4"/>
+            <text x="16" y="84" font-family="monospace" font-size="12" font-weight="700" fill="#FED7AA">2. Anti-Hooking:</text>
+            <text x="150" y="84" font-family="monospace" font-size="11.5" fill="#E7E5E4">D-Bus / /proc/self/maps</text>
+
+            <rect x="0" y="112" width="322" height="46" rx="10" fill="#140702" stroke="#22C55E" stroke-opacity="0.6"/>
+            <text x="16" y="140" font-family="monospace" font-size="12" font-weight="700" fill="#4ADE80">3. Integrity Hash:</text>
+            <text x="155" y="140" font-family="monospace" font-size="11.5" fill="#4ADE80">APK Signature &amp; OLLVM</text>
+          </g>
+        </g>
+
+        <!-- Right: Protected App Outcome -->
+        <g transform="translate(680, 15)">
+          <rect x="0" y="0" width="265" height="250" rx="22" fill="#1A0C05" stroke="#22C55E" stroke-opacity="0.6" stroke-width="1.8" filter="url(#cardShadow)"/>
+          <rect x="20" y="20" width="44" height="44" rx="12" fill="#0A2C18" stroke="#22C55E"/>
+          <circle cx="42" cy="42" r="12" fill="none" stroke="#4ADE80" stroke-width="2.5"/>
+          <path d="M37 42 L41 46 L48 37" stroke="#4ADE80" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <text x="74" y="40" font-family="sans-serif" font-size="16" font-weight="800" fill="#FFFFFF">Hardened App</text>
+          <text x="74" y="58" font-family="monospace" font-size="11" fill="#4ADE80">Self-Defending Binary</text>
+
+          <line x1="20" y1="78" x2="245" y2="78" stroke="#22C55E" stroke-opacity="0.3"/>
+          <text x="20" y="108" font-family="monospace" font-size="11.5" fill="#D6D3D1">✓ Auto-Termination on Hook</text>
+          <text x="20" y="134" font-family="monospace" font-size="11.5" fill="#D6D3D1">✓ Control Flow Flattening</text>
+          <text x="20" y="160" font-family="monospace" font-size="11.5" fill="#D6D3D1">✓ Encrypted String Literals</text>
+          <text x="20" y="186" font-family="monospace" font-size="11.5" fill="#D6D3D1">✓ FLAG_SECURE Enforced</text>
+
+          <rect x="20" y="202" width="225" height="30" rx="8" fill="#052E16" stroke="#22C55E" stroke-width="1"/>
+          <text x="132" y="222" text-anchor="middle" font-family="monospace" font-size="11" font-weight="700" fill="#4ADE80">ZERO TAMPER TOLERANCE</text>
+        </g>
+      </g>
+    `,
+  },
 ];
 
 function escapeXml(str) {

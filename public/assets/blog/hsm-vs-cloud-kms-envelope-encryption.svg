@@ -1,0 +1,146 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E0903"/>
+      <stop offset="45%" stop-color="#120502"/>
+      <stop offset="100%" stop-color="#080201"/>
+    </linearGradient>
+
+    <radialGradient id="centerGlow" cx="50%" cy="42%" r="60%">
+      <stop offset="0%" stop-color="#EA580C" stop-opacity="0.28"/>
+      <stop offset="50%" stop-color="#EA580C" stop-opacity="0.09"/>
+      <stop offset="100%" stop-color="#EA580C" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EA580C" stop-opacity="0.75"/>
+      <stop offset="50%" stop-color="#FB923C" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#7C2D12" stop-opacity="0.4"/>
+    </linearGradient>
+
+    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7F1D1D"/>
+      <stop offset="100%" stop-color="#FB713B"/>
+    </linearGradient>
+
+    <pattern id="gridPattern" width="36" height="36" patternUnits="userSpaceOnUse">
+      <circle cx="18" cy="18" r="1.1" fill="#EA580C" fill-opacity="0.12"/>
+    </pattern>
+
+    <filter id="cardShadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#000000" flood-opacity="0.65"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="675" fill="url(#bgGrad)"/>
+  <rect width="1200" height="675" fill="url(#centerGlow)"/>
+  <rect width="1200" height="675" fill="url(#gridPattern)"/>
+
+  <!-- Subtle Enso Zen Circle Watermark -->
+  <g transform="translate(1030, 130) scale(3.2) translate(-50, -50)" opacity="0.07">
+    <path d="M 56.1 13.1 A 37.2 37.2 0 1 0 85.6 65.1" stroke="#EA580C" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="65.2" cy="28.3" r="6" fill="#FB923C"/>
+    <circle cx="78.4" cy="48.1" r="6" fill="#FB923C"/>
+  </g>
+
+  <!-- Outer Frame -->
+  <rect x="24" y="24" width="1152" height="627" rx="28" fill="none" stroke="url(#borderGrad)" stroke-width="1.5"/>
+
+  <!-- Top Header Badge & KD Labs Identity -->
+  <g transform="translate(64, 58)">
+    <!-- KD Labs Mini Icon -->
+    <rect x="0" y="0" width="38" height="38" rx="11" fill="#EA580C"/>
+    <text x="19" y="25" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="900" fill="#FFFFFF">KD</text>
+    <text x="52" y="25" font-family="sans-serif" font-size="18" font-weight="800" fill="#FFFFFF" letter-spacing="-0.3">KD Labs</text>
+    <text x="132" y="25" font-family="monospace" font-size="14" fill="#FB923C">• SECURITY &amp; ENGINEERING</text>
+
+    <!-- Right Pill Badge -->
+    <rect x="652" y="2" width="420" height="34" rx="17" fill="#220D05" stroke="#EA580C" stroke-opacity="0.6" stroke-width="1.2"/>
+    <text x="862" y="23" text-anchor="middle" font-family="monospace" font-size="11.5" font-weight="700" fill="#FED7AA" letter-spacing="0.6">● KEY MANAGEMENT • HARDWARE INTEGRITY</text>
+  </g>
+
+  <!-- Central Technical Diagram Illustration -->
+  
+      <!-- Envelope Encryption Pipeline -->
+      <g transform="translate(120, 140)">
+        <!-- Layer 1: Hardware HSM / Root Key -->
+        <g transform="translate(0, 15)">
+          <rect x="0" y="0" width="280" height="250" rx="24" fill="#1C0E06" stroke="#EA580C" stroke-width="2" filter="url(#cardShadow)"/>
+          <rect x="24" y="24" width="48" height="48" rx="14" fill="#3D1807" stroke="#F59E0B" stroke-width="1.5"/>
+          <rect x="36" y="38" width="24" height="20" rx="4" fill="none" stroke="#FDBA74" stroke-width="2.5"/>
+          <circle cx="48" cy="48" r="3" fill="#F59E0B"/>
+          <text x="86" y="44" font-family="sans-serif" font-size="17" font-weight="800" fill="#FFFFFF">HSM / KMS</text>
+          <text x="86" y="64" font-family="monospace" font-size="11" fill="#F59E0B">FIPS 140-3 Level 3/4</text>
+
+          <line x1="24" y1="90" x2="256" y2="90" stroke="#EA580C" stroke-opacity="0.3"/>
+          <rect x="24" y="106" width="232" height="60" rx="12" fill="#291207" stroke="#EA580C" stroke-opacity="0.5"/>
+          <text x="140" y="130" text-anchor="middle" font-family="monospace" font-size="11" fill="#A8A29E">ROOT KEY (KEK)</text>
+          <text x="140" y="152" text-anchor="middle" font-family="monospace" font-size="13" font-weight="700" fill="#FFFFFF">Never Leaves Silicon</text>
+          <rect x="24" y="186" width="232" height="34" rx="10" fill="#241006" stroke="#EA580C" stroke-opacity="0.6"/>
+          <text x="140" y="208" text-anchor="middle" font-family="monospace" font-size="11" font-weight="700" fill="#FDBA74">WRAP / UNWRAP KEY API</text>
+        </g>
+
+        <!-- Arrow 1 -->
+        <g transform="translate(295, 125)">
+          <path d="M0 15 L35 15" stroke="url(#accentLine)" stroke-width="3" stroke-linecap="round"/>
+          <path d="M25 5 L40 15 L25 25" fill="none" stroke="#FB713B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="20" y="-8" text-anchor="middle" font-family="monospace" font-size="10" fill="#FED7AA">Unwrap DEK</text>
+        </g>
+
+        <!-- Layer 2: Envelope Encryption Engine -->
+        <g transform="translate(350, 0)">
+          <rect x="0" y="0" width="310" height="275" rx="26" fill="#210D04" stroke="url(#borderGrad)" stroke-width="2.5" filter="url(#cardShadow)"/>
+          <rect x="24" y="24" width="48" height="48" rx="14" fill="#EA580C"/>
+          <!-- Envelope Icon -->
+          <rect x="36" y="38" width="24" height="18" rx="3" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+          <path d="M36 40 L48 49 L60 40" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+          <text x="86" y="44" font-family="sans-serif" font-size="17" font-weight="800" fill="#FFFFFF">Envelope Mode</text>
+          <text x="86" y="64" font-family="monospace" font-size="11" fill="#FDBA74">DEK Encrypted by KEK</text>
+
+          <g transform="translate(24, 88)">
+            <rect x="0" y="0" width="262" height="74" rx="12" fill="#140702" stroke="#EA580C" stroke-opacity="0.4"/>
+            <text x="20" y="28" font-family="monospace" font-size="11" fill="#A8A29E">Plaintext DEK (RAM only)</text>
+            <text x="20" y="48" font-family="monospace" font-size="13" font-weight="700" fill="#4ADE80">AES-256 Fast Local Enc</text>
+            <text x="20" y="66" font-family="monospace" font-size="10" fill="#FED7AA">Instant Zeroization in RAM</text>
+          </g>
+
+          <rect x="24" y="180" width="262" height="66" rx="12" fill="#2B1408" stroke="#EA580C" stroke-opacity="0.6"/>
+          <text x="155" y="206" text-anchor="middle" font-family="monospace" font-size="11" fill="#A8A29E">ENCRYPTED DEK (EDEK)</text>
+          <text x="155" y="230" text-anchor="middle" font-family="monospace" font-size="13" font-weight="700" fill="#FFFFFF">Stored With Ciphertext</text>
+        </g>
+
+        <!-- Arrow 2 -->
+        <g transform="translate(675, 125)">
+          <path d="M0 15 L35 15" stroke="url(#accentLine)" stroke-width="3" stroke-linecap="round"/>
+          <path d="M25 5 L40 15 L25 25" fill="none" stroke="#FB713B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="20" y="-8" text-anchor="middle" font-family="monospace" font-size="10" fill="#4ADE80">Cipher Data</text>
+        </g>
+
+        <!-- Layer 3: Encrypted Storage -->
+        <g transform="translate(730, 15)">
+          <rect x="0" y="0" width="240" height="250" rx="24" fill="#1A0C05" stroke="#22C55E" stroke-opacity="0.6" stroke-width="1.8" filter="url(#cardShadow)"/>
+          <rect x="20" y="24" width="44" height="44" rx="12" fill="#0A2C18" stroke="#22C55E"/>
+          <path d="M36 46 L42 52 L52 38" stroke="#4ADE80" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <text x="74" y="44" font-family="sans-serif" font-size="16" font-weight="800" fill="#FFFFFF">Encrypted Blob</text>
+          <text x="74" y="62" font-family="monospace" font-size="11" fill="#4ADE80">Data at Rest</text>
+
+          <rect x="20" y="90" width="200" height="85" rx="12" fill="#120703" stroke="#EA580C" stroke-opacity="0.3"/>
+          <text x="120" y="118" text-anchor="middle" font-family="monospace" font-size="12" font-weight="700" fill="#FFFFFF">[ EDEK Header ]</text>
+          <text x="120" y="140" text-anchor="middle" font-family="monospace" font-size="12" fill="#FDBA74">[ AES-GCM Cipher ]</text>
+          <text x="120" y="160" text-anchor="middle" font-family="monospace" font-size="11" fill="#A8A29E">[ Auth GMAC Tag ]</text>
+
+          <rect x="20" y="190" width="200" height="34" rx="10" fill="#052E16" stroke="#22C55E" stroke-width="1"/>
+          <text x="120" y="212" text-anchor="middle" font-family="monospace" font-size="11" font-weight="700" fill="#4ADE80">ZERO CLOUD EXPOSURE</text>
+        </g>
+      </g>
+    
+
+  <!-- Bottom Title & Subtitle Bar -->
+  <g transform="translate(64, 515)">
+    <line x1="0" y1="-22" x2="1072" y2="-22" stroke="#EA580C" stroke-opacity="0.22" stroke-width="1"/>
+    <text x="0" y="24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="38" font-weight="800" fill="#FFFFFF" letter-spacing="-0.8">Hardware HSM vs Cloud KMS &amp; Envelope Encryption</text>
+    <text x="0" y="62" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="19" font-weight="500" fill="#D6D3D1">Hierarchical KEK/DEK Key Governance for High-Throughput Vaults</text>
+    <text x="1072" y="62" text-anchor="end" font-family="monospace" font-size="15" font-weight="700" fill="#FB713B">kd.io.vn/blog</text>
+  </g>
+</svg>
