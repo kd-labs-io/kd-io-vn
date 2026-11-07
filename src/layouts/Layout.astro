@@ -35,12 +35,12 @@ const {
 } = Astro.props;
 
 const fallbackTitle = lang === 'vi'
-  ? 'KD Labs • Bùi Khương Duy — AI-Native Developer, System Architecture & Research Lab'
-  : 'KD Labs • Bui Khuong Duy — AI-Native Developer, Systems Architect & Research Lab';
+  ? 'KD Labs • Bùi Khương Duy — AI-Native Software & Research Lab'
+  : 'KD Labs • Bui Khuong Duy — AI-Native Software & Research Lab';
 
 const fallbackDescription = lang === 'vi'
-  ? 'KD Labs là AI-Native Engineering & Research Lab của Bùi Khương Duy — phát triển Web, Mobile App bảo mật phần cứng (Simple OTP), thiết kế hệ thống, DevOps, Kubernetes (K8s) và nghiên cứu công nghệ.'
-  : 'KD Labs is an AI-Native Engineering & Research Lab by Bui Khuong Duy — specializing in Web & Mobile Apps, System Architecture, DevOps, Kubernetes (K8s), and Applied Research.';
+  ? 'KD Labs là AI-Native Software & Research Lab sáng lập bởi Bùi Khương Duy — nghiên cứu và phát triển phần mềm tích hợp AI Agent, kiến trúc hệ thống phân tán, hạ tầng Cloud-Native Kubernetes (K8s) và các ứng dụng đề cao quyền riêng tư.'
+  : 'KD Labs is an AI-Native Software & Research Lab founded by Bui Khuong Duy — building intelligent multi-agent software, distributed systems, Cloud-Native Kubernetes (K8s) infrastructure, and privacy-first applications.';
 
 const title = initialTitle || fallbackTitle;
 const description = initialDescription || fallbackDescription;
@@ -117,8 +117,8 @@ const defaultJsonLd = {
       '@id': `${siteUrl}/#organization`,
       name: 'KD Labs',
       alternateName: [
-        'KD Labs Studio',
-        'KD Labs — AI-Native Engineering & Research Lab',
+        'KD Labs — AI-Native Labs',
+        'KD Labs — AI-Native Software & Research Lab',
       ],
       description: fallbackDescription,
       knowsAbout: siteConfig.author.knowsAbout,
@@ -154,8 +154,8 @@ const defaultJsonLd = {
       url: rootUrl,
       name: 'KD Labs',
       alternateName: [
-        'KD Labs Studio',
-        'KD Labs — AI-Native Engineering & Research Lab',
+        'KD Labs — AI-Native Labs',
+        'KD Labs — AI-Native Software & Research Lab',
         'kd.io.vn',
       ],
       description: fallbackDescription,

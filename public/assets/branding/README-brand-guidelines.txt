@@ -2,9 +2,9 @@
 KD LABS - BRAND GUIDELINES & ASSETS KIT
 =====================================================
 
-Studio: KD Labs
+Studio: KD Labs — AI-Native Software & Research Lab
 Website: https://kd.io.vn
-Focus: 100% Offline Mobile Apps, Hardware-backed Cryptography
+Focus: AI-Native Software, Distributed Systems, Cloud-Native (K8s) & Zero-Trust Security
 
 1. LOGO FILES
 - kd-labs-icon.svg / .png: App icon badge (dark background)

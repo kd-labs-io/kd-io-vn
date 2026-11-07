@@ -2,13 +2,13 @@
 KD LABS - OFFICIAL PRESS KIT & BRAND ASSETS
 =====================================================
 
-Studio: KD Labs
+Studio: KD Labs — AI-Native Software & Research Lab
 Website: https://kd.io.vn
 Press Inquiries: contact@kd.io.vn
-Focus: 100% Offline Mobile Apps, Hardware-backed Cryptography
+Focus: AI-Native Software, Distributed Systems, Cloud-Native (K8s) & Zero-Trust Security
 
 1. OFFICIAL BOILERPLATE
-"KD Labs là một indie mobile studio độc lập tại Việt Nam, sáng tạo các ứng dụng di động tối giản theo tinh thần Zen Nhật Bản kết hợp mật mã học phần cứng hiện đại. Với tôn chỉ 100% ngoại tuyến (Zero-Network) và cam kết không thu thập dữ liệu người dùng, KD Labs hướng tới việc mang lại sự an tâm tuyệt đối và trải nghiệm tĩnh tại cho người dùng công nghệ trên toàn cầu."
+"KD Labs là một AI-Native Software & Research Lab tại Việt Nam được sáng lập bởi Bùi Khương Duy, chuyên nghiên cứu và phát triển các hệ thống phần mềm tích hợp AI Agent, kiến trúc hệ thống phân tán, hạ tầng Cloud-Native Kubernetes (K8s) và các ứng dụng đề cao quyền riêng tư. Kết hợp tư duy kỹ thuật hiện đại với triết lý tối giản Kanso Nhật Bản và chuẩn mực bảo mật Zero-Trust, KD Labs hướng tới việc kiến tạo những giải pháp công nghệ thông minh, bền vững và đáng tin cậy trên toàn cầu."
 
 2. LOGO SUITE
 - kd-labs-icon.svg / .png: App icon badge (dark background)

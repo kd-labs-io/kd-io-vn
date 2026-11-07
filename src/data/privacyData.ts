@@ -424,7 +424,7 @@ export const privacyData: Record<Locale, PrivacyData> = {
           {
             title: '12.1. Thông tin đại diện phát triển',
             content: [
-              '• Đơn vị phát triển: KD Labs (Nhà phát triển phần mềm độc lập)',
+              '• Đơn vị phát triển: KD Labs (AI-Native Software & Research Lab)',
               '• Quốc gia sở tại: Việt Nam',
               '• Đại diện kỹ thuật: Duy BK',
               '• Hòm thư điện tử bảo mật & hỗ trợ: support@kd.io.vn',
@@ -809,7 +809,7 @@ export const privacyData: Record<Locale, PrivacyData> = {
           {
             title: '12.1. Developer Contact Details',
             content: [
-              '• Developer Entity: KD Labs (Independent Mobile & Cryptographic Studio)',
+              '• Developer Entity: KD Labs (AI-Native Software & Research Lab)',
               '• Country of Origin: Vietnam',
               '• Lead Developer: Duy BK',
               '• Official Privacy & Support Email: support@kd.io.vn',

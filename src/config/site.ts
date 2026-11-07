@@ -1,8 +1,8 @@
 export const siteConfig = {
   name: 'KD Labs',
   tagline: {
-    vi: 'AI-Native Engineering & Research Lab',
-    en: 'AI-Native Engineering & Research Lab',
+    vi: 'AI-Native Software & Research Lab',
+    en: 'AI-Native Software & Research Lab',
   },
   url: 'https://kd.io.vn',
   googlePlayDevUrl: 'https://play.google.com/store/apps/dev?id=7744040993303027729',
