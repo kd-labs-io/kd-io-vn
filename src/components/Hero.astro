@@ -100,12 +100,12 @@ const simpleOtpDetailUrl = isVi ? '/apps/simple-otp/' : '/en/apps/simple-otp/';
         <div class="hidden sm:flex items-center justify-between gap-4 absolute bottom-4 left-4 right-4 px-4 py-2.5 rounded-2xl backdrop-blur-xl bg-white/85 dark:bg-[#161513]/85 border border-white/60 dark:border-stone-700/80 shadow-lg text-xs">
           <div class="flex items-center gap-3">
             <a href={kdCodeDetailUrl} class="inline-flex items-center gap-2 font-semibold text-stone-900 dark:text-stone-100 hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
-              <img src="/assets/kd-code/icon.webp" alt="KD Code" width="20" height="20" loading="lazy" decoding="async" class="w-5 h-5 rounded-md object-cover" />
+              <img src="/assets/kd-code/icon.webp" alt="KD Code" width="20" height="20" loading="lazy" fetchpriority="low" decoding="async" class="w-5 h-5 rounded-md object-cover" />
               <span>KD Code (VS Code ACP)</span>
             </a>
             <span class="text-stone-300 dark:text-stone-700">•</span>
             <a href={simpleOtpDetailUrl} class="inline-flex items-center gap-2 font-semibold text-stone-900 dark:text-stone-100 hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
-              <img src="/assets/simple-otp/icon.webp" alt="Simple OTP" width="20" height="20" loading="lazy" decoding="async" class="w-5 h-5 rounded-md object-cover" />
+              <img src="/assets/simple-otp/icon.webp" alt="Simple OTP" width="20" height="20" loading="lazy" fetchpriority="low" decoding="async" class="w-5 h-5 rounded-md object-cover" />
               <span>Simple OTP (100% Offline)</span>
             </a>
           </div>

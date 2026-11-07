@@ -188,18 +188,16 @@ const finalJsonLdArray = jsonLd
     <meta name="author" content={authorName} />
     <meta name="keywords" content={keywordsList.join(', ')} />
 
-    <!-- Google Fonts: Plus Jakarta Sans + JetBrains Mono (Variable Fonts, Non-render-blocking) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Google Fonts: Plus Jakarta Sans + JetBrains Mono (Deferred after LCP, Non-render-blocking) -->
     <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400..700&family=Plus+Jakarta+Sans:wght@400..800&display=swap"
-      onload="this.onload=null;this.rel='stylesheet'"
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400..700&family=Plus+Jakarta+Sans:wght@400..800&display=optional"
+      media="print"
+      onload="if(document.readyState==='complete'){this.media='all'}else{window.addEventListener('load',()=>{this.media='all'},{once:true})}"
     />
     <noscript>
       <link
-        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400..700&family=Plus+Jakarta+Sans:wght@400..800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400..700&family=Plus+Jakarta+Sans:wght@400..800&display=optional"
         rel="stylesheet"
       />
     </noscript>
