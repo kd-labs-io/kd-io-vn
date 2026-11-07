@@ -1,81 +1,64 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
-import StatsBar from '../components/StatsBar.astro';
 import AppCard from '../components/AppCard.astro';
-import AppSlotPlaceholder from '../components/AppSlotPlaceholder.astro';
+import FeaturedResearch from '../components/FeaturedResearch.astro';
 import Philosophy from '../components/Philosophy.astro';
 import DataSafetyBanner from '../components/DataSafetyBanner.astro';
 import ContactSection from '../components/ContactSection.astro';
 import { appsData } from '../data/apps';
+import { siteConfig } from '../config/site';
 
 const lang = 'vi';
-
-const flagshipApp = appsData.find((app) => app.id === 'simple-otp') || appsData[0];
-const otherSlots = appsData.filter((app) => app.id !== flagshipApp.id);
 ---
 
 <Layout
   lang={lang}
-  title="KD Labs • Bùi Khương Duy — AI-Native Software & Research Lab"
-  description="KD Labs là AI-Native Software & Research Lab sáng lập bởi Bùi Khương Duy — nghiên cứu và phát triển phần mềm tích hợp AI Agent, kiến trúc hệ thống phân tán, hạ tầng Cloud-Native Kubernetes (K8s) và các ứng dụng đề cao quyền riêng tư."
+  title="KD Labs • Bùi Khương Duy — AI-Native Software & Open-Source Lab"
+  description="KD Labs là AI-Native Software & Research Lab sáng lập bởi Bùi Khương Duy (@kd-labs-io) — phát triển KD Code (VS Code ACP Multi-Agent & Git Worktrees), Simple OTP (2FA 100% ngoại tuyến) và nghiên cứu kỹ thuật chuyên sâu."
 >
-  <!-- Hero Section -->
+  <!-- Unified Hero + Bento Grid Section -->
   <Hero currentLang={lang} />
 
-  <!-- Trust Metrics Bar -->
-  <StatsBar currentLang={lang} />
-
-  <!-- Showcase Section -->
-  <section id="showcase" class="py-14 sm:py-28 relative">
+  <!-- Equal Products & Open-Source Showcase Section -->
+  <section id="showcase" class="py-14 sm:py-24 relative">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Section Header -->
       <div class="text-center max-w-2xl mx-auto space-y-3 sm:space-y-4 mb-10 sm:mb-14">
         <span class="inline-block text-xs font-bold uppercase tracking-widest text-orange-600 dark:text-orange-500">
-          Hệ sinh thái Sản phẩm & Kỹ thuật
+          Sản phẩm & Dự án Mã nguồn mở
         </span>
         <h2 class="text-2xl sm:text-4xl font-bold tracking-tight text-stone-900 dark:text-stone-100 text-balance">
-          Từ Ứng dụng Thực tế đến Kiến trúc Lõi
+          Phần Mềm Thực Tế & Kiến Trúc Mở
         </h2>
         <p class="text-sm sm:text-base text-stone-600 dark:text-stone-300 leading-relaxed font-normal text-pretty">
-          Các sản phẩm đã phát hành chính thức và những dự án nghiên cứu chuyên sâu về AI-Native, Web, Hệ thống phân tán & Kubernetes tại KD Labs.
+          Các sản phẩm chính thức được xây dựng và công khai mã nguồn tại <a href={siteConfig.githubUrl} target="_blank" rel="noopener noreferrer" class="font-mono font-semibold text-orange-600 dark:text-orange-400 hover:underline">github.com/kd-labs-io</a> — từ công cụ điều phối AI Agent trong VS Code đến ứng dụng bảo mật két phần cứng.
         </p>
       </div>
 
-      <!-- Featured Flagship Released App: Simple OTP -->
-      <div class="space-y-4 mb-12 sm:mb-16">
+      <!-- Unified Equal Product Cards List -->
+      <div class="space-y-6 sm:space-y-8">
         <div class="flex items-center justify-between gap-3 border-b border-stone-200 dark:border-stone-800 pb-3">
           <div class="flex items-center gap-2 min-w-0">
             <span class="w-2 h-2 rounded-full bg-emerald-500 shrink-0"></span>
             <h3 class="text-xs sm:text-sm font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300 leading-snug">
-              Sản Phẩm Tiêu Biểu <span class="hidden sm:inline">(Mobile Apps • Đã Phát Hành)</span>
+              Dự Án Chính Thức Tại KD Labs
             </h3>
           </div>
-          <span class="shrink-0 whitespace-nowrap text-[11px] sm:text-xs text-stone-600 dark:text-stone-300 font-mono px-2.5 py-0.5 rounded-full bg-stone-100 dark:bg-stone-800/80">
-            iOS & Android
-          </span>
-        </div>
-        <AppCard app={flagshipApp} currentLang={lang} />
-      </div>
-
-      <!-- Active Engineering & R&D Lab Tracks -->
-      <div class="space-y-4">
-        <div class="flex items-center justify-between gap-3 border-b border-stone-200 dark:border-stone-800 pb-3">
-          <div class="flex items-center gap-2 min-w-0">
-            <span class="w-2 h-2 rounded-full bg-orange-500 shrink-0"></span>
-            <h3 class="text-xs sm:text-sm font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300 leading-snug">
-              Dự Án & Hạ Tầng Đang Nghiên Cứu <span class="hidden sm:inline">(AI-Native • Web • K8s)</span>
-            </h3>
-          </div>
-          <span class="shrink-0 whitespace-nowrap text-[11px] sm:text-xs text-stone-600 dark:text-stone-300 font-mono px-2.5 py-0.5 rounded-full bg-stone-100 dark:bg-stone-800/80">
-            {otherSlots.length} R&D tracks
-          </span>
+          <a
+            href={siteConfig.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="shrink-0 whitespace-nowrap text-[11px] sm:text-xs text-stone-700 dark:text-stone-300 hover:text-orange-600 dark:hover:text-orange-400 font-mono px-3 py-1 rounded-full bg-stone-100 dark:bg-stone-800/80 transition-colors"
+          >
+            @kd-labs-io • {appsData.length} Dự án
+          </a>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
-          {otherSlots.map((slot) => (
-            <AppSlotPlaceholder slot={slot} currentLang={lang} />
+        <div class="space-y-8">
+          {appsData.map((app) => (
+            <AppCard app={app} currentLang={lang} />
           ))}
         </div>
       </div>
@@ -83,10 +66,13 @@ const otherSlots = appsData.filter((app) => app.id !== flagshipApp.id);
     </div>
   </section>
 
+  <!-- Featured Research & Blog Section -->
+  <FeaturedResearch currentLang={lang} />
+
   <!-- Philosophy Section -->
   <Philosophy currentLang={lang} />
 
-  <!-- Google Play Data Safety Compliance Banner -->
+  <!-- Privacy & Zero-Trust Compliance Banner -->
   <DataSafetyBanner currentLang={lang} />
 
   <!-- Contact & FAQ Section -->

@@ -22,13 +22,14 @@ const screenshots = app.screenshots ? app.screenshots[lang] : [];
 const featureGraphic = app.featureGraphic ? app.featureGraphic[lang] : null;
 const siteUrl = Astro.site ? Astro.site.origin : 'https://kd.io.vn';
 const appOgImage = featureGraphic || app.iconImage;
+const isVsCodeExt = app.platformType === 'vscode_extension';
 
 const appJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
   name: app.name,
-  operatingSystem: app.appStoreUrl ? 'iOS, Android' : 'Android',
-  applicationCategory: 'SecurityApplication',
+  operatingSystem: isVsCodeExt ? 'macOS, Linux, Windows' : (app.appStoreUrl ? 'iOS, Android' : 'Android'),
+  applicationCategory: isVsCodeExt ? 'DeveloperApplication' : 'SecurityApplication',
   description: app.shortDescription[lang],
   image: appOgImage ? (appOgImage.startsWith('http') ? appOgImage : `${siteUrl}${appOgImage}`) : undefined,
   offers: {
@@ -36,14 +37,7 @@ const appJsonLd = {
     price: '0',
     priceCurrency: 'USD',
   },
-  downloadUrl: app.appStoreUrl || (app.googlePlayUrl !== '#' ? app.googlePlayUrl : undefined),
-  ...(app.rating ? {
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: app.rating,
-      ratingCount: app.reviewsCount ? parseInt(app.reviewsCount.replace(/\D/g, '')) || 100 : 100,
-    },
-  } : {}),
+  downloadUrl: app.appStoreUrl || app.githubUrl || (app.googlePlayUrl !== '#' ? app.googlePlayUrl : undefined),
   author: {
     '@type': 'Person',
     '@id': `${siteUrl}/#person`,
@@ -64,7 +58,7 @@ const appJsonLd = {
 
 <Layout
   lang={lang}
-  title={`${app.name} — 2FA Offline • KD Labs`}
+  title={`${app.name} — ${app.category[lang]} • KD Labs`}
   description={app.shortDescription[lang]}
   image={appOgImage}
   imageAlt={`${app.name} - ${app.shortDescription[lang]}`}
@@ -84,12 +78,12 @@ const appJsonLd = {
         <span>{t.appDetail.backToApps}</span>
       </a>
 
-      <!-- App Header Banner -->
+      <!-- Product Header Banner -->
       <div class="rounded-3xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-[#161412] p-6 sm:p-10 shadow-sm">
         <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-8 justify-between">
           
           <div class="flex items-center gap-5">
-            <!-- App Icon -->
+            <!-- Product Icon -->
             {app.iconImage ? (
               <img
                 src={app.iconImage}
@@ -110,7 +104,7 @@ const appJsonLd = {
                   {app.category[lang]}
                 </span>
                 <span class="text-xs text-stone-600 dark:text-stone-300">
-                  KD Labs
+                  KD Labs (@kd-labs-io)
                 </span>
               </div>
 
@@ -121,10 +115,10 @@ const appJsonLd = {
               <div class="flex flex-wrap items-center gap-3 text-xs text-stone-600 dark:text-stone-300">
                 <span class="inline-flex items-center gap-1 font-semibold text-emerald-600 dark:text-emerald-400">
                   <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                  100% Ngoại tuyến (Zero-Network)
+                  {app.securityBadge[lang]}
                 </span>
                 <span>•</span>
-                <span class="font-mono text-stone-600 dark:text-stone-300">{app.version}</span>
+                <span class="font-mono text-stone-600 dark:text-stone-300">v{app.version}</span>
               </div>
             </div>
           </div>
@@ -138,7 +132,6 @@ const appJsonLd = {
                 rel="noopener noreferrer"
                 class="flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-2xl bg-orange-600 hover:bg-orange-700 text-white font-semibold text-sm shadow-md hover:shadow-orange-500/25 transition-all duration-200 transform hover:-translate-y-0.5 active:scale-[0.99]"
               >
-                <!-- Apple Icon -->
                 <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24">
                   <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.42c.62-.75 1.04-1.8 0.93-2.85-.9.04-1.99.6-2.63 1.35-.57.65-1.06 1.71-.93 2.73.99.08 2.02-.48 2.63-1.23z"/>
                 </svg>
@@ -146,41 +139,35 @@ const appJsonLd = {
               </a>
             )}
 
-            {app.googlePlayUrl && app.googlePlayUrl !== '#' ? (
-              <a
-                href={app.googlePlayUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-2xl bg-stone-900 hover:bg-black dark:bg-stone-800 dark:hover:bg-stone-700 text-white font-semibold text-sm shadow-md transition-all duration-200 active:scale-[0.99]"
-              >
-                <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M3.609 1.814L13.793 12 3.61 22.186c-.37-.367-.61-.88-.61-1.464V3.278c0-.584.24-1.097.61-1.464zm1.402-.822L16.273 7.42 14.5 9.193 5.011.992zm9.49 9.873l1.774 1.774-11.264 6.43 9.49-8.204zm2.463-.997l2.827 1.616c.82.469.82 1.233 0 1.701l-2.827 1.616-1.993-1.993 1.993-1.94z"/>
-                </svg>
-                <span>{t.appDetail.downloadOnGooglePlay}</span>
-              </a>
-            ) : (
-              <div
-                class="flex items-center justify-center gap-2 px-5 py-3 rounded-2xl border border-stone-200 dark:border-stone-800 bg-stone-100/70 dark:bg-stone-900/50 text-stone-500 dark:text-stone-400 text-sm font-medium select-none"
-                title={t.appDetail.downloadOnGooglePlay}
-              >
-                <svg class="w-4 h-4 text-stone-400 dark:text-stone-500 shrink-0" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M3.609 1.814L13.793 12 3.61 22.186c-.37-.367-.61-.88-.61-1.464V3.278c0-.584.24-1.097.61-1.464zm1.402-.822L16.273 7.42 14.5 9.193 5.011.992zm9.49 9.873l1.774 1.774-11.264 6.43 9.49-8.204zm2.463-.997l2.827 1.616c.82.469.82 1.233 0 1.701l-2.827 1.616-1.993-1.993 1.993-1.94z"/>
-                </svg>
-                <span>{t.appDetail.downloadOnGooglePlay}</span>
-              </div>
-            )}
-
             {app.githubUrl && (
               <a
                 href={app.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="flex items-center justify-center gap-2 px-5 py-3 rounded-2xl border border-stone-300 dark:border-stone-700 bg-stone-100/80 dark:bg-stone-800/80 hover:bg-stone-200 dark:hover:bg-stone-700 text-stone-800 dark:text-stone-200 font-medium text-sm transition-colors"
+                class={`flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl font-semibold text-sm transition-all ${
+                  !app.appStoreUrl
+                    ? 'bg-orange-600 hover:bg-orange-700 text-white shadow-md hover:shadow-orange-500/25'
+                    : 'border border-stone-300 dark:border-stone-700 bg-stone-100/80 dark:bg-stone-800/80 hover:bg-stone-200 dark:hover:bg-stone-700 text-stone-800 dark:text-stone-200'
+                }`}
               >
                 <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
                 </svg>
-                <span>GitHub</span>
+                <span>{t.appDetail.viewGithub}</span>
+              </a>
+            )}
+
+            {app.protocolUrl && (
+              <a
+                href={app.protocolUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl border border-stone-300 dark:border-stone-700 bg-stone-100/80 dark:bg-stone-800/80 hover:bg-stone-200 dark:hover:bg-stone-700 text-stone-800 dark:text-stone-200 font-mono font-medium text-sm transition-colors"
+              >
+                <span>Agent Client Protocol (ACP)</span>
+                <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
               </a>
             )}
           </div>
@@ -199,16 +186,66 @@ const appJsonLd = {
         </div>
       )}
 
+      <!-- KD Code Architecture & Interactive Workflow Banner (when VS Code extension) -->
+      {isVsCodeExt && (
+        <div class="rounded-3xl border border-stone-800 bg-stone-950 text-stone-100 p-6 sm:p-8 shadow-xl space-y-6 font-mono">
+          <div class="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-stone-800">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-orange-500 animate-pulse"></span>
+              <span class="text-xs sm:text-sm font-bold text-stone-100">
+                Kiến trúc Điều phối Agent Client Protocol (ACP) & Git Worktrees
+              </span>
+            </div>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-orange-500/15 text-orange-400 border border-orange-500/30">
+              VS Code Secondary Sidebar • Cmd+Alt+A
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+            <div class="p-4 rounded-2xl bg-stone-900/90 border border-stone-800 space-y-2">
+              <div class="text-orange-400 font-bold">01. ACP Registry & Agents</div>
+              <p class="text-stone-300 font-sans leading-relaxed">
+                Cài đặt 1-click Claude, Codex, OpenCode từ ACP Registry hoặc kết nối Agent cục bộ kèm MCP servers & Skills ($).
+              </p>
+            </div>
+            <div class="p-4 rounded-2xl bg-stone-900/90 border border-stone-800 space-y-2">
+              <div class="text-orange-400 font-bold">02. Isolated Git Worktrees</div>
+              <p class="text-stone-300 font-sans leading-relaxed">
+                Mỗi phiên hội thoại hoặc tác vụ chạy trên một Git Worktree độc lập, tự động sao chép .env/node_modules và kiểm tra an toàn.
+              </p>
+            </div>
+            <div class="p-4 rounded-2xl bg-stone-900/90 border border-emerald-500/40 space-y-2">
+              <div class="text-emerald-400 font-bold">03. Best-of-N Diff & Merge</div>
+              <p class="text-stone-300 font-sans leading-relaxed">
+                Gửi cùng 1 prompt cho nhiều Agent/Model, đối chiếu diff trực tiếp (Keep/Undo), gộp nhánh hoặc tạo Pull Request qua GitHub CLI.
+              </p>
+            </div>
+          </div>
+
+          {app.installCommand && (
+            <div class="p-4 rounded-2xl bg-stone-900 border border-stone-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+              <div>
+                <span class="text-stone-400 block text-[11px]">Khởi chạy từ mã nguồn (Yêu cầu VS Code ≥ 1.123):</span>
+                <code class="text-orange-300 font-bold">git clone https://github.com/kd-labs-io/kd-code-extension && cd kd-code-extension && {app.installCommand}</code>
+              </div>
+              <span class="shrink-0 text-[11px] text-emerald-400 bg-emerald-950/60 px-2.5 py-1 rounded-lg border border-emerald-800/50">
+                MIT License
+              </span>
+            </div>
+          )}
+        </div>
+      )}
+
       <!-- Main Two Column Grid -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
         
         <!-- Left: Full Details & Screenshots (7 cols) -->
         <div class="lg:col-span-7 space-y-10">
           
-          <!-- About App -->
+          <!-- About Product -->
           <div class="space-y-4">
             <h2 class="text-xl font-bold text-stone-900 dark:text-stone-100">
-              Giới thiệu ứng dụng
+              Giới thiệu dự án
             </h2>
             <p class="text-stone-600 dark:text-stone-300 leading-relaxed font-normal">
               {app.fullDescription[lang]}
@@ -218,7 +255,7 @@ const appJsonLd = {
           <!-- Key Features -->
           <div class="space-y-4">
             <h2 class="text-xl font-bold text-stone-900 dark:text-stone-100">
-              Tính năng nổi bật
+              Tính năng cốt lõi
             </h2>
             <div class="space-y-2.5">
               {app.features[lang].map((feature) => (
@@ -303,7 +340,7 @@ const appJsonLd = {
 
               <div class="flex items-center justify-between py-1 border-b border-stone-100 dark:border-stone-900">
                 <span class="text-stone-600 dark:text-stone-300">{t.appDetail.osRequirement}</span>
-                <span class="font-medium text-stone-800 dark:text-stone-200">{app.osRequirement}</span>
+                <span class="font-medium text-stone-800 dark:text-stone-200 text-right">{app.osRequirement}</span>
               </div>
 
               <div class="flex items-center justify-between py-1">
@@ -313,7 +350,7 @@ const appJsonLd = {
             </div>
           </div>
 
-          <!-- Privacy Pledge Card -->
+          <!-- Security & Privacy Pledge Card -->
           <div class="rounded-3xl border border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-stone-900/60 p-6 space-y-3">
             <div class="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-semibold text-xs uppercase tracking-wider">
               <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -323,7 +360,7 @@ const appJsonLd = {
             </div>
             
             <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed font-normal">
-              {t.appDetail.dataProtectionText}
+              {app.securityPledge ? app.securityPledge[lang] : t.appDetail.dataProtectionText}
             </p>
 
             <div class="pt-2">

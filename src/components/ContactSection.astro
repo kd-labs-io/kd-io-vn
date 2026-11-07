@@ -62,6 +62,28 @@ const t = getTranslations(currentLang);
 
           <div class="pt-3 border-t border-stone-100 dark:border-stone-800/80">
             <div class="text-xs uppercase tracking-wider text-stone-600 dark:text-stone-300 font-semibold">
+              GitHub Organization
+            </div>
+            <div class="flex items-center justify-between mt-1">
+              <a
+                href={siteConfig.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-sm font-mono font-semibold text-stone-900 dark:text-stone-100 hover:text-orange-600 dark:hover:text-orange-400 transition-colors inline-flex items-center gap-1.5"
+              >
+                <span>github.com/kd-labs-io</span>
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded-md bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300">
+                MIT Open Source
+              </span>
+            </div>
+          </div>
+
+          <div class="pt-3 border-t border-stone-100 dark:border-stone-800/80">
+            <div class="text-xs uppercase tracking-wider text-stone-600 dark:text-stone-300 font-semibold">
               {t.contact.developerIdLabel}
             </div>
             <div class="text-sm font-mono font-medium text-stone-800 dark:text-stone-200 mt-1">

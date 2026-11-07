@@ -385,16 +385,24 @@ export const translations = {
         ],
       },
       appIcons: {
-        tagline: 'Biểu tượng ứng dụng',
-        title: 'Hệ Thống Icon Ứng Dụng Chính Thức',
+        tagline: 'Biểu tượng sản phẩm',
+        title: 'Hệ Thống Icon Sản Phẩm Chính Thức',
         subtitle:
-          'Biểu tượng ứng dụng di động được thiết kế nổi khối tinh tế, chuẩn hóa theo quy chuẩn Google Play Store (512x512px).',
-        downloadPng: 'Tải PNG (512x512)',
+          'Biểu tượng chính thức của các sản phẩm phần mềm thuộc hệ sinh thái KD Labs (@kd-labs-io).',
+        downloadPng: 'Tải PNG',
         items: [
           {
+            name: 'KD Code',
+            badge: 'VS Code Extension • MIT',
+            desc: 'Biểu tượng tiện ích mở rộng KD Code — điều phối Coding Agents qua chuẩn ACP và Git Worktrees trong VS Code.',
+            resolution: '512 x 512 px',
+            format: 'PNG (Nền trong suốt)',
+            pngUrl: '/assets/kd-code/icon.png',
+          },
+          {
             name: 'Simple OTP',
-            badge: 'Flagship App',
-            desc: 'Biểu tượng ứng dụng Simple OTP với sắc cam Zen ấm áp, thiết kế 3D nổi khối mềm mại trên nền squircle chuẩn Google Play Store.',
+            badge: 'iOS & Android • MIT',
+            desc: 'Biểu tượng ứng dụng Simple OTP với sắc cam Zen ấm áp, thiết kế 3D nổi khối mềm mại trên nền squircle.',
             resolution: '512 x 512 px',
             format: 'PNG (Nền trong suốt)',
             pngUrl: '/assets/press/simple-otp-icon.png',
@@ -513,7 +521,7 @@ export const translations = {
       slotDescTemplate:
         'KD Labs is developing a new application. This card will display the product upon release.',
       slotHint: 'Easily customize through data file src/data/apps.ts',
-      featuresHeading: 'Core Security Pillars:',
+      featuresHeading: 'Core Capabilities:',
       version: 'Version',
       downloads: 'Status',
       rating: 'Security',
@@ -842,15 +850,23 @@ export const translations = {
         ],
       },
       appIcons: {
-        tagline: 'Application Icons',
-        title: 'Official Production App Icons',
+        tagline: 'Product Icons',
+        title: 'Official Production Software Icons',
         subtitle:
-          'Mobile application icons rendered to Google Play Store specifications (512x512px, adaptive squircle).',
-        downloadPng: 'Download PNG (512x512)',
+          'Official icons for software products across the KD Labs (@kd-labs-io) ecosystem.',
+        downloadPng: 'Download PNG',
         items: [
           {
+            name: 'KD Code',
+            badge: 'VS Code Extension • MIT',
+            desc: 'Official icon for KD Code — orchestrating coding agents over ACP and isolated Git worktrees inside VS Code.',
+            resolution: '512 x 512 px',
+            format: 'PNG (Transparent background)',
+            pngUrl: '/assets/kd-code/icon.png',
+          },
+          {
             name: 'Simple OTP',
-            badge: 'Flagship App',
+            badge: 'iOS & Android • MIT',
             desc: 'Official app icon for Simple OTP featuring warm Zen Orange depth and dimensional frosted squircle geometry.',
             resolution: '512 x 512 px',
             format: 'PNG (Transparent background)',

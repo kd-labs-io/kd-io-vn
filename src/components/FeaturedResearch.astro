@@ -1,0 +1,126 @@
+---
+import { getCollection } from 'astro:content';
+import type { Locale } from '../data/i18n';
+import { getTranslations } from '../data/i18n';
+import FormattedDate from './FormattedDate.astro';
+
+interface Props {
+  currentLang: Locale;
+}
+
+const { currentLang } = Astro.props;
+const isVi = currentLang === 'vi';
+const t = getTranslations(currentLang);
+const blogPrefix = `${currentLang}/`;
+const blogBaseUrl = isVi ? '/blog/' : '/en/blog/';
+
+const allPosts = (
+  await getCollection('blog', (entry) => entry.id.startsWith(blogPrefix))
+).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const featuredPosts = allPosts.slice(0, 3);
+---
+
+<section id="research" class="py-14 sm:py-24 border-t border-stone-200/80 dark:border-stone-800/80 bg-stone-100/40 dark:bg-stone-900/25 relative">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-12">
+    
+    <!-- Section Header -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6">
+      <div class="max-w-2xl space-y-3">
+        <span class="inline-block text-xs font-bold uppercase tracking-widest text-orange-600 dark:text-orange-500">
+          {isVi ? 'Nghiên cứu & Kiến trúc Chuyên sâu' : 'Applied Research & Engineering'}
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-bold tracking-tight text-stone-900 dark:text-stone-100 text-balance">
+          {isVi ? 'Bài Viết Nghiên Cứu Mới Nhất' : 'Latest Research Publications'}
+        </h2>
+        <p class="text-sm sm:text-base text-stone-600 dark:text-stone-300 leading-relaxed font-normal text-pretty">
+          {isVi
+            ? 'Phân tích chuyên sâu từ quá trình xây dựng sản phẩm thực tế tại KD Labs: Agent Client Protocol (ACP), Git Worktrees, Mật mã hậu lượng tử, CRDT Local-First và Bảo mật phần cứng.'
+            : 'In-depth engineering write-ups from building real software at KD Labs: Agent Client Protocol (ACP), Git Worktrees, Post-Quantum Cryptography, Local-First CRDTs, and Hardware Security.'}
+        </p>
+      </div>
+
+      <a
+        href={blogBaseUrl}
+        class="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl border border-stone-300 dark:border-stone-700 hover:border-orange-500 bg-white dark:bg-stone-900 text-stone-800 dark:text-stone-200 hover:text-orange-600 dark:hover:text-orange-400 text-xs sm:text-sm font-semibold transition-all self-start md:self-auto"
+      >
+        <span>
+          {isVi ? `Xem tất cả ${allPosts.length} bài nghiên cứu` : `View all ${allPosts.length} research articles`}
+        </span>
+        <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+      </a>
+    </div>
+
+    <!-- 3 Featured Articles Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+      {featuredPosts.map((post) => {
+        const slug = post.id.replace(new RegExp(`^${currentLang}/`), '');
+        const postUrl = `${blogBaseUrl}${slug}/`;
+
+        return (
+          <article class="flex flex-col rounded-3xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-[#161412] overflow-hidden hover:border-orange-500/40 dark:hover:border-orange-500/40 hover:shadow-xl transition-all duration-300 group">
+            {post.data.heroImage && (
+              <a href={postUrl} class="relative block aspect-[16/9] overflow-hidden bg-stone-950">
+                <img
+                  src={post.data.heroImage}
+                  alt={post.data.title}
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+              </a>
+            )}
+
+            <div class="flex flex-col flex-grow p-5 sm:p-6 space-y-4 justify-between">
+              <div class="space-y-2.5">
+                <div class="flex items-center gap-2.5 text-xs text-stone-500 dark:text-stone-400">
+                  <FormattedDate date={post.data.pubDate} locale={isVi ? 'vi-VN' : 'en-US'} />
+                  {post.data.readingTime && (
+                    <>
+                      <span>•</span>
+                      <span>{post.data.readingTime}</span>
+                    </>
+                  )}
+                </div>
+
+                <h3 class="text-base sm:text-lg font-bold tracking-tight text-stone-900 dark:text-stone-100 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors line-clamp-2 leading-snug">
+                  <a href={postUrl} class="focus:outline-none">
+                    {post.data.title}
+                  </a>
+                </h3>
+
+                <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-300 line-clamp-3 leading-relaxed font-normal">
+                  {post.data.description}
+                </p>
+              </div>
+
+              <div class="pt-3 border-t border-stone-100 dark:border-stone-800/80 space-y-3">
+                {post.data.tags && post.data.tags.length > 0 && (
+                  <div class="flex flex-wrap gap-1.5">
+                    {post.data.tags.slice(0, 3).map((tag) => (
+                      <span class="px-2 py-0.5 rounded-md text-[11px] font-medium bg-stone-100 dark:bg-stone-800/80 text-stone-600 dark:text-stone-300">
+                        #{tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                <a
+                  href={postUrl}
+                  class="inline-flex items-center gap-1.5 text-xs font-semibold text-orange-600 dark:text-orange-500 hover:text-orange-700 dark:hover:text-orange-400 group-hover:translate-x-1 transition-all"
+                >
+                  <span>{t.blogPage.readMore}</span>
+                  <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+        );
+      })}
+    </div>
+
+  </div>
+</section>
