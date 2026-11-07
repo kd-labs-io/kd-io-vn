@@ -88,6 +88,9 @@ const appJsonLd = {
               <img
                 src={app.iconImage}
                 alt={`${app.name} Icon`}
+                width="96"
+                height="96"
+                decoding="async"
                 class="w-20 h-20 sm:w-24 sm:h-24 rounded-3xl object-cover shadow-lg shadow-orange-500/20 flex-shrink-0 border border-stone-200 dark:border-stone-800"
               />
             ) : (
@@ -178,11 +181,19 @@ const appJsonLd = {
       <!-- Feature Graphic Banner if available -->
       {featureGraphic && (
         <div class="rounded-3xl overflow-hidden border border-stone-200 dark:border-stone-800 shadow-md bg-stone-950">
-          <img
-            src={featureGraphic}
-            alt={`${app.name} Feature Graphic`}
-            class="w-full h-auto object-cover"
-          />
+          <picture>
+            {featureGraphic.endsWith('.png') && (
+              <source type="image/webp" srcset={featureGraphic.replace(/\.png$/, '.webp')} />
+            )}
+            <img
+              src={featureGraphic}
+              alt={`${app.name} Feature Graphic`}
+              width="1024"
+              height="500"
+              decoding="async"
+              class="w-full h-auto object-cover"
+            />
+          </picture>
         </div>
       )}
 

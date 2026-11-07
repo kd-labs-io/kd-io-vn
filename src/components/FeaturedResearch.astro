@@ -63,12 +63,20 @@ const featuredPosts = allPosts.slice(0, 3);
           <article class="flex flex-col rounded-[1.75rem] craft-card craft-card-interactive craft-stack overflow-hidden group">
             {post.data.heroImage && (
               <a href={postUrl} class="relative block aspect-[16/9] overflow-hidden bg-stone-950 border-b border-stone-200/60 dark:border-stone-800/80">
-                <img
-                  src={post.data.heroImage}
-                  alt={post.data.title}
-                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
-                />
+                <picture>
+                  {post.data.heroImage.endsWith('.png') && (
+                    <source type="image/webp" srcset={post.data.heroImage.replace(/\.png$/, '.webp')} />
+                  )}
+                  <img
+                    src={post.data.heroImage}
+                    alt={post.data.title}
+                    width="680"
+                    height="383"
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
                 <div class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-stone-950/75 backdrop-blur-md border border-white/15 text-[10px] font-mono text-stone-200">
                   Craft Doc • KD Labs
                 </div>

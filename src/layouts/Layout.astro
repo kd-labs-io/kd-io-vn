@@ -188,10 +188,32 @@ const finalJsonLdArray = jsonLd
     <meta name="author" content={authorName} />
     <meta name="keywords" content={keywordsList.join(', ')} />
 
-    <!-- Google Fonts: Plus Jakarta Sans + Newsreader (Craft Editorial Serif) + JetBrains Mono -->
+    <!-- Google Fonts: Plus Jakarta Sans + JetBrains Mono (Variable Fonts, Non-render-blocking) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..600&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400..700&family=Plus+Jakarta+Sans:wght@400..800&display=swap"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400..700&family=Plus+Jakarta+Sans:wght@400..800&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+
+    {(pathname === '/' || pathname === '/en/') && (
+      <link
+        rel="preload"
+        as="image"
+        type="image/webp"
+        imagesrcset="/assets/branding/hero-landscape-800w.webp 640w, /assets/branding/hero-landscape.webp 1376w"
+        imagesizes="(max-width: 640px) 95vw, (max-width: 1024px) 90vw, 960px"
+        fetchpriority="high"
+      />
+    )}
 
     <!-- Canonical URL -->
     <link rel="canonical" href={canonicalURL} />

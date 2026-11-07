@@ -52,11 +52,20 @@ const featureGraphic = app.featureGraphic ? app.featureGraphic[currentLang] : nu
       <!-- Product Header: Icon + Title -->
       <div class="flex items-center gap-4">
         {app.iconImage ? (
-          <img
-            src={app.iconImage}
-            alt={`${app.name} Icon`}
-            class="w-15 h-15 sm:w-16 sm:h-16 rounded-2xl object-cover shadow-md shadow-orange-500/15 flex-shrink-0 border border-stone-200 dark:border-stone-800"
-          />
+          <picture class="flex-shrink-0">
+            {app.iconImage.endsWith('.png') && (
+              <source type="image/webp" srcset={app.iconImage.replace(/\.png$/, '.webp')} />
+            )}
+            <img
+              src={app.iconImage}
+              alt={`${app.name} Icon`}
+              width="64"
+              height="64"
+              loading="lazy"
+              decoding="async"
+              class="w-15 h-15 sm:w-16 sm:h-16 rounded-2xl object-cover shadow-md shadow-orange-500/15 flex-shrink-0 border border-stone-200 dark:border-stone-800"
+            />
+          </picture>
         ) : (
           <div class="w-15 h-15 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-orange-500 to-orange-700 flex items-center justify-center text-white shadow-md shadow-orange-500/20 flex-shrink-0">
             <svg class="w-8 h-8 sm:w-9 sm:h-9" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -236,12 +245,24 @@ const featureGraphic = app.featureGraphic ? app.featureGraphic[currentLang] : nu
         </div>
       ) : featureGraphic ? (
         <div class="relative w-full rounded-2xl overflow-hidden craft-window group-hover:border-orange-500/40 transition-all duration-300">
-          <img
-            src={featureGraphic}
-            alt={`${app.name} Feature Banner`}
-            class="w-full h-auto object-cover transform group-hover:scale-[1.02] transition-transform duration-500"
-            loading="lazy"
-          />
+          <picture>
+            {featureGraphic.endsWith('.png') && (
+              <source
+                type="image/webp"
+                srcset={`${featureGraphic.replace(/\.png$/, '-600w.webp')} 600w, ${featureGraphic.replace(/\.png$/, '.webp')} 1024w`}
+                sizes="(max-width: 640px) 90vw, 480px"
+              />
+            )}
+            <img
+              src={featureGraphic}
+              alt={`${app.name} Feature Banner`}
+              width="1024"
+              height="500"
+              class="w-full h-auto object-cover transform group-hover:scale-[1.02] transition-transform duration-500"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
           <div class="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-full bg-stone-950/85 backdrop-blur-md text-[10px] font-mono text-stone-200 border border-white/15">
             iOS App Store & Android • 100% Offline
           </div>

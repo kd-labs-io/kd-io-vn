@@ -7,6 +7,9 @@
   --font-serif: "Newsreader", "Instrument Serif", Georgia, Cambria, "Times New Roman", Times, serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
+  --color-orange-600: #B43B0A;
+  --color-orange-700: #9A3412;
+
   --color-zen-orange: #EA580C;
   --color-zen-orange-hover: #C2410C;
   --color-zen-orange-light: #FFEDD5;

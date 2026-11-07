@@ -27,16 +27,18 @@ const simpleOtpDetailUrl = isVi ? '/apps/simple-otp/' : '/en/apps/simple-otp/';
           AI-Native Labs
         </span>
         <span
-          class="block text-orange-600 dark:text-orange-500 mt-1.5 min-h-[1.2em]"
+          class="grid text-orange-600 dark:text-orange-500 mt-1.5"
           aria-label={isVi ? 'An toàn, hiệu quả, tốc độ' : 'Secure, efficient, fast'}
         >
           <span
-            id="hero-typewriter-text"
-            data-text={isVi ? 'An toàn, hiệu quả, tốc độ' : 'Secure, efficient, fast'}
-          >{isVi ? 'An toàn, hiệu quả, tốc độ' : 'Secure, efficient, fast'}</span><span
-            class="inline-block w-[3px] sm:w-[4px] h-[0.82em] bg-orange-600 dark:bg-orange-500 ml-1 align-middle animate-pulse rounded-full"
+            class="invisible select-none pointer-events-none [grid-area:1/1] after:content-[''] after:inline-block after:w-[3px] sm:after:w-[4px] after:h-[0.82em] after:ml-1"
             aria-hidden="true"
-          ></span>
+          >{isVi ? 'An toàn, hiệu quả, tốc độ' : 'Secure, efficient, fast'}</span>
+          <span
+            id="hero-typewriter-text"
+            class="block w-full [grid-area:1/1] after:content-[''] after:inline-block after:w-[3px] sm:after:w-[4px] after:h-[0.82em] after:bg-orange-600 dark:after:bg-orange-500 after:ml-1 after:align-middle after:animate-pulse after:rounded-full"
+            data-text={isVi ? 'An toàn, hiệu quả, tốc độ' : 'Secure, efficient, fast'}
+          >{isVi ? 'An toàn, hiệu quả, tốc độ' : 'Secure, efficient, fast'}</span>
         </span>
       </h1>
 
@@ -76,24 +78,34 @@ const simpleOtpDetailUrl = isVi ? '/apps/simple-otp/' : '/en/apps/simple-otp/';
     <!-- Single Ghibli × Craft.do Landscape Artwork -->
     <div class="relative rounded-[1.75rem] sm:rounded-[2.25rem] craft-card craft-stack p-2 sm:p-3 overflow-hidden">
       <div class="relative rounded-[1.35rem] sm:rounded-[1.75rem] overflow-hidden aspect-[16/9] bg-stone-200 dark:bg-stone-900">
-        <img
-          src="/assets/branding/hero-landscape.jpg"
-          alt={isVi ? 'Không gian sáng tạo KD Labs phong cách Ghibli & Craft.do' : 'KD Labs creative workspace in Ghibli & Craft.do style'}
-          class="w-full h-full object-cover"
-          loading="eager"
-          fetchpriority="high"
-        />
+        <picture>
+          <source
+            type="image/webp"
+            srcset="/assets/branding/hero-landscape-800w.webp 640w, /assets/branding/hero-landscape.webp 1376w"
+            sizes="(max-width: 640px) 95vw, (max-width: 1024px) 90vw, 960px"
+          />
+          <img
+            src="/assets/branding/hero-landscape.jpg"
+            alt={isVi ? 'Không gian sáng tạo KD Labs phong cách Ghibli & Craft.do' : 'KD Labs creative workspace in Ghibli & Craft.do style'}
+            width="1376"
+            height="768"
+            class="w-full h-full object-cover"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </picture>
 
         <!-- Subtle Floating Craft Dock inside bottom of artwork (Desktop & Mobile) -->
         <div class="hidden sm:flex items-center justify-between gap-4 absolute bottom-4 left-4 right-4 px-4 py-2.5 rounded-2xl backdrop-blur-xl bg-white/85 dark:bg-[#161513]/85 border border-white/60 dark:border-stone-700/80 shadow-lg text-xs">
           <div class="flex items-center gap-3">
             <a href={kdCodeDetailUrl} class="inline-flex items-center gap-2 font-semibold text-stone-900 dark:text-stone-100 hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
-              <img src="/assets/kd-code/icon.png" alt="KD Code" class="w-5 h-5 rounded-md object-cover" />
+              <img src="/assets/kd-code/icon.webp" alt="KD Code" width="20" height="20" loading="lazy" decoding="async" class="w-5 h-5 rounded-md object-cover" />
               <span>KD Code (VS Code ACP)</span>
             </a>
             <span class="text-stone-300 dark:text-stone-700">•</span>
             <a href={simpleOtpDetailUrl} class="inline-flex items-center gap-2 font-semibold text-stone-900 dark:text-stone-100 hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
-              <img src="/assets/simple-otp/icon.png" alt="Simple OTP" class="w-5 h-5 rounded-md object-cover" />
+              <img src="/assets/simple-otp/icon.webp" alt="Simple OTP" width="20" height="20" loading="lazy" decoding="async" class="w-5 h-5 rounded-md object-cover" />
               <span>Simple OTP (100% Offline)</span>
             </a>
           </div>

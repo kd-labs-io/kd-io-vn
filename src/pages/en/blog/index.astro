@@ -43,7 +43,7 @@ const allTags = Array.from(new Set(posts.flatMap((p) => p.data.tags || [])));
 
         <!-- Interactive Craft Topic Tag Filter Bar -->
         {allTags.length > 0 && (
-          <div class="flex flex-wrap items-center gap-2 pt-3 border-t border-stone-200/70 dark:border-stone-800/80" role="tablist" aria-label="Filter by topic">
+          <div class="flex flex-wrap items-center gap-2 pt-3 border-t border-stone-200/70 dark:border-stone-800/80" role="group" aria-label="Filter by topic">
             <span class="text-xs font-mono text-stone-500 dark:text-stone-400 font-medium mr-1">Topics:</span>
             <button
               type="button"
@@ -85,8 +85,11 @@ const allTags = Array.from(new Set(posts.flatMap((p) => p.data.tags || [])));
                     <img
                       src={post.data.heroImage}
                       alt={post.data.title}
+                      width="1200"
+                      height="675"
                       class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
+                      decoding="async"
                     />
                     <div class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-stone-950/75 backdrop-blur-md border border-white/15 text-[10px] font-mono text-stone-200">
                       Craft Doc • KD Labs

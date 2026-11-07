@@ -29,6 +29,12 @@ function duplicateSitemapXml() {
 export default defineConfig({
   site: 'https://kd.io.vn',
   trailingSlash: 'always',
+  build: {
+    inlineStylesheets: 'always',
+  },
+  devToolbar: {
+    enabled: false,
+  },
   integrations: [
     mdx(),
     sitemap({

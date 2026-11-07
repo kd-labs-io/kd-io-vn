@@ -14,60 +14,55 @@ const enUrl = getLocalizedPath(currentPath, 'en');
 {currentLang === 'vi' && (
   <aside
     id="lang-suggestion-banner"
-    class="hidden overflow-hidden transition-all duration-300 ease-out max-h-0 opacity-0 -translate-y-2 border-b border-orange-700 dark:border-orange-800 bg-orange-600 dark:bg-orange-700 text-white relative"
-    role="status"
-    aria-live="polite"
+    class="hidden fixed bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:bottom-6 z-50 sm:max-w-md rounded-2xl shadow-2xl transition-opacity transition-transform duration-300 ease-out opacity-0 translate-y-3 border border-orange-700 dark:border-orange-800 bg-orange-600 dark:bg-orange-700 text-white"
     aria-label="Language suggestion"
   >
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 sm:py-3">
-      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4">
+    <div class="px-4 py-3 sm:p-4">
+      <div class="flex flex-col gap-3">
         
-        <!-- Left: Globe Icon & Notification Text -->
-        <div class="flex items-start sm:items-center gap-3 min-w-0 pr-6 sm:pr-0">
-          <div class="w-7 h-7 rounded-lg bg-white/20 text-white flex items-center justify-center flex-shrink-0 text-sm mt-0.5 sm:mt-0">
+        <!-- Top: Globe Icon & Notification Text -->
+        <div class="flex items-start gap-3 min-w-0 pr-6">
+          <div class="w-7 h-7 rounded-lg bg-white/20 text-white flex items-center justify-center flex-shrink-0 text-sm mt-0.5" aria-hidden="true">
             🌐
           </div>
-          <div class="flex flex-col sm:flex-row sm:items-center sm:gap-2 text-xs leading-relaxed sm:leading-normal">
-            <span class="font-bold text-white whitespace-nowrap">
+          <div class="flex flex-col gap-0.5 text-xs leading-relaxed">
+            <span class="font-bold text-white">
               Browsing in English?
             </span>
-            <span class="text-orange-200 hidden sm:inline">•</span>
-            <span class="font-medium text-white">
+            <span class="font-medium text-white/95">
               We detected your browser prefers English. Would you like to view KD Labs in English?
             </span>
           </div>
         </div>
 
-        <!-- Right: Action Buttons & Close Icon -->
-        <div class="flex items-center justify-between sm:justify-end gap-2 flex-shrink-0 pl-10 sm:pl-0">
-          <div class="flex items-center gap-2">
-            <a
-              id="switch-to-en-btn"
-              href={enUrl}
-              class="px-3 py-1.5 rounded-lg text-xs font-bold bg-white text-orange-700 hover:bg-orange-50 transition-colors shadow-sm whitespace-nowrap"
-            >
-              Switch to English
-            </a>
-            <button
-              id="dismiss-lang-banner-btn"
-              type="button"
-              class="px-2.5 py-1.5 rounded-lg text-xs font-bold text-white hover:bg-white/20 border border-white/30 hover:border-white/60 transition-colors whitespace-nowrap"
-            >
-              Stay on Tiếng Việt
-            </button>
-          </div>
-
-          <button
-            id="close-lang-banner-x"
-            type="button"
-            class="text-white/80 hover:text-white transition-colors p-1 absolute top-2.5 right-3 sm:static sm:ml-1"
-            aria-label="Close"
+        <!-- Bottom: Action Buttons -->
+        <div class="flex items-center justify-end gap-2 pl-10">
+          <a
+            id="switch-to-en-btn"
+            href={enUrl}
+            class="px-3 py-1.5 rounded-lg text-xs font-bold bg-white text-orange-700 hover:bg-orange-50 transition-colors shadow-sm whitespace-nowrap"
           >
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
+            Switch to English
+          </a>
+          <button
+            id="dismiss-lang-banner-btn"
+            type="button"
+            class="px-2.5 py-1.5 rounded-lg text-xs font-bold text-white hover:bg-white/20 border border-white/30 hover:border-white/60 transition-colors whitespace-nowrap cursor-pointer"
+          >
+            Stay on Tiếng Việt
           </button>
         </div>
+
+        <button
+          id="close-lang-banner-x"
+          type="button"
+          class="text-white/80 hover:text-white transition-colors p-1 absolute top-2.5 right-2.5 cursor-pointer"
+          aria-label="Close"
+        >
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
 
       </div>
     </div>
@@ -98,11 +93,9 @@ const enUrl = getLocalizedPath(currentPath, 'en');
 
         setTimeout(function () {
           banner.classList.remove('hidden');
-          // Force layout reflow before triggering smooth transition
-          void banner.offsetHeight;
           requestAnimationFrame(function () {
-            banner.classList.remove('max-h-0', 'opacity-0', '-translate-y-2');
-            banner.classList.add('max-h-96', 'opacity-100', 'translate-y-0');
+            banner.classList.remove('opacity-0', 'translate-y-3');
+            banner.classList.add('opacity-100', 'translate-y-0');
           });
         }, 1000);
 
@@ -110,8 +103,8 @@ const enUrl = getLocalizedPath(currentPath, 'en');
           try {
             localStorage.setItem('kd_lang_banner_dismissed', '1');
           } catch (e) {}
-          banner.classList.remove('max-h-96', 'opacity-100', 'translate-y-0');
-          banner.classList.add('max-h-0', 'opacity-0', '-translate-y-2');
+          banner.classList.remove('opacity-100', 'translate-y-0');
+          banner.classList.add('opacity-0', 'translate-y-3');
           setTimeout(function () {
             banner.classList.add('hidden');
           }, 300);
