@@ -19,7 +19,7 @@ const t = getTranslations(currentLang);
       <!-- Left: Contact Details (5 cols) -->
       <div class="lg:col-span-5 space-y-5 sm:space-y-6">
         <div>
-          <span class="inline-block text-xs font-bold uppercase tracking-widest text-orange-600 dark:text-orange-500 mb-2">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20 mb-2.5">
             {t.contact.tagline}
           </span>
           <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-stone-900 dark:text-stone-100 text-balance">
@@ -30,10 +30,10 @@ const t = getTranslations(currentLang);
           </p>
         </div>
 
-        <!-- Contact Box -->
-        <div class="rounded-2xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-[#161412] p-5 sm:p-6 space-y-4 shadow-sm">
+        <!-- Craft Contact Card -->
+        <div class="rounded-3xl craft-card p-5 sm:p-6 space-y-4">
           <div>
-            <div class="text-xs uppercase tracking-wider text-stone-600 dark:text-stone-300 font-semibold">
+            <div class="text-[11px] font-mono uppercase tracking-wider text-stone-500 dark:text-stone-400 font-semibold">
               {t.contact.emailLabel}
             </div>
             <div class="flex items-center justify-between mt-1">
@@ -47,7 +47,7 @@ const t = getTranslations(currentLang);
                 type="button"
                 id="copy-email-btn"
                 data-email={siteConfig.supportEmail}
-                class="p-2 rounded-lg text-stone-600 dark:text-stone-300 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors"
+                class="p-2 rounded-xl border border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-stone-900 text-stone-600 dark:text-stone-300 hover:text-orange-600 dark:hover:text-orange-400 hover:border-orange-500/40 transition-colors cursor-pointer"
                 title="Copy Email"
               >
                 <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -55,13 +55,13 @@ const t = getTranslations(currentLang);
                 </svg>
               </button>
             </div>
-            <span id="copy-feedback" class="text-xs text-emerald-600 dark:text-emerald-400 hidden mt-1">
-              {t.contact.copySuccess}
+            <span id="copy-feedback" class="text-xs font-mono text-emerald-600 dark:text-emerald-400 hidden mt-1 block">
+              ✓ {t.contact.copySuccess}
             </span>
           </div>
 
-          <div class="pt-3 border-t border-stone-100 dark:border-stone-800/80">
-            <div class="text-xs uppercase tracking-wider text-stone-600 dark:text-stone-300 font-semibold">
+          <div class="pt-3 border-t border-stone-200/60 dark:border-stone-800/80">
+            <div class="text-[11px] font-mono uppercase tracking-wider text-stone-500 dark:text-stone-400 font-semibold">
               GitHub Organization
             </div>
             <div class="flex items-center justify-between mt-1">
@@ -76,14 +76,14 @@ const t = getTranslations(currentLang);
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>
               </a>
-              <span class="text-[11px] font-mono px-2 py-0.5 rounded-md bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300">
+              <span class="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 border border-stone-200/70 dark:border-stone-700/60">
                 MIT Open Source
               </span>
             </div>
           </div>
 
-          <div class="pt-3 border-t border-stone-100 dark:border-stone-800/80">
-            <div class="text-xs uppercase tracking-wider text-stone-600 dark:text-stone-300 font-semibold">
+          <div class="pt-3 border-t border-stone-200/60 dark:border-stone-800/80">
+            <div class="text-[11px] font-mono uppercase tracking-wider text-stone-500 dark:text-stone-400 font-semibold">
               {t.contact.developerIdLabel}
             </div>
             <div class="text-sm font-mono font-medium text-stone-800 dark:text-stone-200 mt-1">
@@ -92,8 +92,8 @@ const t = getTranslations(currentLang);
           </div>
         </div>
 
-        <!-- Google Play Console Notice -->
-        <div class="p-4 rounded-2xl bg-orange-50/70 dark:bg-orange-950/20 border border-orange-200/60 dark:border-orange-900/40 text-xs text-orange-900 dark:text-orange-300 flex items-start gap-3">
+        <!-- Craft Callout Notice -->
+        <div class="p-4 rounded-2xl bg-orange-50/70 dark:bg-orange-950/20 border border-orange-200/70 dark:border-orange-900/40 text-xs text-orange-900 dark:text-orange-300 flex items-start gap-3">
           <svg class="w-5 h-5 text-orange-600 dark:text-orange-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
@@ -106,44 +106,70 @@ const t = getTranslations(currentLang);
 
       </div>
 
-      <!-- Right: FAQ (7 cols) -->
-      <div class="lg:col-span-7 space-y-4">
-        <h3 class="text-lg font-bold text-stone-900 dark:text-stone-100 mb-4">
-          {t.contact.faqTitle}
-        </h3>
+      <!-- Right: Interactive Craft Toggle Block FAQs (7 cols) -->
+      <div class="lg:col-span-7 space-y-3.5">
+        <div class="flex items-center justify-between mb-2">
+          <h3 class="text-lg font-bold text-stone-900 dark:text-stone-100">
+            {t.contact.faqTitle}
+          </h3>
+          <span class="text-[11px] font-mono text-stone-500 dark:text-stone-400">
+            Craft Toggle Blocks
+          </span>
+        </div>
 
-        <!-- FAQ Item 1 -->
-        <div class="rounded-2xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-[#161412] p-5 space-y-2">
-          <h4 class="text-sm font-semibold text-stone-900 dark:text-stone-100 flex items-center gap-2">
-            <span class="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
-            {t.contact.faq1Q}
-          </h4>
-          <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-300 leading-relaxed pl-3.5 font-normal">
+        <!-- FAQ Toggle Block 1 (Open by default) -->
+        <details open class="craft-toggle group rounded-2xl craft-card overflow-hidden">
+          <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer select-none text-sm font-semibold text-stone-900 dark:text-stone-100 hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
+            <span class="flex items-center gap-2.5">
+              <span class="w-2 h-2 rounded-full bg-orange-500 shrink-0"></span>
+              <span>{t.contact.faq1Q}</span>
+            </span>
+            <span class="w-6 h-6 rounded-full bg-stone-100 dark:bg-stone-800 flex items-center justify-center text-stone-500 group-open:rotate-180 group-open:bg-orange-500/15 group-open:text-orange-600 transition-all shrink-0">
+              <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </span>
+          </summary>
+          <div class="px-5 pb-5 pt-0 text-xs sm:text-sm text-stone-600 dark:text-stone-300 leading-relaxed pl-9 border-t border-stone-100 dark:border-stone-800/60 pt-3.5">
             {t.contact.faq1A}
-          </p>
-        </div>
+          </div>
+        </details>
 
-        <!-- FAQ Item 2 -->
-        <div class="rounded-2xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-[#161412] p-5 space-y-2">
-          <h4 class="text-sm font-semibold text-stone-900 dark:text-stone-100 flex items-center gap-2">
-            <span class="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
-            {t.contact.faq2Q}
-          </h4>
-          <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-300 leading-relaxed pl-3.5 font-normal">
+        <!-- FAQ Toggle Block 2 -->
+        <details class="craft-toggle group rounded-2xl craft-card overflow-hidden">
+          <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer select-none text-sm font-semibold text-stone-900 dark:text-stone-100 hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
+            <span class="flex items-center gap-2.5">
+              <span class="w-2 h-2 rounded-full bg-orange-500 shrink-0"></span>
+              <span>{t.contact.faq2Q}</span>
+            </span>
+            <span class="w-6 h-6 rounded-full bg-stone-100 dark:bg-stone-800 flex items-center justify-center text-stone-500 group-open:rotate-180 group-open:bg-orange-500/15 group-open:text-orange-600 transition-all shrink-0">
+              <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </span>
+          </summary>
+          <div class="px-5 pb-5 pt-0 text-xs sm:text-sm text-stone-600 dark:text-stone-300 leading-relaxed pl-9 border-t border-stone-100 dark:border-stone-800/60 pt-3.5">
             {t.contact.faq2A}
-          </p>
-        </div>
+          </div>
+        </details>
 
-        <!-- FAQ Item 3 -->
-        <div class="rounded-2xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-[#161412] p-5 space-y-2">
-          <h4 class="text-sm font-semibold text-stone-900 dark:text-stone-100 flex items-center gap-2">
-            <span class="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
-            {t.contact.faq3Q}
-          </h4>
-          <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-300 leading-relaxed pl-3.5 font-normal">
+        <!-- FAQ Toggle Block 3 -->
+        <details class="craft-toggle group rounded-2xl craft-card overflow-hidden">
+          <summary class="flex items-center justify-between gap-3 p-5 cursor-pointer select-none text-sm font-semibold text-stone-900 dark:text-stone-100 hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
+            <span class="flex items-center gap-2.5">
+              <span class="w-2 h-2 rounded-full bg-orange-500 shrink-0"></span>
+              <span>{t.contact.faq3Q}</span>
+            </span>
+            <span class="w-6 h-6 rounded-full bg-stone-100 dark:bg-stone-800 flex items-center justify-center text-stone-500 group-open:rotate-180 group-open:bg-orange-500/15 group-open:text-orange-600 transition-all shrink-0">
+              <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </span>
+          </summary>
+          <div class="px-5 pb-5 pt-0 text-xs sm:text-sm text-stone-600 dark:text-stone-300 leading-relaxed pl-9 border-t border-stone-100 dark:border-stone-800/60 pt-3.5">
             {t.contact.faq3A}
-          </p>
-        </div>
+          </div>
+        </details>
 
       </div>
 

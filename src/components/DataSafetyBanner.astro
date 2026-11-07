@@ -10,10 +10,10 @@ const { currentLang } = Astro.props;
 const t = getTranslations(currentLang);
 ---
 
-<section class="py-12 sm:py-16 bg-stone-100/60 dark:bg-stone-900/40 border-y border-stone-200/80 dark:border-stone-800/80">
+<section class="py-12 sm:py-16 bg-stone-100/50 dark:bg-stone-900/30 border-y border-stone-200/80 dark:border-stone-800/80">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    <div class="rounded-3xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-[#161412] p-5 sm:p-10 lg:p-12 shadow-sm">
+    <div class="rounded-[2rem] craft-card craft-stack p-6 sm:p-10 lg:p-12">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center">
         
         <!-- Left: Summary & CTA (5 cols) -->
@@ -36,7 +36,7 @@ const t = getTranslations(currentLang);
           <div class="pt-1 sm:pt-2">
             <a
               href={currentLang === 'vi' ? '/privacy/' : `/${currentLang}/privacy/`}
-              class="inline-flex items-center gap-2 text-sm font-semibold text-orange-600 dark:text-orange-500 hover:text-orange-700 dark:hover:text-orange-400 group"
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/10 hover:bg-orange-500/15 border border-orange-500/25 text-xs sm:text-sm font-semibold text-orange-600 dark:text-orange-400 transition-all group"
             >
               <span>{t.dataSafety.readPolicyCta}</span>
               <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -46,11 +46,11 @@ const t = getTranslations(currentLang);
           </div>
         </div>
 
-        <!-- Right: 3 Key Commitments (7 cols) -->
-        <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-6">
+        <!-- Right: 3 Key Commitments Craft Sub-Cards (7 cols) -->
+        <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-5">
           
-          <div class="space-y-2 p-4 rounded-2xl bg-stone-50 dark:bg-stone-900/60 border border-stone-200/60 dark:border-stone-800/60">
-            <div class="w-8 h-8 rounded-lg bg-orange-500/10 text-orange-600 dark:text-orange-500 flex items-center justify-center">
+          <div class="space-y-2.5 p-4 sm:p-5 rounded-2xl bg-stone-50/90 dark:bg-stone-900/60 border border-stone-200/80 dark:border-stone-800/80">
+            <div class="w-8 h-8 rounded-xl bg-orange-500/10 border border-orange-500/20 text-orange-600 dark:text-orange-400 flex items-center justify-center">
               <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
               </svg>
@@ -63,8 +63,8 @@ const t = getTranslations(currentLang);
             </p>
           </div>
 
-          <div class="space-y-2 p-4 rounded-2xl bg-stone-50 dark:bg-stone-900/60 border border-stone-200/60 dark:border-stone-800/60">
-            <div class="w-8 h-8 rounded-lg bg-orange-500/10 text-orange-600 dark:text-orange-500 flex items-center justify-center">
+          <div class="space-y-2.5 p-4 sm:p-5 rounded-2xl bg-stone-50/90 dark:bg-stone-900/60 border border-stone-200/80 dark:border-stone-800/80">
+            <div class="w-8 h-8 rounded-xl bg-orange-500/10 border border-orange-500/20 text-orange-600 dark:text-orange-400 flex items-center justify-center">
               <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
               </svg>
@@ -77,8 +77,8 @@ const t = getTranslations(currentLang);
             </p>
           </div>
 
-          <div class="space-y-2 p-4 rounded-2xl bg-stone-50 dark:bg-stone-900/60 border border-stone-200/60 dark:border-stone-800/60">
-            <div class="w-8 h-8 rounded-lg bg-orange-500/10 text-orange-600 dark:text-orange-500 flex items-center justify-center">
+          <div class="space-y-2.5 p-4 sm:p-5 rounded-2xl bg-stone-50/90 dark:bg-stone-900/60 border border-stone-200/80 dark:border-stone-800/80">
+            <div class="w-8 h-8 rounded-xl bg-orange-500/10 border border-orange-500/20 text-orange-600 dark:text-orange-400 flex items-center justify-center">
               <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
               </svg>

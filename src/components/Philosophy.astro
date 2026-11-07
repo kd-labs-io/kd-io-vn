@@ -13,25 +13,25 @@ const pillars = [
   {
     title: t.philosophy.pillar1Title,
     desc: t.philosophy.pillar1Desc,
-    icon: 'M4 6h16M4 12h8m-8 6h16', // Clean geometric horizontal balance
+    icon: 'M4 6h16M4 12h8m-8 6h16',
     badge: '01',
   },
   {
     title: t.philosophy.pillar2Title,
     desc: t.philosophy.pillar2Desc,
-    icon: 'M13 10V3L4 14h7v7l9-11h-7z', // Organic flow
+    icon: 'M13 10V3L4 14h7v7l9-11h-7z',
     badge: '02',
   },
   {
     title: t.philosophy.pillar3Title,
     desc: t.philosophy.pillar3Desc,
-    icon: 'M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z', // Serenity / Moon
+    icon: 'M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z',
     badge: '03',
   },
   {
     title: t.philosophy.pillar4Title,
     desc: t.philosophy.pillar4Desc,
-    icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z', // Enduring shield
+    icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
     badge: '04',
   },
 ];
@@ -42,34 +42,38 @@ const pillars = [
     
     <!-- Section Heading -->
     <div class="text-center max-w-2xl mx-auto space-y-3 sm:space-y-4 mb-10 sm:mb-16">
-      <span class="inline-block text-xs font-bold uppercase tracking-widest text-orange-600 dark:text-orange-500">
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20">
         {t.philosophy.tagline}
       </span>
       <h2 class="text-2xl sm:text-4xl font-bold tracking-tight text-stone-900 dark:text-stone-100 text-balance">
-        {t.philosophy.title}
+        {currentLang === 'vi' ? (
+          <>Triết Lý <span class="font-serif-editorial font-normal text-orange-600 dark:text-orange-500 text-[1.08em]">Chế Tác</span> Phần Mềm</>
+        ) : (
+          <>Engineering <span class="font-serif-editorial font-normal text-orange-600 dark:text-orange-500 text-[1.08em]">Craft</span> & Principles</>
+        )}
       </h2>
       <p class="text-sm sm:text-base text-stone-600 dark:text-stone-300 leading-relaxed text-pretty">
         {t.philosophy.subtitle}
       </p>
     </div>
 
-    <!-- 4 Pillars Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+    <!-- 4 Pillars Craft Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
       {pillars.map((pillar) => (
-        <div class="relative rounded-3xl border border-stone-200 dark:border-stone-800 bg-white/80 dark:bg-[#151412]/80 p-5 sm:p-7 backdrop-blur-sm hover:border-orange-500/40 transition-colors duration-200 flex flex-col justify-between group">
+        <div class="relative rounded-[1.75rem] craft-card craft-card-interactive p-5 sm:p-7 flex flex-col justify-between group">
           <div class="space-y-4">
             
             <div class="flex items-center justify-between">
               <!-- Icon -->
-              <div class="w-12 h-12 rounded-2xl bg-stone-100 dark:bg-stone-900 flex items-center justify-center text-orange-600 dark:text-orange-500 group-hover:bg-orange-500/10 transition-colors">
-                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div class="w-11 h-11 rounded-2xl bg-orange-500/10 dark:bg-orange-500/15 border border-orange-500/25 flex items-center justify-center text-orange-600 dark:text-orange-400 group-hover:scale-105 transition-transform">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d={pillar.icon} />
                 </svg>
               </div>
 
-              <!-- Zen Index number -->
-              <span class="text-xs font-mono font-bold text-stone-300 dark:text-stone-700">
-                {pillar.badge}
+              <!-- Craft Block Index -->
+              <span class="px-2 py-0.5 rounded-full text-[11px] font-mono font-semibold bg-stone-100 dark:bg-stone-900 text-stone-500 dark:text-stone-400 border border-stone-200/70 dark:border-stone-800">
+                #{pillar.badge}
               </span>
             </div>
 
@@ -77,15 +81,16 @@ const pillars = [
               {pillar.title}
             </h3>
 
-            <p class="text-sm text-stone-600 dark:text-stone-300 leading-relaxed font-normal">
+            <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-300 leading-relaxed font-normal">
               {pillar.desc}
             </p>
           </div>
 
-          <div class="mt-6 pt-4 border-t border-stone-100 dark:border-stone-900">
-            <span class="text-[11px] uppercase tracking-wider text-orange-600/80 dark:text-orange-400/80 font-medium">
+          <div class="mt-6 pt-3.5 border-t border-stone-200/60 dark:border-stone-800/80 flex items-center justify-between">
+            <span class="text-[10px] font-mono uppercase tracking-wider text-orange-600 dark:text-orange-400 font-semibold">
               KD Labs Standard
             </span>
+            <span class="w-1.5 h-1.5 rounded-full bg-orange-500/60 group-hover:bg-orange-500 transition-colors"></span>
           </div>
         </div>
       ))}

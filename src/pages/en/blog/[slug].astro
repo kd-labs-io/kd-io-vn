@@ -69,14 +69,14 @@ const blogJsonLd = {
   tags={post.data.tags}
   jsonLd={blogJsonLd}
 >
-  <div class="py-10 sm:py-16">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+  <div class="py-8 sm:py-14">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
       
-      <!-- Back Link & Category -->
-      <div class="flex items-center justify-between">
+      <!-- Top Document Toolbar -->
+      <div class="flex flex-wrap items-center justify-between gap-3">
         <a
           href="/en/blog/"
-          class="inline-flex items-center gap-2 text-xs font-semibold text-stone-600 dark:text-stone-300 hover:text-orange-600 dark:hover:text-orange-400 transition-colors"
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-full craft-card text-xs font-semibold text-stone-700 dark:text-stone-200 hover:text-orange-600 dark:hover:text-orange-400 hover:border-orange-500/50 transition-all"
         >
           <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -84,128 +84,126 @@ const blogJsonLd = {
           <span>{t.blogPage.backToBlog}</span>
         </a>
 
-        {post.data.tags && post.data.tags.length > 0 && (
-          <span class="px-3 py-1 rounded-full text-xs font-semibold bg-orange-50 dark:bg-orange-950/40 text-orange-700 dark:text-orange-400 border border-orange-200 dark:border-orange-900/50">
-            #{post.data.tags[0]}
+        <div class="flex items-center gap-2">
+          <span class="px-3 py-1 rounded-full text-[11px] font-mono font-medium bg-stone-100 dark:bg-stone-900 text-stone-600 dark:text-stone-400 border border-stone-200/80 dark:border-stone-800">
+            📄 Craft Published Document
           </span>
-        )}
+          {post.data.tags && post.data.tags.length > 0 && (
+            <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-orange-50 dark:bg-orange-950/40 text-orange-700 dark:text-orange-400 border border-orange-200 dark:border-orange-900/50">
+              #{post.data.tags[0]}
+            </span>
+          )}
+        </div>
       </div>
 
-      <!-- Article Header -->
-      <header class="space-y-6 max-w-4xl">
-        <h1 class="text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight text-stone-900 dark:text-stone-100 leading-tight">
-          {post.data.title}
-        </h1>
+      <!-- Main Layout: Craft Document Sheet (8 cols) & Document Outline Sidebar (4 cols) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+        
+        <!-- Left: Elevated Craft Document Sheet (8 cols) -->
+        <div class="lg:col-span-8 space-y-8 min-w-0">
+          <div class="rounded-[2rem] craft-document-sheet craft-stack p-6 sm:p-10 lg:p-12 space-y-8">
+            
+            <!-- Document Header inside Sheet -->
+            <header class="space-y-5 border-b border-stone-200/80 dark:border-stone-800/80 pb-7">
+              <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-stone-900 dark:text-stone-100 leading-tight text-balance">
+                {post.data.title}
+              </h1>
 
-        <p class="text-base sm:text-xl text-stone-600 dark:text-stone-300 leading-relaxed font-normal">
-          {post.data.description}
-        </p>
+              <p class="text-base sm:text-lg text-stone-600 dark:text-stone-300 leading-relaxed font-normal">
+                {post.data.description}
+              </p>
 
-        <!-- Meta Bar: Author, Date, Reading Time & Actions -->
-        <div class="flex flex-wrap items-center justify-between gap-4 pt-4 pb-6 border-b border-stone-200 dark:border-stone-800 text-xs sm:text-sm">
-          <div class="flex items-center gap-4 text-stone-600 dark:text-stone-300">
-            <!-- Author -->
-            <div class="flex items-center gap-2">
-              <div class="w-8 h-8 rounded-full bg-orange-500/15 border border-orange-500/30 flex items-center justify-center text-orange-600 font-bold text-xs">
-                KD
-              </div>
-              <div>
-                <span class="font-semibold text-stone-900 dark:text-stone-100 block">{post.data.author}</span>
-                <span class="text-[11px] text-stone-500 dark:text-stone-400">AI-Native Labs</span>
-              </div>
-            </div>
+              <!-- Meta Bar: Author, Date, Reading Time & Actions -->
+              <div class="flex flex-wrap items-center justify-between gap-4 pt-2 text-xs sm:text-sm">
+                <div class="flex flex-wrap items-center gap-3.5 text-stone-600 dark:text-stone-300">
+                  <div class="flex items-center gap-2.5">
+                    <div class="w-8 h-8 rounded-full bg-orange-500/15 border border-orange-500/30 flex items-center justify-center text-orange-600 font-bold text-xs">
+                      KD
+                    </div>
+                    <div>
+                      <span class="font-semibold text-stone-900 dark:text-stone-100 block leading-tight">{post.data.author}</span>
+                      <span class="text-[10px] font-mono text-stone-500 dark:text-stone-400">KD Labs Research</span>
+                    </div>
+                  </div>
 
-            <span>•</span>
+                  <span class="text-stone-300 dark:text-stone-700">•</span>
 
-            <!-- Date -->
-            <div class="flex items-center gap-1.5 text-stone-500 dark:text-stone-400">
-              <svg class="w-4 h-4 text-stone-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
-              <FormattedDate date={post.data.pubDate} locale="en-US" />
-            </div>
+                  <div class="flex items-center gap-1.5 font-mono text-xs text-stone-500 dark:text-stone-400">
+                    <FormattedDate date={post.data.pubDate} locale="en-US" />
+                  </div>
 
-            {post.data.readingTime && (
-              <>
-                <span>•</span>
-                <div class="flex items-center gap-1.5 text-stone-500 dark:text-stone-400">
-                  <svg class="w-4 h-4 text-stone-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  <span>{post.data.readingTime}</span>
+                  {post.data.readingTime && (
+                    <>
+                      <span class="text-stone-300 dark:text-stone-700">•</span>
+                      <span class="font-mono text-xs text-stone-500 dark:text-stone-400">{post.data.readingTime}</span>
+                    </>
+                  )}
                 </div>
-              </>
+
+                <!-- Share Button & Copy Link -->
+                <div class="flex items-center gap-2">
+                  <button
+                    id="copy-post-btn"
+                    type="button"
+                    class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800/90 text-stone-700 dark:text-stone-200 text-xs font-medium hover:border-orange-500/50 transition-colors cursor-pointer"
+                    title={t.blogPage.copyLink}
+                  >
+                    <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                    </svg>
+                    <span id="copy-btn-text">{t.blogPage.copyLink}</span>
+                  </button>
+
+                  <a
+                    href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.data.title)}&url=${encodeURIComponent(postUrl)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="p-2 rounded-full border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800/90 text-stone-700 dark:text-stone-200 hover:text-orange-600 dark:hover:text-orange-400 transition-colors"
+                    aria-label={t.blogPage.shareTwitter}
+                  >
+                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </header>
+
+            <!-- Hero Image Banner inside Document Sheet -->
+            {post.data.heroImage && (
+              <div class="rounded-2xl overflow-hidden border border-stone-200 dark:border-stone-800 shadow-sm bg-stone-950">
+                <img
+                  src={post.data.heroImage}
+                  alt={post.data.title}
+                  class="w-full h-auto object-cover max-h-[460px]"
+                />
+              </div>
+            )}
+
+            <!-- Craft Document Prose Body -->
+            <article class="blog-prose">
+              <Content />
+            </article>
+
+            <!-- Bottom Tags inside Document Sheet -->
+            {post.data.tags && post.data.tags.length > 0 && (
+              <div class="pt-6 border-t border-stone-200/80 dark:border-stone-800/80 space-y-3">
+                <h4 class="text-[11px] font-mono font-semibold uppercase tracking-wider text-stone-500 dark:text-stone-400">
+                  Related Topics:
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                  {post.data.tags.map((tag) => (
+                    <span class="px-3 py-1 rounded-full text-xs font-mono font-medium bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 border border-stone-200 dark:border-stone-700">
+                      #{tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
             )}
           </div>
 
-          <!-- Share Button & Copy Link -->
-          <div class="flex items-center gap-2">
-            <button
-              id="copy-post-btn"
-              type="button"
-              class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-800 text-stone-700 dark:text-stone-200 text-xs font-medium hover:bg-stone-100 dark:hover:bg-stone-700 transition-colors shadow-sm"
-              title={t.blogPage.copyLink}
-            >
-              <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-              </svg>
-              <span id="copy-btn-text">{t.blogPage.copyLink}</span>
-            </button>
-
-            <!-- X / Twitter share -->
-            <a
-              href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.data.title)}&url=${encodeURIComponent(postUrl)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="p-2 rounded-xl border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-800 text-stone-700 dark:text-stone-200 hover:text-orange-600 dark:hover:text-orange-400 transition-colors shadow-sm"
-              aria-label={t.blogPage.shareTwitter}
-            >
-              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </header>
-
-      <!-- Hero Image Banner -->
-      {post.data.heroImage && (
-        <div class="rounded-3xl overflow-hidden border border-stone-200 dark:border-stone-800 shadow-md bg-stone-950">
-          <img
-            src={post.data.heroImage}
-            alt={post.data.title}
-            class="w-full h-auto object-cover max-h-[500px]"
-          />
-        </div>
-      )}
-
-      <!-- Main Layout: Table of Contents & Article Content -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-        
-        <!-- Left: Article Content & Footer (8 cols) -->
-        <div class="lg:col-span-8 space-y-8">
-          <article class="blog-prose">
-            <Content />
-          </article>
-
-          <!-- Bottom Tags -->
-          {post.data.tags && post.data.tags.length > 0 && (
-            <div class="pt-6 border-t border-stone-200 dark:border-stone-800 space-y-3">
-              <h4 class="text-xs font-semibold uppercase tracking-wider text-stone-500 dark:text-stone-400">
-                Related Topics:
-              </h4>
-              <div class="flex flex-wrap gap-2">
-                {post.data.tags.map((tag) => (
-                  <span class="px-3 py-1 rounded-xl text-xs font-medium bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 border border-stone-200 dark:border-stone-700">
-                    #{tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
-
-          <!-- Author Box -->
-          <div class="p-6 rounded-3xl border border-stone-200 dark:border-stone-800 bg-stone-50/80 dark:bg-[#161412] flex items-center gap-4">
+          <!-- Author Box Card -->
+          <div class="p-6 rounded-3xl craft-card flex items-center gap-4">
             <div class="w-12 h-12 rounded-2xl bg-orange-500/15 border border-orange-500/30 flex items-center justify-center text-orange-600 font-bold text-base flex-shrink-0">
               KD
             </div>
@@ -220,10 +218,10 @@ const blogJsonLd = {
           </div>
 
           <!-- Bottom Navigation -->
-          <div class="pt-4 flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-4">
+          <div class="pt-2 flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-4">
             <a
               href="/en/blog/"
-              class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-800 text-stone-800 dark:text-stone-200 text-xs font-semibold hover:border-orange-500 hover:text-orange-600 transition-colors shadow-sm !no-underline"
+              class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full craft-card text-stone-800 dark:text-stone-200 text-xs font-semibold hover:border-orange-500 hover:text-orange-600 transition-colors !no-underline"
             >
               <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -232,10 +230,10 @@ const blogJsonLd = {
             </a>
 
             <a
-              href="/en/apps/simple-otp/"
-              class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-2xl bg-orange-600 hover:bg-orange-700 !text-white font-semibold text-xs transition-colors shadow-md hover:shadow-orange-500/25 !no-underline"
+              href="/en/apps/kd-code/"
+              class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-orange-600 hover:bg-orange-700 !text-white font-semibold text-xs transition-colors shadow-md shadow-orange-600/20 !no-underline"
             >
-              <span class="!text-white">Explore Simple OTP</span>
+              <span class="!text-white">Explore KD Code & Simple OTP</span>
               <svg class="w-4 h-4 !text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
@@ -243,48 +241,55 @@ const blogJsonLd = {
           </div>
         </div>
 
-        <!-- Sidebar (4 cols): Table of Contents -->
+        <!-- Sidebar (4 cols): Sticky Craft Document Outline -->
         <aside class="hidden lg:block lg:col-span-4 space-y-6">
-          <div class="sticky top-28 space-y-6">
+          <div class="sticky top-24 space-y-6">
             
             {toc.length > 0 && (
-              <div class="rounded-3xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-[#161412] p-6 shadow-sm space-y-4">
-                <h3 class="text-sm font-bold text-stone-900 dark:text-stone-100 flex items-center gap-2 pb-3 border-b border-stone-100 dark:border-stone-800">
-                  <svg class="w-4 h-4 text-orange-600 dark:text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
-                  </svg>
-                  <span>{t.blogPage.tableOfContents}</span>
-                </h3>
+              <div class="rounded-3xl craft-card p-6 space-y-4">
+                <div class="flex items-center justify-between pb-3 border-b border-stone-200/70 dark:border-stone-800">
+                  <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-stone-900 dark:text-stone-100 flex items-center gap-2">
+                    <svg class="w-4 h-4 text-orange-600 dark:text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
+                    </svg>
+                    <span>{t.blogPage.tableOfContents}</span>
+                  </h3>
+                  <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-stone-100 dark:bg-stone-800 text-stone-500">
+                    Outline
+                  </span>
+                </div>
 
-                <nav class="space-y-1.5 text-xs max-h-[60vh] overflow-y-auto pr-2">
+                <nav id="blog-toc-nav" class="space-y-1 text-xs max-h-[60vh] overflow-y-auto pr-2">
                   {toc.map((heading) => (
                     <a
                       href={`#${heading.slug}`}
-                      class={`block py-1 hover:text-orange-600 dark:hover:text-orange-400 transition-colors leading-relaxed ${
+                      data-toc-slug={heading.slug}
+                      class={`blog-toc-link flex items-start gap-2 px-2.5 py-1.5 rounded-xl hover:bg-stone-100/80 dark:hover:bg-stone-800/60 hover:text-orange-600 dark:hover:text-orange-400 transition-all leading-snug ${
                         heading.depth === 3
-                          ? 'pl-3 text-stone-500 dark:text-stone-400'
+                          ? 'pl-5 text-stone-500 dark:text-stone-400'
                           : 'font-medium text-stone-700 dark:text-stone-300'
                       }`}
                     >
-                      {heading.text}
+                      <span class="toc-dot w-1.5 h-1.5 rounded-full bg-stone-300 dark:bg-stone-700 mt-1.5 shrink-0 transition-colors"></span>
+                      <span>{heading.text}</span>
                     </a>
                   ))}
                 </nav>
               </div>
             )}
 
-            <!-- CTA Card: Simple OTP -->
-            <div class="rounded-3xl border border-orange-500/20 bg-gradient-to-br from-orange-500/10 via-orange-500/5 to-transparent p-6 space-y-3">
-              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-600 text-white">
+            <!-- Craft Ecosystem Card -->
+            <div class="rounded-3xl craft-card p-6 space-y-3 bg-gradient-to-br from-orange-500/10 via-transparent to-transparent">
+              <span class="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-mono font-semibold bg-emerald-600 text-white">
                 Available on App Store
               </span>
               <h4 class="text-base font-bold text-stone-900 dark:text-stone-100">
                 Experience Simple OTP
               </h4>
               <p class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed font-normal">
-                100% offline 2FA authenticator with hardware-backed encryption and companion mascots.
+                100% offline 2FA authenticator with hardware-backed encryption inside iOS Keychain & Android Keystore.
               </p>
-              <div class="pt-2">
+              <div class="pt-1">
                 <a
                   href="/en/apps/simple-otp/"
                   class="inline-flex items-center gap-1.5 text-xs font-semibold text-orange-600 dark:text-orange-400 hover:underline"
@@ -303,9 +308,9 @@ const blogJsonLd = {
     </div>
   </div>
 
-  <!-- Share Button Client Script -->
+  <!-- Share Button & Active TOC Outline Client Script -->
   <script is:inline>
-    (function() {
+    function setupBlogDocumentUX() {
       const copyBtn = document.getElementById('copy-post-btn');
       const copyText = document.getElementById('copy-btn-text');
       if (copyBtn && copyText) {
@@ -317,183 +322,45 @@ const blogJsonLd = {
             setTimeout(() => {
               copyText.textContent = original;
             }, 2000);
-          } catch (e) {
-            // fallback
-          }
+          } catch (e) {}
         });
       }
-    })();
+
+      // Active Outline Highlighting
+      const headings = document.querySelectorAll('.blog-prose h2[id], .blog-prose h3[id]');
+      const tocLinks = document.querySelectorAll('.blog-toc-link');
+      if (headings.length && tocLinks.length) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                tocLinks.forEach((link) => {
+                  const isMatch = link.getAttribute('data-toc-slug') === id;
+                  const dot = link.querySelector('.toc-dot');
+                  link.classList.toggle('bg-orange-500/10', isMatch);
+                  link.classList.toggle('text-orange-600', isMatch);
+                  link.classList.toggle('dark:text-orange-400', isMatch);
+                  link.classList.toggle('font-semibold', isMatch);
+                  if (dot) {
+                    dot.classList.toggle('bg-orange-500', isMatch);
+                    dot.classList.toggle('bg-stone-300', !isMatch);
+                    dot.classList.toggle('dark:bg-stone-700', !isMatch);
+                  }
+                });
+              }
+            });
+          },
+          { rootMargin: '-90px 0px -65% 0px', threshold: 0 }
+        );
+        headings.forEach((h) => observer.observe(h));
+      }
+    }
+
+    setupBlogDocumentUX();
+    document.addEventListener('astro:after-swap', setupBlogDocumentUX);
   </script>
 
   <!-- Reading Progress Widget -->
   <ReadingProgress label="Reading progress and scroll to top" />
 </Layout>
-
-<style is:global>
-  /* Blog Prose Typography Styling */
-  .blog-prose h2 {
-    font-size: 1.5rem;
-    line-height: 2rem;
-    font-weight: 700;
-    letter-spacing: -0.025em;
-    color: var(--text-primary);
-    margin-top: 2.5rem;
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--border-subtle);
-    scroll-margin-top: 6rem;
-  }
-  @media (min-width: 640px) {
-    .blog-prose h2 {
-      font-size: 1.75rem;
-      line-height: 2.25rem;
-    }
-  }
-
-  .blog-prose h3 {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-top: 1.75rem;
-    margin-bottom: 0.75rem;
-    scroll-margin-top: 6rem;
-  }
-
-  .blog-prose p {
-    font-size: 1rem;
-    line-height: 1.8;
-    color: var(--text-secondary);
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    font-weight: 400;
-  }
-
-  .blog-prose blockquote {
-    padding: 1rem 1.25rem;
-    margin: 1.75rem 0;
-    border-left: 3px solid #EA580C;
-    background-color: rgba(234, 88, 12, 0.05);
-    border-radius: 0 1rem 1rem 0;
-    font-style: italic;
-    color: var(--text-primary);
-  }
-  .dark .blog-prose blockquote {
-    background-color: rgba(251, 113, 59, 0.08);
-    border-left-color: #FB713B;
-  }
-
-  .blog-prose ul {
-    list-style-type: disc;
-    margin: 1.25rem 0;
-    padding-left: 1.5rem;
-    color: var(--text-secondary);
-  }
-
-  .blog-prose ol {
-    list-style-type: decimal;
-    margin: 1.25rem 0;
-    padding-left: 1.5rem;
-    color: var(--text-secondary);
-  }
-
-  .blog-prose li {
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    line-height: 1.7;
-  }
-
-  .blog-prose strong {
-    font-weight: 600;
-    color: var(--text-primary);
-  }
-
-  .blog-prose a {
-    color: #EA580C;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    font-weight: 500;
-    transition: color 0.15s;
-  }
-  .dark .blog-prose a {
-    color: #FB713B;
-  }
-  .blog-prose a:hover {
-    color: #C2410C;
-  }
-
-  .blog-prose code {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-    font-size: 0.875rem;
-    background-color: rgba(120, 113, 108, 0.15);
-    color: var(--text-primary);
-    padding: 0.15rem 0.4rem;
-    border-radius: 0.375rem;
-  }
-
-  .blog-prose pre {
-    padding: 1.25rem;
-    border-radius: 1rem;
-    background-color: #181614;
-    color: #F7F5F0;
-    overflow-x: auto;
-    margin: 1.75rem 0;
-    border: 1px solid #2B2722;
-  }
-
-  .blog-prose pre code {
-    background-color: transparent;
-    padding: 0;
-    color: inherit;
-    font-size: 0.875rem;
-  }
-
-  .blog-prose img {
-    border-radius: 1.25rem;
-    margin: 2rem 0;
-    width: 100%;
-    height: auto;
-    border: 1px solid var(--border-subtle);
-    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
-  }
-
-  .blog-prose hr {
-    border: none;
-    border-top: 1px solid var(--border-primary);
-    margin: 2.5rem 0;
-  }
-
-  .blog-prose table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 1.75rem 0;
-    font-size: 0.875rem;
-    line-height: 1.6;
-    border-radius: 0.75rem;
-    overflow: hidden;
-    border: 1px solid var(--border-primary);
-  }
-
-  .blog-prose thead {
-    background-color: rgba(234, 88, 12, 0.08);
-    border-bottom: 1px solid var(--border-primary);
-  }
-
-  .dark .blog-prose thead {
-    background-color: rgba(251, 113, 59, 0.12);
-  }
-
-  .blog-prose th {
-    text-align: left;
-    padding: 0.75rem 1rem;
-    font-weight: 700;
-    color: var(--text-primary);
-  }
-
-  .blog-prose td {
-    padding: 0.75rem 1rem;
-    color: var(--text-secondary);
-    border-top: 1px solid var(--border-subtle);
-    vertical-align: top;
-  }
-</style>

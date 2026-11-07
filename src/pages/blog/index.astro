@@ -21,57 +21,76 @@ const allTags = Array.from(new Set(posts.flatMap((p) => p.data.tags || [])));
   title={`${t.blogPage.title} • KD Labs`}
   description={t.blogPage.subtitle}
 >
-  <div class="py-12 sm:py-20">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+  <div class="py-10 sm:py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-12">
       
-      <!-- Header Section -->
-      <div class="max-w-3xl space-y-4">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-orange-500/10 dark:bg-orange-500/15 text-orange-700 dark:text-orange-400 border border-orange-500/20">
+      <!-- Craft Workspace Header Card -->
+      <div class="rounded-[2rem] craft-card p-6 sm:p-10 space-y-5">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold bg-orange-500/10 dark:bg-orange-500/15 text-orange-700 dark:text-orange-400 border border-orange-500/20">
           <span class="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse"></span>
           <span>{t.blogPage.badge}</span>
+          <span class="text-stone-300 dark:text-stone-700">•</span>
+          <span class="font-mono text-[11px]">{posts.length} Tài liệu</span>
         </div>
 
-        <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-stone-900 dark:text-stone-100">
-          {t.blogPage.title}
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-stone-900 dark:text-stone-100">
+          Tài Liệu & <span class="font-serif-editorial font-normal text-orange-600 dark:text-orange-500 text-[1.08em]">Nghiên Cứu</span> Kỹ Thuật
         </h1>
 
-        <p class="text-base sm:text-lg text-stone-600 dark:text-stone-300 leading-relaxed font-normal">
+        <p class="text-base sm:text-lg text-stone-600 dark:text-stone-300 max-w-3xl leading-relaxed font-normal">
           {t.blogPage.subtitle}
         </p>
 
-        <!-- Topic Tags Pill List -->
+        <!-- Interactive Craft Topic Tag Filter Bar -->
         {allTags.length > 0 && (
-          <div class="flex flex-wrap items-center gap-2 pt-2">
-            <span class="text-xs text-stone-500 dark:text-stone-400 font-medium">Chủ đề:</span>
+          <div class="flex flex-wrap items-center gap-2 pt-3 border-t border-stone-200/70 dark:border-stone-800/80" role="tablist" aria-label="Lọc theo chủ đề">
+            <span class="text-xs font-mono text-stone-500 dark:text-stone-400 font-medium mr-1">Chủ đề:</span>
+            <button
+              type="button"
+              data-filter-tag="all"
+              class="blog-tag-filter px-3 py-1 rounded-full text-xs font-semibold bg-orange-600 text-white shadow-2xs transition-all cursor-pointer"
+            >
+              Tất cả ({posts.length})
+            </button>
             {allTags.map((tag) => (
-              <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 border border-stone-200 dark:border-stone-700">
+              <button
+                type="button"
+                data-filter-tag={tag}
+                class="blog-tag-filter px-3 py-1 rounded-full text-xs font-mono font-medium bg-stone-100 dark:bg-stone-800/90 text-stone-700 dark:text-stone-300 hover:border-orange-500/50 border border-stone-200/80 dark:border-stone-700 transition-all cursor-pointer"
+              >
                 #{tag}
-              </span>
+              </button>
             ))}
           </div>
         )}
       </div>
 
-      <!-- Articles Grid -->
+      <!-- Articles Craft Cards Grid -->
       {posts.length > 0 ? (
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div id="blog-articles-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 sm:gap-8">
           {posts.map((post) => {
             const slug = post.id.replace(/^vi\//, '');
             const postUrl = `/blog/${slug}/`;
+            const tagsJson = JSON.stringify(post.data.tags || []);
 
             return (
-              <article class="flex flex-col rounded-3xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-[#161412] overflow-hidden hover:border-orange-500/40 dark:hover:border-orange-500/40 hover:shadow-xl transition-all duration-300 group">
+              <article
+                data-post-tags={tagsJson}
+                class="blog-card-item flex flex-col rounded-[1.75rem] craft-card craft-card-interactive craft-stack overflow-hidden group"
+              >
                 
                 <!-- Hero Image Cover -->
                 {post.data.heroImage && (
-                  <a href={postUrl} class="relative block aspect-[16/9] overflow-hidden bg-stone-950">
+                  <a href={postUrl} class="relative block aspect-[16/9] overflow-hidden bg-stone-950 border-b border-stone-200/60 dark:border-stone-800/80">
                     <img
                       src={post.data.heroImage}
                       alt={post.data.title}
                       class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
                     />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-stone-950/75 backdrop-blur-md border border-white/15 text-[10px] font-mono text-stone-200">
+                      Craft Doc • KD Labs
+                    </div>
                   </a>
                 )}
 
@@ -80,7 +99,7 @@ const allTags = Array.from(new Set(posts.flatMap((p) => p.data.tags || [])));
                   <div class="space-y-3">
                     
                     <!-- Meta: Date & Reading Time -->
-                    <div class="flex items-center gap-3 text-xs text-stone-500 dark:text-stone-400">
+                    <div class="flex items-center gap-3 text-xs font-mono text-stone-500 dark:text-stone-400">
                       <span class="inline-flex items-center gap-1.5 font-medium">
                         <svg class="w-3.5 h-3.5 text-stone-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -115,11 +134,11 @@ const allTags = Array.from(new Set(posts.flatMap((p) => p.data.tags || [])));
                   </div>
 
                   <!-- Footer of card: Tags & Read more CTA -->
-                  <div class="pt-4 border-t border-stone-100 dark:border-stone-800/80 space-y-3">
+                  <div class="pt-4 border-t border-stone-200/60 dark:border-stone-800/80 space-y-3">
                     {post.data.tags && post.data.tags.length > 0 && (
                       <div class="flex flex-wrap gap-1.5">
                         {post.data.tags.slice(0, 3).map((tag) => (
-                          <span class="px-2 py-0.5 rounded-md text-[11px] font-medium bg-stone-100 dark:bg-stone-800/80 text-stone-600 dark:text-stone-300">
+                          <span class="px-2 py-0.5 rounded-md text-[11px] font-mono font-medium bg-stone-100 dark:bg-stone-800/80 text-stone-600 dark:text-stone-300 border border-stone-200/70 dark:border-stone-700/60">
                             #{tag}
                           </span>
                         ))}
@@ -152,4 +171,45 @@ const allTags = Array.from(new Set(posts.flatMap((p) => p.data.tags || [])));
 
     </div>
   </div>
+
+  <script is:inline>
+    function setupBlogTagFilter() {
+      const buttons = document.querySelectorAll('.blog-tag-filter');
+      const cards = document.querySelectorAll('.blog-card-item');
+      if (!buttons.length || !cards.length) return;
+
+      buttons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const selected = btn.getAttribute('data-filter-tag') || 'all';
+
+          buttons.forEach((b) => {
+            const isActive = b.getAttribute('data-filter-tag') === selected;
+            b.classList.toggle('bg-orange-600', isActive);
+            b.classList.toggle('text-white', isActive);
+            b.classList.toggle('font-semibold', isActive);
+            b.classList.toggle('bg-stone-100', !isActive);
+            b.classList.toggle('dark:bg-stone-800/90', !isActive);
+            b.classList.toggle('text-stone-700', !isActive);
+            b.classList.toggle('dark:text-stone-300', !isActive);
+          });
+
+          cards.forEach((card) => {
+            if (selected === 'all') {
+              card.classList.remove('hidden');
+              return;
+            }
+            try {
+              const tags = JSON.parse(card.getAttribute('data-post-tags') || '[]');
+              card.classList.toggle('hidden', !tags.includes(selected));
+            } catch (e) {
+              card.classList.remove('hidden');
+            }
+          });
+        });
+      });
+    }
+
+    setupBlogTagFilter();
+    document.addEventListener('astro:after-swap', setupBlogTagFilter);
+  </script>
 </Layout>

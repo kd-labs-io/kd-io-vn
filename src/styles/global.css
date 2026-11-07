@@ -4,60 +4,98 @@
 
 @theme {
   --font-sans: "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-  
+  --font-serif: "Newsreader", "Instrument Serif", Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
   --color-zen-orange: #EA580C;
   --color-zen-orange-hover: #C2410C;
   --color-zen-orange-light: #FFEDD5;
   --color-zen-orange-subtle: #FFF7ED;
-  --color-zen-orange-glow: rgba(234, 88, 12, 0.18);
-  
-  --color-washi-bg: #FBF9F5;
+  --color-zen-orange-glow: rgba(234, 88, 12, 0.16);
+
+  --color-washi-bg: #F7F5F0;
   --color-washi-card: #FFFFFF;
-  --color-washi-subtle: #F5F1EA;
-  --color-washi-border: #E8E2D8;
-  
-  --color-sumi-bg: #0F0E0D;
-  --color-sumi-card: #181614;
-  --color-sumi-subtle: #221F1B;
-  --color-sumi-border: #2C2823;
+  --color-washi-subtle: #F0ECE3;
+  --color-washi-border: #E5DFD5;
+
+  --color-sumi-bg: #0D0C0B;
+  --color-sumi-card: #161513;
+  --color-sumi-subtle: #1F1D1A;
+  --color-sumi-border: #2A2723;
 }
 
 :root {
   color-scheme: light;
-  --bg-primary: #FBF9F5;
+  --bg-primary: #F7F5F0;
   --bg-card: #FFFFFF;
-  --bg-subtle: #F5F1EA;
-  --border-primary: #E8E2D8;
-  --border-subtle: #F0EAE1;
-  --text-primary: #1C1917;
-  --text-secondary: #57534E;
-  --text-muted: #8E8880;
+  --bg-card-elevated: #FFFFFF;
+  --bg-subtle: #EFECE6;
+  --border-primary: #E4DFD5;
+  --border-subtle: #EDE8DF;
+  --text-primary: #181614;
+  --text-secondary: #524E49;
+  --text-muted: #878179;
   --accent-orange: #EA580C;
   --accent-orange-hover: #C2410C;
   --accent-orange-bg: #FFF7ED;
   --accent-orange-border: #FDBA74;
-  --zen-glow: 0 8px 30px rgba(234, 88, 12, 0.12);
-  --card-shadow: 0 4px 20px -2px rgba(28, 25, 23, 0.04), 0 1px 3px rgba(28, 25, 23, 0.02);
-  --card-shadow-hover: 0 12px 30px -4px rgba(234, 88, 12, 0.1), 0 4px 12px rgba(28, 25, 23, 0.05);
+  --zen-glow: 0 12px 36px -4px rgba(234, 88, 12, 0.14);
+
+  /* Craft.do multi-layered tactile elevation */
+  --craft-shadow-sm:
+    0 1px 2px rgba(24, 22, 20, 0.04),
+    0 4px 12px -2px rgba(24, 22, 20, 0.04),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.9);
+  --craft-shadow-md:
+    0 1px 2px rgba(24, 22, 20, 0.04),
+    0 10px 28px -6px rgba(24, 22, 20, 0.06),
+    0 24px 48px -16px rgba(24, 22, 20, 0.04),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.95);
+  --craft-shadow-hover:
+    0 2px 4px rgba(24, 22, 20, 0.04),
+    0 16px 36px -6px rgba(234, 88, 12, 0.11),
+    0 6px 16px -3px rgba(24, 22, 20, 0.06),
+    inset 0 1px 0 0 rgba(255, 255, 255, 1);
+  --craft-pill-shadow:
+    0 4px 20px -2px rgba(24, 22, 20, 0.07),
+    0 1px 3px rgba(24, 22, 20, 0.04),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.85);
 }
 
 .dark {
   color-scheme: dark;
-  --bg-primary: #0F0E0D;
-  --bg-card: #181614;
-  --bg-subtle: #221F1B;
-  --border-primary: #2B2722;
-  --border-subtle: #201D1A;
+  --bg-primary: #0D0C0B;
+  --bg-card: #161513;
+  --bg-card-elevated: #1C1A17;
+  --bg-subtle: #201E1B;
+  --border-primary: #2B2723;
+  --border-subtle: #221F1B;
   --text-primary: #F7F5F0;
-  --text-secondary: #C4BFB6;
-  --text-muted: #7E7870;
+  --text-secondary: #C5BFB6;
+  --text-muted: #827B72;
   --accent-orange: #FB713B;
   --accent-orange-hover: #EA580C;
-  --accent-orange-bg: #2A170F;
+  --accent-orange-bg: #28160E;
   --accent-orange-border: #7C2D12;
-  --zen-glow: 0 8px 35px rgba(251, 113, 59, 0.2);
-  --card-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(0, 0, 0, 0.3);
-  --card-shadow-hover: 0 12px 35px -4px rgba(251, 113, 59, 0.18), 0 4px 14px rgba(0, 0, 0, 0.5);
+  --zen-glow: 0 12px 40px -4px rgba(251, 113, 59, 0.22);
+
+  /* Craft.do dark mode tactile elevation with subtle top rim light */
+  --craft-shadow-sm:
+    0 2px 6px rgba(0, 0, 0, 0.35),
+    0 8px 20px -4px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.06);
+  --craft-shadow-md:
+    0 2px 6px rgba(0, 0, 0, 0.45),
+    0 14px 34px -6px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.07);
+  --craft-shadow-hover:
+    0 4px 12px rgba(0, 0, 0, 0.5),
+    0 20px 42px -6px rgba(251, 113, 59, 0.16),
+    inset 0 1px 0 0 rgba(251, 113, 59, 0.22);
+  --craft-pill-shadow:
+    0 8px 28px -4px rgba(0, 0, 0, 0.65),
+    0 2px 6px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
 }
 
 html {
@@ -76,27 +114,114 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Zen subtle grid background pattern */
+/* Craft.do Editorial Serif Accent */
+.font-serif-editorial {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -0.012em;
+}
+
+/* Craft.do Canvas Background: Subtle dot-grid + warm paper texture feel */
 .zen-grid-pattern {
-  background-size: 32px 32px;
-  background-image: 
-    linear-gradient(to right, rgba(120, 113, 108, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(120, 113, 108, 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-image: radial-gradient(rgba(120, 113, 108, 0.14) 1px, transparent 1px);
 }
 
 .dark .zen-grid-pattern {
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
 }
 
-/* Subtle Enso Zen Circle Glow */
+/* Craft Ambient Canvas Glow */
 .zen-circle-gradient {
-  background: radial-gradient(circle at 50% 50%, rgba(234, 88, 12, 0.12) 0%, rgba(234, 88, 12, 0.02) 55%, transparent 70%);
+  background: radial-gradient(
+    circle at 50% 45%,
+    rgba(234, 88, 12, 0.13) 0%,
+    rgba(251, 146, 60, 0.05) 38%,
+    transparent 70%
+  );
 }
 
 .dark .zen-circle-gradient {
-  background: radial-gradient(circle at 50% 50%, rgba(251, 113, 59, 0.16) 0%, rgba(251, 113, 59, 0.03) 55%, transparent 70%);
+  background: radial-gradient(
+    circle at 50% 45%,
+    rgba(251, 113, 59, 0.16) 0%,
+    rgba(234, 88, 12, 0.05) 42%,
+    transparent 72%
+  );
+}
+
+/* Craft.do Tactile Card Surface */
+.craft-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  box-shadow: var(--craft-shadow-md);
+  transition:
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.28s ease;
+}
+
+.craft-card-interactive:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--craft-shadow-hover);
+  border-color: rgba(234, 88, 12, 0.42);
+}
+
+.dark .craft-card-interactive:hover {
+  border-color: rgba(251, 113, 59, 0.42);
+}
+
+/* Craft.do Stacked Paper Effect (for Hero Bento & Document Sheets) */
+.craft-stack {
+  position: relative;
+}
+
+.craft-stack::before {
+  content: "";
+  position: absolute;
+  inset: 6px 14px -6px 14px;
+  border-radius: inherit;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  opacity: 0.55;
+  z-index: -1;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.craft-stack:hover::before {
+  transform: translateY(3px) scale(0.995);
+}
+
+/* Craft Published Document Sheet (used in Blog Article, Privacy, Terms) */
+.craft-document-sheet {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  box-shadow: var(--craft-shadow-md);
+  position: relative;
+}
+
+/* Craft Floating Pill Navbar */
+.craft-pill-nav {
+  box-shadow: var(--craft-pill-shadow);
+}
+
+/* Craft Window Chrome */
+.craft-window {
+  background: linear-gradient(180deg, #181715 0%, #100F0E 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 12px 32px -8px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Craft Toggle / Accordion animation */
+details.craft-toggle > summary {
+  list-style: none;
+}
+details.craft-toggle > summary::-webkit-details-marker {
+  display: none;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
