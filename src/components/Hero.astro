@@ -31,21 +31,30 @@ const simpleOtpDetailUrl = isVi ? '/apps/simple-otp/' : '/en/apps/simple-otp/';
         </span>
       </div>
 
-      <!-- Simple, Clean 2-Line Sans-Serif Heading -->
+      <!-- Simple, Clean 2-Line Sans-Serif Heading with Typewriter Effect -->
       <h1 class="text-3xl sm:text-5xl lg:text-[3.5rem] font-extrabold tracking-tight text-stone-900 dark:text-stone-100 leading-[1.15]">
         <span class="block">
-          {isVi ? 'Phần mềm đơn giản.' : 'Simple software.'}
+          AI-Native Labs
         </span>
-        <span class="block text-orange-600 dark:text-orange-500 mt-1">
-          {isVi ? 'An toàn & mã nguồn mở.' : 'Secure & open source.'}
+        <span
+          class="block text-orange-600 dark:text-orange-500 mt-1.5 min-h-[1.2em]"
+          aria-label={isVi ? 'An toàn, hiệu quả, tốc độ' : 'Secure, efficient, fast'}
+        >
+          <span
+            id="hero-typewriter-text"
+            data-text={isVi ? 'An toàn, hiệu quả, tốc độ' : 'Secure, efficient, fast'}
+          >{isVi ? 'An toàn, hiệu quả, tốc độ' : 'Secure, efficient, fast'}</span><span
+            class="inline-block w-[3px] sm:w-[4px] h-[0.82em] bg-orange-600 dark:bg-orange-500 ml-1 align-middle animate-pulse rounded-full"
+            aria-hidden="true"
+          ></span>
         </span>
       </h1>
 
       <!-- Short, Effortless 1-Sentence Subtitle -->
-      <p class="text-sm sm:text-lg text-stone-600 dark:text-stone-300 max-w-xl mx-auto leading-relaxed font-normal text-pretty">
+      <p class="text-sm sm:text-lg text-stone-600 dark:text-stone-300 max-w-2xl mx-auto leading-relaxed font-normal text-pretty">
         {isVi
-          ? 'Xây dựng công cụ AI và ứng dụng bảo mật cá nhân — tinh gọn, minh bạch và tôn trọng quyền riêng tư.'
-          : 'Building thoughtful AI tools and privacy-first apps — minimal, transparent, and open.'}
+          ? 'Xây dựng các giải pháp toàn diện hỗ trợ chuyển đổi số, phát triển kỹ năng, sẵn sàng cho kỷ nguyên vươn mình.'
+          : 'Building comprehensive solutions for digital transformation and skill development — ready for a new era of growth.'}
       </p>
 
       <!-- Clean Action Buttons -->
@@ -112,3 +121,54 @@ const simpleOtpDetailUrl = isVi ? '/apps/simple-otp/' : '/en/apps/simple-otp/';
 
   </div>
 </section>
+
+<script is:inline>
+  function setupHeroTypewriter() {
+    const el = document.getElementById('hero-typewriter-text');
+    if (!el) return;
+
+    const fullText = el.getAttribute('data-text') || '';
+    if (!fullText) return;
+
+    if (window.__kdTypewriterTimer) {
+      clearTimeout(window.__kdTypewriterTimer);
+    }
+
+    let index = 0;
+    let isDeleting = false;
+    el.textContent = '';
+
+    function tick() {
+      if (!isDeleting) {
+        index++;
+        el.textContent = fullText.slice(0, index);
+
+        if (index === fullText.length) {
+          // Pause at full phrase before re-typing
+          isDeleting = true;
+          window.__kdTypewriterTimer = setTimeout(tick, 3200);
+          return;
+        }
+        // Natural typing speed (slightly slower after comma)
+        const prevChar = fullText[index - 1];
+        const delay = prevChar === ',' ? 260 : 65;
+        window.__kdTypewriterTimer = setTimeout(tick, delay);
+      } else {
+        index--;
+        el.textContent = fullText.slice(0, index);
+
+        if (index === 0) {
+          isDeleting = false;
+          window.__kdTypewriterTimer = setTimeout(tick, 450);
+          return;
+        }
+        window.__kdTypewriterTimer = setTimeout(tick, 32);
+      }
+    }
+
+    window.__kdTypewriterTimer = setTimeout(tick, 250);
+  }
+
+  setupHeroTypewriter();
+  document.addEventListener('astro:after-swap', setupHeroTypewriter);
+</script>
