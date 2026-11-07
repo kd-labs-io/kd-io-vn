@@ -1,6 +1,5 @@
 ---
 import type { Locale } from '../data/i18n';
-import { appsData } from '../data/apps';
 import { siteConfig } from '../config/site';
 
 interface Props {
@@ -9,468 +8,107 @@ interface Props {
 
 const { currentLang } = Astro.props;
 const isVi = currentLang === 'vi';
-const simpleOtp = appsData.find((a) => a.id === 'simple-otp');
 const blogPath = isVi ? '/blog/' : '/en/blog/';
 const kdCodeDetailUrl = isVi ? '/apps/kd-code/' : '/en/apps/kd-code/';
 const simpleOtpDetailUrl = isVi ? '/apps/simple-otp/' : '/en/apps/simple-otp/';
 ---
 
-<section id="hero-bento-section" class="relative overflow-hidden pt-5 pb-14 sm:pt-10 sm:pb-24 border-b border-stone-200/80 dark:border-stone-800/80">
+<section id="hero-bento-section" class="relative overflow-hidden pt-6 pb-12 sm:pt-12 sm:pb-20 border-b border-stone-200/80 dark:border-stone-800/80">
   <!-- Subtle Craft Ambient Aura in background -->
-  <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[540px] h-[540px] sm:w-[880px] sm:h-[880px] rounded-full zen-circle-gradient pointer-events-none -z-10"></div>
+  <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] sm:w-[820px] sm:h-[820px] rounded-full zen-circle-gradient pointer-events-none -z-10"></div>
 
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-14">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10">
 
-    <!-- Unified Craft Editorial Hero Header -->
-    <div class="max-w-3xl mx-auto text-center space-y-5 sm:space-y-6">
-      <!-- Live Lab Capsule Badge -->
-      <div class="inline-flex flex-wrap items-center justify-center gap-x-2 gap-y-1 px-3.5 py-1.5 rounded-full border border-stone-200/90 dark:border-stone-800 bg-white/90 dark:bg-[#161513]/90 text-stone-800 dark:text-stone-200 text-[11px] sm:text-xs font-medium tracking-wide shadow-2xs backdrop-blur-md">
-        <span class="flex h-2 w-2 relative shrink-0">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-2 w-2 bg-orange-600 dark:bg-orange-500"></span>
-        </span>
-        <span class="font-semibold text-orange-600 dark:text-orange-400">KD Labs</span>
+    <!-- Minimal, Natural Text Header -->
+    <div class="max-w-2xl mx-auto text-center space-y-4 sm:space-y-5">
+      <!-- Compact Pill Badge -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-stone-200/90 dark:border-stone-800 bg-white/90 dark:bg-[#161513]/90 text-stone-700 dark:text-stone-300 text-xs font-medium shadow-2xs backdrop-blur-md">
+        <span class="w-2 h-2 rounded-full bg-orange-500"></span>
+        <span class="font-semibold text-stone-900 dark:text-stone-100">KD Labs</span>
         <span class="text-stone-300 dark:text-stone-700">•</span>
-        <span>AI-Native & Open-Source Lab</span>
-        <span class="text-stone-300 dark:text-stone-700">•</span>
-        <span class="text-stone-500 dark:text-stone-400 font-mono text-[11px]">
-          {isVi ? 'Bùi Khương Duy (@kd-labs-io)' : 'Bui Khuong Duy (@kd-labs-io)'}
+        <span class="text-stone-500 dark:text-stone-400">
+          {isVi ? 'Bùi Khương Duy' : 'Bui Khuong Duy'}
         </span>
       </div>
 
-      <!-- Craft.do Mixed Sans + Editorial Serif Heading -->
-      <h1 class="text-[2rem] leading-[1.15] sm:text-5xl lg:text-[3.65rem] font-extrabold tracking-tight text-stone-900 dark:text-stone-100 sm:leading-[1.1] text-balance">
-        {isVi ? 'Kiến trúc Phần mềm AI-Native.' : 'AI-Native Software Engineering.'}
-        <span class="block font-serif-editorial font-normal text-[1.08em] text-orange-600 dark:text-orange-500 mt-1 text-balance">
-          {isVi ? 'Bảo mật & Mã nguồn mở Tinh gọn.' : 'Open-Source & Hardware Security.'}
+      <!-- Simple, Clean 2-Line Sans-Serif Heading -->
+      <h1 class="text-3xl sm:text-5xl lg:text-[3.5rem] font-extrabold tracking-tight text-stone-900 dark:text-stone-100 leading-[1.15]">
+        <span class="block">
+          {isVi ? 'Phần mềm đơn giản.' : 'Simple software.'}
+        </span>
+        <span class="block text-orange-600 dark:text-orange-500 mt-1">
+          {isVi ? 'An toàn & mã nguồn mở.' : 'Secure & open source.'}
         </span>
       </h1>
 
-      <!-- Unified Description -->
-      <p class="text-[15px] sm:text-lg text-stone-600 dark:text-stone-300 max-w-2xl mx-auto leading-relaxed font-normal text-pretty">
+      <!-- Short, Effortless 1-Sentence Subtitle -->
+      <p class="text-sm sm:text-lg text-stone-600 dark:text-stone-300 max-w-xl mx-auto leading-relaxed font-normal text-pretty">
         {isVi
-          ? 'KD Labs chế tác các công cụ lập trình tích hợp AI Agent chuẩn giao thức ACP (KD Code), ứng dụng bảo mật két phần cứng 100% ngoại tuyến (Simple OTP) và các công trình nghiên cứu kỹ thuật chuyên sâu tại github.com/kd-labs-io.'
-          : 'KD Labs crafts AI-Native developer tools over the Agent Client Protocol (KD Code), 100% offline hardware-backed security apps (Simple OTP), and deep-tech systems research at github.com/kd-labs-io.'}
+          ? 'Xây dựng công cụ AI và ứng dụng bảo mật cá nhân — tinh gọn, minh bạch và tôn trọng quyền riêng tư.'
+          : 'Building thoughtful AI tools and privacy-first apps — minimal, transparent, and open.'}
       </p>
 
-      <!-- Primary Craft Tactile CTA Row -->
-      <div data-nosnippet class="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 sm:gap-3.5 pt-1 max-w-xs sm:max-w-none mx-auto">
+      <!-- Clean Action Buttons -->
+      <div data-nosnippet class="flex flex-wrap items-center justify-center gap-3 pt-1">
         <a
           href="#showcase"
-          class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-orange-600 hover:bg-orange-700 text-white font-semibold text-sm shadow-md shadow-orange-600/20 hover:shadow-lg hover:shadow-orange-600/30 transition-all duration-200 transform hover:-translate-y-0.5 active:scale-[0.99]"
+          class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-orange-600 hover:bg-orange-700 text-white font-semibold text-sm shadow-md shadow-orange-600/20 transition-all duration-200 transform hover:-translate-y-0.5 active:scale-[0.99]"
         >
+          <span>{isVi ? 'Xem sản phẩm' : 'Explore Products'}</span>
           <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
           </svg>
-          <span>{isVi ? 'Khám phá Sản phẩm' : 'Explore Products'}</span>
         </a>
 
         <a
           href={siteConfig.githubUrl}
           target="_blank"
           rel="noopener noreferrer"
-          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-stone-900 hover:bg-black dark:bg-stone-100 dark:hover:bg-white text-white dark:text-stone-950 font-semibold text-sm shadow-sm transition-all duration-200 transform hover:-translate-y-0.5 active:scale-[0.99]"
+          class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full craft-card hover:border-orange-500/50 text-stone-800 dark:text-stone-200 font-semibold text-sm transition-all duration-200 transform hover:-translate-y-0.5 active:scale-[0.99]"
         >
           <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
           </svg>
           <span>GitHub @kd-labs-io</span>
         </a>
-
-        <a
-          href={blogPath}
-          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full craft-card hover:border-orange-500/60 text-stone-800 dark:text-stone-200 hover:text-orange-600 dark:hover:text-orange-400 font-medium text-sm transition-all duration-200 transform hover:-translate-y-0.5 active:scale-[0.99]"
-        >
-          <span>{isVi ? 'Tài liệu & Nghiên cứu' : 'Research & Docs'}</span>
-          <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-          </svg>
-        </a>
       </div>
     </div>
 
-    <!-- 4-Card Craft Interactive Bento Grid -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-7">
+    <!-- Single Ghibli × Craft.do Landscape Artwork -->
+    <div class="relative rounded-[1.75rem] sm:rounded-[2.25rem] craft-card craft-stack p-2 sm:p-3 overflow-hidden">
+      <div class="relative rounded-[1.35rem] sm:rounded-[1.75rem] overflow-hidden aspect-[16/9] bg-stone-200 dark:bg-stone-900">
+        <img
+          src="/assets/branding/hero-landscape.jpg"
+          alt={isVi ? 'Không gian sáng tạo KD Labs phong cách Ghibli & Craft.do' : 'KD Labs creative workspace in Ghibli & Craft.do style'}
+          class="w-full h-full object-cover"
+          loading="eager"
+          fetchpriority="high"
+        />
 
-      <!-- BENTO CARD 1: KD Code Interactive Craft Card (7 cols) -->
-      <div class="lg:col-span-7 rounded-[1.75rem] craft-card craft-card-interactive craft-stack p-5 sm:p-7 flex flex-col justify-between gap-6 group">
-        <div class="space-y-4">
-          <!-- Top Meta Row -->
-          <div class="flex flex-wrap items-center justify-between gap-2">
-            <div class="flex items-center gap-3.5">
-              <img
-                src="/assets/kd-code/icon.png"
-                alt="KD Code Icon"
-                class="w-12 h-12 rounded-2xl object-cover border border-stone-200 dark:border-stone-800 shadow-sm shrink-0"
-              />
-              <div>
-                <div class="flex items-center gap-2">
-                  <h2 class="text-lg sm:text-xl font-bold text-stone-900 dark:text-stone-100 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">
-                    <a href={kdCodeDetailUrl} class="focus:outline-none">KD Code</a>
-                  </h2>
-                  <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-semibold bg-orange-500/10 text-orange-700 dark:text-orange-400 border border-orange-500/25">
-                    VS Code ≥ 1.123
-                  </span>
-                </div>
-                <p class="text-xs font-mono text-stone-500 dark:text-stone-400">
-                  kd-labs-io/kd-code-extension • Agent Client Protocol (ACP)
-                </p>
-              </div>
-            </div>
-
-            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-900/50">
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-              MIT Open Source
-            </span>
+        <!-- Subtle Floating Craft Dock inside bottom of artwork (Desktop & Mobile) -->
+        <div class="hidden sm:flex items-center justify-between gap-4 absolute bottom-4 left-4 right-4 px-4 py-2.5 rounded-2xl backdrop-blur-xl bg-white/85 dark:bg-[#161513]/85 border border-white/60 dark:border-stone-700/80 shadow-lg text-xs">
+          <div class="flex items-center gap-3">
+            <a href={kdCodeDetailUrl} class="inline-flex items-center gap-2 font-semibold text-stone-900 dark:text-stone-100 hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
+              <img src="/assets/kd-code/icon.png" alt="KD Code" class="w-5 h-5 rounded-md object-cover" />
+              <span>KD Code (VS Code ACP)</span>
+            </a>
+            <span class="text-stone-300 dark:text-stone-700">•</span>
+            <a href={simpleOtpDetailUrl} class="inline-flex items-center gap-2 font-semibold text-stone-900 dark:text-stone-100 hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
+              <img src="/assets/simple-otp/icon.png" alt="Simple OTP" class="w-5 h-5 rounded-md object-cover" />
+              <span>Simple OTP (100% Offline)</span>
+            </a>
           </div>
 
-          <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-300 leading-relaxed">
-            {isVi
-              ? 'Điều phối Claude, Codex, OpenCode ngay trong VS Code qua giao thức chuẩn ACP. Chạy mỗi phiên chat trong một Git Worktree độc lập và đối sánh song song nhiều Agent (Best-of-N Compare).'
-              : 'Orchestrate Claude, Codex, and OpenCode inside VS Code over the Agent Client Protocol (ACP). Isolate every chat in its own Git worktree and compare parallel runs (Best-of-N).'}
-          </p>
-
-          <!-- Craft macOS Window Chrome with Interactive Tabs -->
-          <div data-nosnippet class="rounded-2xl craft-window text-stone-100 p-3.5 sm:p-4 font-mono text-xs space-y-3">
-            <!-- Window Top Bar + Segmented Control Tabs -->
-            <div class="flex flex-wrap items-center justify-between gap-2 pb-2.5 border-b border-white/10 text-[11px]">
-              <div class="flex items-center gap-1.5 min-w-0">
-                <span class="w-2.5 h-2.5 rounded-full bg-[#FF5F56] shrink-0"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-[#FFBD2E] shrink-0"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-[#27C93F] shrink-0"></span>
-                <span class="ml-1.5 text-stone-300 font-semibold truncate">KD Code • ACP Workspace</span>
-              </div>
-
-              <!-- Interactive Segmented Pill Switcher -->
-              <div class="inline-flex items-center p-0.5 rounded-lg bg-stone-900/90 border border-white/10 text-[10px]" role="tablist" aria-label="KD Code Preview Mode">
-                <button
-                  type="button"
-                  data-kd-tab="compare"
-                  class="kd-hero-tab px-2 py-0.5 rounded-md bg-orange-600 text-white font-semibold transition-all cursor-pointer"
-                >
-                  {isVi ? 'Best-of-3 Diff' : 'Best-of-3 Diff'}
-                </button>
-                <button
-                  type="button"
-                  data-kd-tab="registry"
-                  class="kd-hero-tab px-2 py-0.5 rounded-md text-stone-400 hover:text-stone-200 transition-all cursor-pointer"
-                >
-                  ACP Registry
-                </button>
-              </div>
-            </div>
-
-            <!-- Panel 1: Best-of-3 Worktree Compare (Default) -->
-            <div id="kd-panel-compare" class="grid grid-cols-1 sm:grid-cols-3 gap-2">
-              <div class="p-2.5 rounded-xl bg-white/[0.04] border border-emerald-500/40 space-y-1">
-                <div class="flex items-center justify-between text-[10px]">
-                  <span class="font-bold text-emerald-400">Claude Code</span>
-                  <span class="text-emerald-300 bg-emerald-950/70 px-1.5 py-0.2 rounded">Selected</span>
-                </div>
-                <div class="text-[10px] text-stone-400 truncate">⎇ wt/feat-auth-claude</div>
-                <div class="text-[10px] text-stone-300">+64 −18 • 3 files</div>
-              </div>
-
-              <div class="p-2.5 rounded-xl bg-white/[0.03] border border-white/10 space-y-1">
-                <div class="flex items-center justify-between text-[10px]">
-                  <span class="font-bold text-stone-200">Codex Agent</span>
-                  <span class="text-stone-400">Diff ready</span>
-                </div>
-                <div class="text-[10px] text-stone-400 truncate">⎇ wt/feat-auth-codex</div>
-                <div class="text-[10px] text-stone-300">+52 −21 • 2 files</div>
-              </div>
-
-              <div class="p-2.5 rounded-xl bg-white/[0.03] border border-white/10 space-y-1">
-                <div class="flex items-center justify-between text-[10px]">
-                  <span class="font-bold text-stone-200">OpenCode</span>
-                  <span class="text-orange-400">Diff ready</span>
-                </div>
-                <div class="text-[10px] text-stone-400 truncate">⎇ wt/feat-auth-opencode</div>
-                <div class="text-[10px] text-stone-300">+71 −14 • 4 files</div>
-              </div>
-            </div>
-
-            <!-- Panel 2: ACP Registry & MCP Integration -->
-            <div id="kd-panel-registry" class="hidden space-y-2">
-              <div class="flex items-center justify-between p-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-[11px]">
-                <div class="flex items-center gap-2">
-                  <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-                  <span class="text-stone-200 font-semibold">JSON-RPC 2.0 over stdio</span>
-                </div>
-                <span class="text-[10px] text-orange-400">@agentclientprotocol/sdk</span>
-              </div>
-              <div class="flex flex-wrap gap-1.5 text-[10px]">
-                <span class="px-2.5 py-1 rounded-lg bg-orange-500/20 text-orange-300 border border-orange-500/30">✓ 1-Click Agent Install</span>
-                <span class="px-2.5 py-1 rounded-lg bg-white/[0.05] text-stone-300 border border-white/10">✓ Custom MCP Servers</span>
-                <span class="px-2.5 py-1 rounded-lg bg-white/[0.05] text-stone-300 border border-white/10">✓ Workspace Skills ($)</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Bottom Action Links -->
-        <div class="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-stone-200/60 dark:border-stone-800/80 text-xs font-semibold">
           <a
-            href={kdCodeDetailUrl}
-            class="inline-flex items-center gap-1.5 text-orange-600 dark:text-orange-500 hover:text-orange-700 dark:hover:text-orange-400"
+            href={blogPath}
+            class="inline-flex items-center gap-1 font-medium text-stone-700 dark:text-stone-300 hover:text-orange-600 dark:hover:text-orange-400 transition-colors"
           >
-            <span>{isVi ? 'Xem kiến trúc & tính năng KD Code' : 'Explore KD Code architecture'}</span>
-            <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </a>
-          <a
-            href="https://github.com/kd-labs-io/kd-code-extension"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-1.5 text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 font-mono"
-          >
-            <span>github.com/kd-labs-io/kd-code-extension</span>
-            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-            </svg>
+            <span>{isVi ? 'Đọc blog nghiên cứu' : 'Read research blog'}</span>
+            <span>→</span>
           </a>
         </div>
       </div>
-
-      <!-- BENTO CARD 2: Simple OTP Interactive Craft Card (5 cols) -->
-      <div class="lg:col-span-5 rounded-[1.75rem] craft-card craft-card-interactive craft-stack p-5 sm:p-7 flex flex-col justify-between gap-6 group">
-        <div class="space-y-4">
-          <!-- Top Meta Row -->
-          <div class="flex flex-wrap items-center justify-between gap-2">
-            <div class="flex items-center gap-3.5">
-              <img
-                src="/assets/simple-otp/icon.png"
-                alt="Simple OTP Icon"
-                class="w-12 h-12 rounded-2xl object-cover border border-stone-200 dark:border-stone-800 shadow-sm shrink-0"
-              />
-              <div>
-                <div class="flex items-center gap-2">
-                  <h2 class="text-lg sm:text-xl font-bold text-stone-900 dark:text-stone-100 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">
-                    <a href={simpleOtpDetailUrl} class="focus:outline-none">Simple OTP</a>
-                  </h2>
-                  <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-semibold bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/25">
-                    100% Offline
-                  </span>
-                </div>
-                <p class="text-xs font-mono text-stone-500 dark:text-stone-400">
-                  iOS & Android • AES-256-GCM Enclave
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-300 leading-relaxed">
-            {isVi
-              ? 'Ứng dụng xác thực 2FA hoàn toàn không quyền Internet. Mã hóa khóa bí mật trong iOS Keychain / Android Keystore, đã phát hành trên App Store.'
-              : 'Zero-network 2FA authenticator with zero internet permissions. Secrets stay inside iOS Keychain / Android Keystore, live on the App Store.'}
-          </p>
-
-          <!-- Interactive OTP Hardware Enclave Mockup (Click to copy demo code) -->
-          <div data-nosnippet class="rounded-2xl craft-window text-stone-100 p-3.5 space-y-2.5">
-            <button
-              type="button"
-              id="hero-otp-copy-card"
-              data-otp-code="582910"
-              class="w-full text-left flex items-center justify-between p-3 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-orange-500/50 transition-all cursor-pointer group/otp"
-              title={isVi ? 'Nhấn để sao chép mã OTP mẫu' : 'Click to copy demo OTP code'}
-            >
-              <div>
-                <div class="flex items-center gap-1.5 text-[11px] font-semibold text-stone-200">
-                  <span>GitHub • @kd-labs-io</span>
-                  <span id="hero-otp-copied-badge" class="hidden px-1.5 py-0.2 rounded bg-emerald-500/20 text-emerald-300 text-[9px] font-mono">
-                    {isVi ? 'Đã chép!' : 'Copied!'}
-                  </span>
-                </div>
-                <div class="text-xl font-mono font-bold tracking-widest text-orange-400 mt-0.5 group-hover/otp:text-orange-300 transition-colors">
-                  582 910
-                </div>
-              </div>
-              <div class="text-right">
-                <span class="inline-block px-2 py-0.5 rounded bg-emerald-950/70 border border-emerald-800/50 text-[10px] font-mono text-emerald-400">
-                  RFC 6238
-                </span>
-                <div class="text-[10px] font-mono text-stone-400 mt-1 flex items-center justify-end gap-1">
-                  <span>Keychain Locked 🔒</span>
-                </div>
-              </div>
-            </button>
-          </div>
-        </div>
-
-        <!-- Bottom Action Links -->
-        <div class="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-stone-200/60 dark:border-stone-800/80 text-xs font-semibold">
-          <a
-            href={simpleOtp?.appStoreUrl || 'https://apps.apple.com/us/app/simple-otp/id6816673973'}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-1.5 text-orange-600 dark:text-orange-500 hover:text-orange-700 dark:hover:text-orange-400"
-          >
-            <span>{isVi ? 'Tải trên App Store' : 'Download on App Store'}</span>
-            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-            </svg>
-          </a>
-          <a
-            href={simpleOtpDetailUrl}
-            class="inline-flex items-center gap-1.5 text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100"
-          >
-            <span>{isVi ? 'Chi tiết & Mã nguồn' : 'Details & Source'}</span>
-            <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-            </svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- BENTO CARD 3: Open-Source Ecosystem @kd-labs-io (6 cols) -->
-      <div class="lg:col-span-6 rounded-[1.75rem] craft-card craft-card-interactive p-5 sm:p-7 flex flex-col justify-between gap-5">
-        <div class="space-y-3">
-          <div class="flex items-center justify-between gap-2">
-            <span class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-orange-600 dark:text-orange-500">
-              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-              </svg>
-              <span>Open-Source Organization</span>
-            </span>
-            <span class="text-xs font-mono text-stone-500 dark:text-stone-400">github.com/kd-labs-io</span>
-          </div>
-
-          <h3 class="text-lg sm:text-xl font-bold text-stone-900 dark:text-stone-100">
-            {isVi ? 'Minh bạch Mã nguồn & Kiến trúc Zero-Trust' : 'Auditable Open-Source & Zero-Trust Craft'}
-          </h3>
-
-          <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-300 leading-relaxed">
-            {isVi
-              ? 'Niềm tin kỹ thuật phải được chứng minh bằng mã nguồn. Các dự án tại kd-labs-io được phát hành theo giấy phép mở MIT, không gắn trình theo dõi (Zero Telemetry) và phân tách ranh giới bảo mật rõ ràng.'
-              : 'Engineering trust must be verifiable. Repositories under kd-labs-io are released under the permissive MIT License with zero telemetry SDKs and strict security boundaries.'}
-          </p>
-        </div>
-
-        <!-- Craft Document Link Blocks -->
-        <div class="flex flex-wrap items-center gap-2 pt-1">
-          <a
-            href="https://github.com/kd-labs-io/kd-code-extension"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-stone-100/90 dark:bg-stone-900 hover:bg-orange-500/10 hover:border-orange-500/40 border border-stone-200/90 dark:border-stone-800 text-xs font-mono text-stone-800 dark:text-stone-200 transition-all"
-          >
-            <span class="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
-            <span>kd-labs-io/kd-code-extension</span>
-          </a>
-          <a
-            href="https://github.com/kd-labs-io/simple-otp"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-stone-100/90 dark:bg-stone-900 hover:bg-orange-500/10 hover:border-orange-500/40 border border-stone-200/90 dark:border-stone-800 text-xs font-mono text-stone-800 dark:text-stone-200 transition-all"
-          >
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-            <span>kd-labs-io/simple-otp</span>
-          </a>
-          <a
-            href="https://github.com/kd-labs-io/kd-io-vn"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-stone-100/90 dark:bg-stone-900 hover:bg-orange-500/10 hover:border-orange-500/40 border border-stone-200/90 dark:border-stone-800 text-xs font-mono text-stone-800 dark:text-stone-200 transition-all"
-          >
-            <span class="w-1.5 h-1.5 rounded-full bg-stone-400"></span>
-            <span>kd-labs-io/kd-io-vn</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- BENTO CARD 4: Deep-Tech Research & System Architecture (6 cols) -->
-      <div class="lg:col-span-6 rounded-[1.75rem] craft-card craft-card-interactive p-5 sm:p-7 flex flex-col justify-between gap-5">
-        <div class="space-y-3">
-          <div class="flex items-center justify-between gap-2">
-            <span class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-orange-600 dark:text-orange-500">
-              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-              </svg>
-              <span>Applied Research & Systems</span>
-            </span>
-            <span class="px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-stone-100 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 text-stone-600 dark:text-stone-400">
-              12 Bilingual Docs
-            </span>
-          </div>
-
-          <h3 class="text-lg sm:text-xl font-bold text-stone-900 dark:text-stone-100">
-            {isVi ? 'Nghiên cứu Chuyên sâu: AI Agents, Mật mã & Hệ thống' : 'Deep-Tech Research: AI Agents, Crypto & Systems'}
-          </h3>
-
-          <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-300 leading-relaxed">
-            {isVi
-              ? 'Các phân tích kiến trúc chuyên sâu từ thực tiễn xây dựng sản phẩm: Giao thức ACP & Git Worktree, Mật mã hậu lượng tử (Kyber/Dilithium), CRDT Local-First, HSM/KMS và Secure Enclave.'
-              : 'In-depth architectural analyses from production engineering: Agent Client Protocol (ACP) & Git Worktrees, Post-Quantum Crypto, Local-First CRDTs, HSM Envelope Encryption, and Secure Enclaves.'}
-          </p>
-        </div>
-
-        <div class="flex flex-wrap items-center justify-between gap-3 pt-1">
-          <div class="flex flex-wrap gap-1.5 text-[11px] font-mono text-stone-600 dark:text-stone-300">
-            <span class="px-2.5 py-1 rounded-lg bg-stone-100/90 dark:bg-stone-900 border border-stone-200/90 dark:border-stone-800">#ACP-Agents</span>
-            <span class="px-2.5 py-1 rounded-lg bg-stone-100/90 dark:bg-stone-900 border border-stone-200/90 dark:border-stone-800">#Post-Quantum</span>
-            <span class="px-2.5 py-1 rounded-lg bg-stone-100/90 dark:bg-stone-900 border border-stone-200/90 dark:border-stone-800">#Local-First</span>
-            <span class="px-2.5 py-1 rounded-lg bg-stone-100/90 dark:bg-stone-900 border border-stone-200/90 dark:border-stone-800">#Enclave</span>
-          </div>
-
-          <a
-            href="#research"
-            class="inline-flex items-center gap-1 text-xs font-semibold text-orange-600 dark:text-orange-500 hover:text-orange-700 dark:hover:text-orange-400 shrink-0"
-          >
-            <span>{isVi ? 'Xem bài nghiên cứu' : 'Browse papers'}</span>
-            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
-          </a>
-        </div>
-      </div>
-
     </div>
 
   </div>
 </section>
-
-<script is:inline>
-  function setupHeroCraftInteractions() {
-    // 1. KD Code Segmented Tab Switcher
-    const tabBtns = document.querySelectorAll('.kd-hero-tab');
-    const panelCompare = document.getElementById('kd-panel-compare');
-    const panelRegistry = document.getElementById('kd-panel-registry');
-
-    if (tabBtns.length && panelCompare && panelRegistry) {
-      tabBtns.forEach((btn) => {
-        btn.addEventListener('click', () => {
-          const target = btn.getAttribute('data-kd-tab');
-          tabBtns.forEach((b) => {
-            const active = b.getAttribute('data-kd-tab') === target;
-            b.classList.toggle('bg-orange-600', active);
-            b.classList.toggle('text-white', active);
-            b.classList.toggle('font-semibold', active);
-            b.classList.toggle('text-stone-400', !active);
-          });
-          panelCompare.classList.toggle('hidden', target !== 'compare');
-          panelRegistry.classList.toggle('hidden', target !== 'registry');
-        });
-      });
-    }
-
-    // 2. Simple OTP Demo Copy Interaction
-    const otpBtn = document.getElementById('hero-otp-copy-card');
-    const otpBadge = document.getElementById('hero-otp-copied-badge');
-    if (otpBtn && otpBadge) {
-      otpBtn.addEventListener('click', async () => {
-        const code = otpBtn.getAttribute('data-otp-code') || '582910';
-        try {
-          await navigator.clipboard.writeText(code);
-          otpBadge.classList.remove('hidden');
-          setTimeout(() => {
-            otpBadge.classList.add('hidden');
-          }, 1800);
-        } catch (e) {}
-      });
-    }
-  }
-
-  setupHeroCraftInteractions();
-  document.addEventListener('astro:after-swap', setupHeroCraftInteractions);
-</script>

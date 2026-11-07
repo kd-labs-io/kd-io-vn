@@ -31,16 +31,12 @@ const featuredPosts = allPosts.slice(0, 3);
           {isVi ? 'Nghiên cứu & Kiến trúc Chuyên sâu' : 'Applied Research & Engineering'}
         </span>
         <h2 class="text-2xl sm:text-4xl font-bold tracking-tight text-stone-900 dark:text-stone-100 text-balance">
-          {isVi ? (
-            <>Bài Viết <span class="font-serif-editorial font-normal text-orange-600 dark:text-orange-500 text-[1.08em]">Nghiên Cứu</span> Mới Nhất</>
-          ) : (
-            <>Latest <span class="font-serif-editorial font-normal text-orange-600 dark:text-orange-500 text-[1.08em]">Research</span> Publications</>
-          )}
+          {isVi ? 'Bài viết & Nghiên cứu mới nhất' : 'Latest Research & Writing'}
         </h2>
         <p class="text-sm sm:text-base text-stone-600 dark:text-stone-300 leading-relaxed font-normal text-pretty">
           {isVi
-            ? 'Phân tích chuyên sâu từ quá trình xây dựng sản phẩm thực tế tại KD Labs: Agent Client Protocol (ACP), Git Worktrees, Mật mã hậu lượng tử, CRDT Local-First và Bảo mật phần cứng.'
-            : 'In-depth engineering write-ups from building real software at KD Labs: Agent Client Protocol (ACP), Git Worktrees, Post-Quantum Cryptography, Local-First CRDTs, and Hardware Security.'}
+            ? 'Chia sẻ kiến thức thực tế trong quá trình xây dựng sản phẩm: AI Agents, kiến trúc phần mềm và bảo mật.'
+            : 'Practical notes from building software: AI Agents, systems architecture, and security.'}
         </p>
       </div>
 
