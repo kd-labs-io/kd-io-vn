@@ -250,7 +250,7 @@ const featureGraphic = app.featureGraphic ? app.featureGraphic[currentLang] : nu
               <source
                 type="image/webp"
                 srcset={`${featureGraphic.replace(/\.png$/, '-600w.webp')} 600w, ${featureGraphic.replace(/\.png$/, '.webp')} 1024w`}
-                sizes="(max-width: 640px) 90vw, 480px"
+                sizes="(max-width: 640px) calc(100vw - 76px), 420px"
               />
             )}
             <img

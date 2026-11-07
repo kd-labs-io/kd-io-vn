@@ -1,0 +1,99 @@
+{
+  "entries": [
+    {
+      "identifier": "urn:air:kd.io.vn:tools:kd-code",
+      "displayName": "KD Code — Multi-Agent ACP Extension for VS Code",
+      "type": "application/mcp-server-card+json",
+      "url": "https://kd.io.vn/apps/kd-code/",
+      "description": "Open-source VS Code extension orchestrating multiple AI coding agents (Claude Code, Codex, OpenCode) via the Agent Client Protocol (ACP) with isolated Git Worktrees, Best-of-N diff comparison, and MCP tool integration.",
+      "representativeQueries": [
+        "Run multiple AI coding agents in parallel inside VS Code using Agent Client Protocol",
+        "Compare code diffs across isolated Git worktrees from Claude Code, Codex, and OpenCode",
+        "Install KD Code open-source ACP multi-agent orchestrator extension for VS Code"
+      ],
+      "capabilities": [
+        "AgentClientProtocol",
+        "MultiAgentOrchestration",
+        "GitWorktreeIsolation",
+        "BestOfNDiffComparison",
+        "ModelContextProtocol"
+      ],
+      "tags": [
+        "ai-agents",
+        "acp",
+        "mcp",
+        "vscode-extension",
+        "git-worktrees",
+        "open-source"
+      ],
+      "version": "0.2.0",
+      "updatedAt": "2026-11-07T00:00:00Z",
+      "TrustManifest": {
+        "identity": "https://kd.io.vn",
+        "identityType": "https"
+      }
+    },
+    {
+      "identifier": "urn:air:kd.io.vn:apps:simple-otp",
+      "displayName": "Simple OTP — 100% Offline Zero-Trust 2FA Authenticator",
+      "type": "application/agent-card+json",
+      "url": "https://kd.io.vn/apps/simple-otp/",
+      "description": "Zero-trust, 100% offline TOTP/HOTP two-factor authenticator for iOS and Android featuring hardware-backed AES-256-GCM encryption, Secure Enclave/Keystore protection, and zero network permissions.",
+      "representativeQueries": [
+        "Offline TOTP and HOTP two-factor authenticator app with zero network permissions",
+        "AES-256-GCM encrypted 2FA backup and hardware security module authenticator for iOS and Android",
+        "Download Simple OTP privacy-first offline 2FA authenticator by KD Labs"
+      ],
+      "capabilities": [
+        "TOTPGeneration",
+        "HOTPGeneration",
+        "AES256GCMEncryptedBackup",
+        "OfflineZeroTrustSecurity"
+      ],
+      "tags": [
+        "2fa",
+        "totp",
+        "security",
+        "zero-trust",
+        "offline-first",
+        "cryptography"
+      ],
+      "version": "1.2.0",
+      "updatedAt": "2026-11-07T00:00:00Z",
+      "TrustManifest": {
+        "identity": "https://kd.io.vn",
+        "identityType": "https"
+      }
+    },
+    {
+      "identifier": "urn:air:kd.io.vn:docs:research-catalog",
+      "displayName": "KD Labs — AI-Native Engineering & Security Research",
+      "type": "application/agent-skills+md",
+      "url": "https://kd.io.vn/llms.txt",
+      "description": "Machine-readable index and technical research catalog from KD Labs covering Agent Client Protocol (ACP), Local-First CRDT architectures, Hardware Security Modules (HSM), Post-Quantum Cryptography, and Memory Safety.",
+      "representativeQueries": [
+        "Read KD Labs engineering research on Agent Client Protocol and multi-agent architectures",
+        "Explore technical guides on AES-256-GCM, Secure Enclave, Post-Quantum Cryptography, and CRDTs",
+        "Fetch machine-readable documentation and llms.txt summary for KD Labs"
+      ],
+      "capabilities": [
+        "TechnicalResearch",
+        "SecurityArchitecture",
+        "AgenticSystemsDocumentation"
+      ],
+      "tags": [
+        "research",
+        "ai-native",
+        "cryptography",
+        "distributed-systems",
+        "llms-txt"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-11-07T00:00:00Z",
+      "TrustManifest": {
+        "identity": "https://kd.io.vn",
+        "identityType": "https"
+      }
+    }
+  ]
+}

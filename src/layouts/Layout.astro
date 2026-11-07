@@ -209,11 +209,14 @@ const finalJsonLdArray = jsonLd
         rel="preload"
         as="image"
         type="image/webp"
-        imagesrcset="/assets/branding/hero-landscape-800w.webp 640w, /assets/branding/hero-landscape.webp 1376w"
-        imagesizes="(max-width: 640px) 95vw, (max-width: 1024px) 90vw, 960px"
+        imagesrcset="/assets/branding/hero-landscape-800w.webp 640w, /assets/branding/hero-landscape.webp 960w"
+        imagesizes="(max-width: 640px) calc(100vw - 50px), (max-width: 1024px) 90vw, 960px"
         fetchpriority="high"
       />
     )}
+
+    <!-- Agentic Resource Discovery (ARD v0.91) -->
+    <link rel="ard" href="/.well-known/ard.json" />
 
     <!-- Canonical URL -->
     <link rel="canonical" href={canonicalURL} />
@@ -272,6 +275,7 @@ const finalJsonLdArray = jsonLd
 
     <!-- Anti-FOUC Theme Script (executes immediately before render) -->
     <script is:inline>
+      window.__cfBeacon = { load: 'single' };
       (function() {
         try {
           const savedTheme = localStorage.getItem('kd_theme');
