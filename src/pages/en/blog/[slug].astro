@@ -23,7 +23,7 @@ const t = getTranslations(lang);
 const toc = headings.filter((h) => h.depth === 2 || h.depth === 3);
 
 // Current canonical URL for social sharing
-const postUrl = Astro.url.href;
+const postUrl = Astro.url.href.endsWith('/') ? Astro.url.href : `${Astro.url.href}/`;
 const siteUrl = Astro.site ? Astro.site.origin : 'https://kd.io.vn';
 const blogOgImage = post.data.heroImage;
 

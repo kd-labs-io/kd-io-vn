@@ -4,7 +4,7 @@ export const siteConfig = {
     vi: 'AI-Native Software & Research Lab',
     en: 'AI-Native Software & Research Lab',
   },
-  url: 'https://kd.io.vn',
+  url: 'https://kd.io.vn/',
   googlePlayDevUrl: 'https://play.google.com/store/apps/dev?id=7744040993303027729',
   contactEmail: 'contact@kd.io.vn',
   supportEmail: 'support@kd.io.vn',
