@@ -25,6 +25,8 @@ export interface AppItem {
   googlePlayUrl: string;
   appStoreUrl?: string;
   githubUrl?: string;
+  vsMarketplaceUrl?: string;
+  openVsxUrl?: string;
   protocolUrl?: string;
   installCommand?: string;
   iconImage?: string;
@@ -83,6 +85,8 @@ export const appsData: AppItem[] = [
     packageName: 'kd-labs.kd-code',
     googlePlayUrl: '#',
     githubUrl: 'https://github.com/kd-labs-io/kd-code-extension',
+    vsMarketplaceUrl: 'https://marketplace.visualstudio.com/items?itemName=kd-labs.kd-code',
+    openVsxUrl: 'https://open-vsx.org/extension/kd-labs/kd-code',
     protocolUrl: 'https://agentclientprotocol.com',
     installCommand: 'npm install && npm run reinstall',
     iconImage: '/assets/kd-code/icon.png',

@@ -38,7 +38,7 @@ const appJsonLd = {
     price: '0',
     priceCurrency: 'USD',
   },
-  downloadUrl: app.appStoreUrl || app.githubUrl || (app.googlePlayUrl !== '#' ? app.googlePlayUrl : undefined),
+  downloadUrl: app.appStoreUrl || app.vsMarketplaceUrl || app.githubUrl || (app.googlePlayUrl !== '#' ? app.googlePlayUrl : undefined),
   author: {
     '@type': 'Person',
     '@id': siteConfig.author.id,
@@ -143,13 +143,37 @@ const appJsonLd = {
               </a>
             )}
 
+            {app.vsMarketplaceUrl && (
+              <a
+                href={app.vsMarketplaceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-2xl bg-orange-600 hover:bg-orange-700 text-white font-semibold text-sm shadow-md hover:shadow-orange-500/25 transition-all duration-200 transform hover:-translate-y-0.5 active:scale-[0.99]"
+              >
+                <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+                <span>VS Code Marketplace</span>
+              </a>
+            )}
+
+            {app.openVsxUrl && (
+              <a
+                href={app.openVsxUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl border border-stone-300 dark:border-stone-700 bg-stone-100/80 dark:bg-stone-800/80 hover:bg-stone-200 dark:hover:bg-stone-700 text-stone-800 dark:text-stone-200 font-semibold text-sm transition-colors"
+              >
+                <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+                <span>Open VSX</span>
+              </a>
+            )}
+
             {app.githubUrl && (
               <a
                 href={app.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 class={`flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl font-semibold text-sm transition-all ${
-                  !app.appStoreUrl
+                  !app.appStoreUrl && !app.vsMarketplaceUrl
                     ? 'bg-orange-600 hover:bg-orange-700 text-white shadow-md hover:shadow-orange-500/25'
                     : 'border border-stone-300 dark:border-stone-700 bg-stone-100/80 dark:bg-stone-800/80 hover:bg-stone-200 dark:hover:bg-stone-700 text-stone-800 dark:text-stone-200'
                 }`}

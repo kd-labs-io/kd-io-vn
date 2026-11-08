@@ -112,6 +112,8 @@ Security is a first-class engineering pillar at **KD Labs**. To protect develope
 
 Explore the source code, build from source, or contribute at our official GitHub Organization:
 
+- **VS Code Marketplace:** [marketplace.visualstudio.com/items?itemName=kd-labs.kd-code](https://marketplace.visualstudio.com/items?itemName=kd-labs.kd-code)
+- **Open VSX Registry:** [open-vsx.org/extension/kd-labs/kd-code](https://open-vsx.org/extension/kd-labs/kd-code)
 - **GitHub Repository:** [github.com/kd-labs-io/kd-code-extension](https://github.com/kd-labs-io/kd-code-extension)
 - **Product Overview & Specs:** [kd.io.vn/en/apps/kd-code](/en/apps/kd-code/)
 - **Agent Client Protocol Spec:** [agentclientprotocol.com](https://agentclientprotocol.com)

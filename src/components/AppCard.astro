@@ -131,8 +131,33 @@ const featureGraphic = app.featureGraphic ? app.featureGraphic[currentLang] : nu
           </a>
         )}
 
+        {/* Primary CTA for VS Code Extension: Marketplace */}
+        {app.vsMarketplaceUrl && (
+          <a
+            href={app.vsMarketplaceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="col-span-2 sm:col-auto inline-flex items-center justify-center gap-2.5 px-5 py-3 sm:py-2.5 rounded-full bg-orange-600 hover:bg-orange-700 text-white text-xs sm:text-sm font-semibold shadow-sm shadow-orange-600/20 transition-all duration-200 transform hover:-translate-y-0.5 active:scale-[0.99]"
+          >
+            <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+            <span>VS Code Marketplace</span>
+          </a>
+        )}
+
+        {app.openVsxUrl && (
+          <a
+            href={app.openVsxUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="col-span-1 sm:col-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full border border-stone-200 dark:border-stone-700 bg-stone-100/80 dark:bg-stone-800/80 hover:bg-stone-200/80 dark:hover:bg-stone-700 text-stone-800 dark:text-stone-200 text-xs sm:text-sm font-medium transition-colors"
+          >
+            <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+            <span>Open VSX</span>
+          </a>
+        )}
+
         {/* Primary CTA for VS Code Extension: GitHub Repository */}
-        {!app.appStoreUrl && app.githubUrl && (
+        {!app.appStoreUrl && !app.vsMarketplaceUrl && app.githubUrl && (
           <a
             href={app.githubUrl}
             target="_blank"
@@ -146,8 +171,8 @@ const featureGraphic = app.featureGraphic ? app.featureGraphic[currentLang] : nu
           </a>
         )}
 
-        {/* Secondary GitHub Button when App Store is primary */}
-        {app.appStoreUrl && app.githubUrl && (
+        {/* Secondary GitHub Button when App Store / Marketplace is primary */}
+        {(app.appStoreUrl || app.vsMarketplaceUrl) && app.githubUrl && (
           <a
             href={app.githubUrl}
             target="_blank"

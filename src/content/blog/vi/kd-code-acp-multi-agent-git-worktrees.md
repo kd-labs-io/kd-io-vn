@@ -112,6 +112,8 @@ Toàn bộ mã nguồn của **KD Code** được phát hành minh bạch theo g
 
 Bạn có thể kiểm tra mã nguồn, đóng góp hoặc biên dịch trực tiếp từ GitHub chính thức của KD Labs:
 
+- **VS Code Marketplace:** [marketplace.visualstudio.com/items?itemName=kd-labs.kd-code](https://marketplace.visualstudio.com/items?itemName=kd-labs.kd-code)
+- **Open VSX Registry:** [open-vsx.org/extension/kd-labs/kd-code](https://open-vsx.org/extension/kd-labs/kd-code)
 - **GitHub Repository:** [github.com/kd-labs-io/kd-code-extension](https://github.com/kd-labs-io/kd-code-extension)
 - **Trang Chi Tiết Sản Phẩm:** [kd.io.vn/apps/kd-code](/apps/kd-code/)
 - **Chuẩn Giao Thức ACP:** [agentclientprotocol.com](https://agentclientprotocol.com)

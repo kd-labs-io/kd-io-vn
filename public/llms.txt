@@ -4,7 +4,7 @@
 
 ## Products & Open Source
 
-- [KD Code (VS Code ACP Extension)](https://kd.io.vn/apps/kd-code/): Open-source VS Code extension orchestrating multiple AI coding agents (Claude Code, Codex, OpenCode) via the Agent Client Protocol (ACP) with isolated Git Worktrees and Best-of-N diff comparison.
+- [KD Code (VS Code ACP Extension)](https://kd.io.vn/apps/kd-code/): Open-source VS Code extension orchestrating multiple AI coding agents (Claude Code, Codex, OpenCode) via the Agent Client Protocol (ACP) with isolated Git Worktrees and Best-of-N diff comparison. Install from [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=kd-labs.kd-code) or [Open VSX](https://open-vsx.org/extension/kd-labs/kd-code).
 - [Simple OTP (100% Offline 2FA)](https://kd.io.vn/apps/simple-otp/): Zero-trust, 100% offline TOTP/HOTP two-factor authenticator for iOS and Android with AES-256-GCM hardware-backed encryption and zero network permissions.
 - [GitHub Organization (@kd-labs-io)](https://github.com/kd-labs-io): Official open-source repositories and releases from KD Labs.
 
