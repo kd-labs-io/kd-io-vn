@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import { appsData } from '../../data/apps';
 import type { AppItem } from '../../data/apps';
 import { getTranslations } from '../../data/i18n';
+import { siteConfig } from '../../config/site';
 
 export function getStaticPaths() {
   return appsData.map((app) => ({
@@ -40,12 +41,12 @@ const appJsonLd = {
   downloadUrl: app.appStoreUrl || app.githubUrl || (app.googlePlayUrl !== '#' ? app.googlePlayUrl : undefined),
   author: {
     '@type': 'Person',
-    '@id': `${siteUrl}/#person`,
+    '@id': siteConfig.author.id,
     name: 'Bùi Khương Duy',
   },
   creator: {
     '@type': 'Person',
-    '@id': `${siteUrl}/#person`,
+    '@id': siteConfig.author.id,
     name: 'Bùi Khương Duy',
   },
   publisher: {

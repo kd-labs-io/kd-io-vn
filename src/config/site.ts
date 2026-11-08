@@ -11,8 +11,9 @@ export const siteConfig = {
   githubUrl: 'https://github.com/kd-labs-io',
   founderGithubUrl: 'https://github.com/001123',
   twitterUrl: 'https://x.com/khuongduy1897',
-  linkedinUrl: 'https://www.linkedin.com/in/duybk/',
-  foundedYear: 2024,
+  linkedinUrl: 'https://www.linkedin.com/in/buikhuongduy',
+  /** ISO 8601 founding date (year-month). */
+  foundingDate: '2026-08',
   location: 'Vietnam',
   keywords: {
     vi: [
@@ -74,9 +75,12 @@ export const siteConfig = {
       'Hardware-Backed Cryptography & Zero-Trust Security',
       'Technical & Applied Research',
     ],
-    url: 'https://kd.io.vn/',
+    /** Canonical identity shared with the JSON-LD on buikhuongduy.com so both sites describe one person. */
+    id: 'https://buikhuongduy.com/#person',
+    url: 'https://buikhuongduy.com/',
     sameAs: [
-      'https://www.linkedin.com/in/duybk/',
+      'https://kd.io.vn/',
+      'https://www.linkedin.com/in/buikhuongduy',
       'https://x.com/khuongduy1897',
       'https://github.com/001123',
       'https://github.com/kd-labs-io',

@@ -81,18 +81,18 @@ const simpleOtpDetailUrl = isVi ? '/apps/simple-otp/' : '/en/apps/simple-otp/';
         <picture>
           <source
             type="image/webp"
-            srcset="/assets/branding/hero-bg-home-800w.webp 640w, /assets/branding/hero-bg-home.webp 960w"
+            srcset="/assets/branding/hero-bg-home-800w.webp?v=2 640w, /assets/branding/hero-bg-home.webp?v=2 960w"
             sizes="(max-width: 640px) calc(100vw - 50px), (max-width: 1024px) 90vw, 960px"
           />
           <img
-            src="/assets/branding/hero-bg-home.jpg"
+            src="/assets/branding/hero-bg-home.jpg?v=2"
             alt={isVi ? 'Không gian nghiên cứu và sáng tạo KD Labs nhìn ra cánh đồng lúa vàng Việt Nam' : 'KD Labs research and creative workspace overlooking golden Vietnamese rice fields'}
             width="960"
             height="720"
             class="w-full h-full object-cover"
             loading="eager"
             fetchpriority="high"
-            decoding="async"
+            decoding="sync"
           />
         </picture>
 

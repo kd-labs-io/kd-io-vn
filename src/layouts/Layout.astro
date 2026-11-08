@@ -60,8 +60,8 @@ const enPath = getLocalizedPath(pathname, 'en');
 
 const viAlternateURL = new URL(viPath, siteUrl);
 const enAlternateURL = new URL(enPath, siteUrl);
-// Google SEO: x-default fallback points to English for international audiences
-const xDefaultURL = enAlternateURL;
+// Google SEO: x-default fallback points to Vietnamese, the primary language
+const xDefaultURL = viAlternateURL;
 
 // Contextual & Localized OG Images
 const defaultOgImage = lang === 'vi' 
@@ -100,13 +100,13 @@ const defaultJsonLd = {
   '@graph': [
     {
       '@type': 'Person',
-      '@id': `${siteUrl}/#person`,
+      '@id': siteConfig.author.id,
       name: siteConfig.author.name,
       alternateName: siteConfig.author.alternateName,
       jobTitle: siteConfig.author.jobTitle,
       description: siteConfig.author.description[lang],
       knowsAbout: siteConfig.author.knowsAbout,
-      url: rootUrl,
+      url: siteConfig.author.url,
       sameAs: siteConfig.author.sameAs,
       worksFor: {
         '@id': `${siteUrl}/#organization`,
@@ -123,7 +123,7 @@ const defaultJsonLd = {
       description: fallbackDescription,
       knowsAbout: siteConfig.author.knowsAbout,
       url: rootUrl,
-      foundingDate: String(siteConfig.foundedYear),
+      foundingDate: siteConfig.foundingDate,
       logo: {
         '@type': 'ImageObject',
         '@id': `${siteUrl}/#logo`,
@@ -134,7 +134,7 @@ const defaultJsonLd = {
         caption: 'KD Labs Logo',
       },
       founder: {
-        '@id': `${siteUrl}/#person`,
+        '@id': siteConfig.author.id,
       },
       sameAs: [
         siteConfig.googlePlayDevUrl,
@@ -160,7 +160,7 @@ const defaultJsonLd = {
       ],
       description: fallbackDescription,
       creator: {
-        '@id': `${siteUrl}/#person`,
+        '@id': siteConfig.author.id,
       },
       publisher: {
         '@id': `${siteUrl}/#organization`,
@@ -188,13 +188,7 @@ const finalJsonLdArray = jsonLd
     <meta name="author" content={authorName} />
     <meta name="keywords" content={keywordsList.join(', ')} />
 
-    <!-- Google Fonts: Plus Jakarta Sans + JetBrains Mono (Deferred after LCP, Non-render-blocking) -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400..700&family=Plus+Jakarta+Sans:wght@400..800&display=optional"
-      media="print"
-      onload="if(document.readyState==='complete'){this.media='all'}else{window.addEventListener('load',()=>{this.media='all'},{once:true})}"
-    />
+    <!-- Google Fonts: Plus Jakarta Sans + JetBrains Mono (Loaded on first user interaction to guarantee 0 CLS and 0 LCP bandwidth contention) -->
     <noscript>
       <link
         href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400..700&family=Plus+Jakarta+Sans:wght@400..800&display=optional"
@@ -207,7 +201,7 @@ const finalJsonLdArray = jsonLd
         rel="preload"
         as="image"
         type="image/webp"
-        imagesrcset="/assets/branding/hero-bg-home-800w.webp 640w, /assets/branding/hero-bg-home.webp 960w"
+        imagesrcset="/assets/branding/hero-bg-home-800w.webp?v=2 640w, /assets/branding/hero-bg-home.webp?v=2 960w"
         imagesizes="(max-width: 640px) calc(100vw - 50px), (max-width: 1024px) 90vw, 960px"
         fetchpriority="high"
       />
@@ -286,6 +280,18 @@ const finalJsonLdArray = jsonLd
             document.documentElement.classList.remove('dark');
             document.documentElement.style.colorScheme = 'light';
           }
+          var fontsLoaded = false;
+          function loadFonts() {
+            if (fontsLoaded) return;
+            fontsLoaded = true;
+            var l = document.createElement('link');
+            l.rel = 'stylesheet';
+            l.href = 'https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400..700&family=Plus+Jakarta+Sans:wght@400..800&display=optional';
+            document.head.appendChild(l);
+          }
+          ['pointerdown', 'keydown', 'touchstart', 'wheel'].forEach(function(evt) {
+            window.addEventListener(evt, loadFonts, { once: true, passive: true });
+          });
         } catch (e) {
           // Fallback gracefully
         }

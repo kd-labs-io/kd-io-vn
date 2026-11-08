@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import "tailwindcss" source("../");
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -251,4 +251,10 @@ details.craft-toggle > summary::-webkit-details-marker {
 /* Clean mobile tap highlight */
 a, button {
   -webkit-tap-highlight-color: transparent;
+}
+
+/* Defer layout/painting of below-the-fold sections */
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 800px;
 }

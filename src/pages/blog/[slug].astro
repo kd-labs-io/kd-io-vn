@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import { getCollection, render } from 'astro:content';
 import { getTranslations } from '../../data/i18n';
+import { siteConfig } from '../../config/site';
 import FormattedDate from '../../components/FormattedDate.astro';
 import ReadingProgress from '../../components/ReadingProgress.astro';
 
@@ -36,9 +37,9 @@ const blogJsonLd = {
   ...(post.data.updatedDate ? { dateModified: post.data.updatedDate.toISOString() } : {}),
   author: {
     '@type': 'Person',
-    '@id': `${siteUrl}/#person`,
+    '@id': siteConfig.author.id,
     name: post.data.author && post.data.author !== 'KD Labs' ? post.data.author : 'Bùi Khương Duy',
-    url: `${siteUrl}/`,
+    url: siteConfig.author.url,
   },
   publisher: {
     '@type': 'Organization',
