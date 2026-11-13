@@ -1,0 +1,108 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E0903"/>
+      <stop offset="45%" stop-color="#120502"/>
+      <stop offset="100%" stop-color="#080201"/>
+    </linearGradient>
+    <radialGradient id="centerGlow" cx="50%" cy="42%" r="60%">
+      <stop offset="0%" stop-color="#EA580C" stop-opacity="0.28"/>
+      <stop offset="50%" stop-color="#EA580C" stop-opacity="0.09"/>
+      <stop offset="100%" stop-color="#EA580C" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EA580C" stop-opacity="0.75"/>
+      <stop offset="50%" stop-color="#FB923C" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#7C2D12" stop-opacity="0.4"/>
+    </linearGradient>
+    <pattern id="gridPattern" width="36" height="36" patternUnits="userSpaceOnUse">
+      <circle cx="18" cy="18" r="1.1" fill="#EA580C" fill-opacity="0.12"/>
+    </pattern>
+    <filter id="cardShadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#000000" flood-opacity="0.65"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#bgGrad)"/>
+  <rect width="1200" height="675" fill="url(#centerGlow)"/>
+  <rect width="1200" height="675" fill="url(#gridPattern)"/>
+
+  <g transform="translate(1030, 130) scale(3.2) translate(-50, -50)" opacity="0.07">
+    <path d="M 56.1 13.1 A 37.2 37.2 0 1 0 85.6 65.1" stroke="#EA580C" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="65.2" cy="28.3" r="6" fill="#FB923C"/>
+    <circle cx="78.4" cy="48.1" r="6" fill="#FB923C"/>
+  </g>
+
+  <rect x="24" y="24" width="1152" height="627" rx="28" fill="none" stroke="url(#borderGrad)" stroke-width="1.5"/>
+
+  <g transform="translate(64, 58)">
+    <rect x="0" y="0" width="38" height="38" rx="11" fill="#EA580C"/>
+    <text x="19" y="25" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="900" fill="#FFFFFF">KD</text>
+    <text x="52" y="25" font-family="sans-serif" font-size="18" font-weight="800" fill="#FFFFFF" letter-spacing="-0.3">KD Labs</text>
+    <text x="132" y="25" font-family="monospace" font-size="14" fill="#FB923C">• AGENTIC PRODUCT DESIGN</text>
+
+    <rect x="602" y="2" width="470" height="34" rx="17" fill="#220D05" stroke="#EA580C" stroke-opacity="0.6" stroke-width="1.2"/>
+    <text x="837" y="23" text-anchor="middle" font-family="monospace" font-size="11.5" font-weight="700" fill="#FED7AA" letter-spacing="0.6">● GENERATIVE UI • HUMAN-ON-THE-LOOP UX</text>
+  </g>
+
+  <g transform="translate(95, 140)">
+    <g transform="translate(0, 15)">
+      <rect x="0" y="0" width="290" height="245" rx="22" fill="#180C08" stroke="#EA580C" stroke-width="1.8" filter="url(#cardShadow)"/>
+      <circle cx="42" cy="42" r="18" fill="#2E1306" stroke="#FB713B" stroke-width="1.5"/>
+      <text x="42" y="47" text-anchor="middle" font-family="monospace" font-size="12" font-weight="800" fill="#FFFFFF">UI</text>
+      <text x="72" y="40" font-family="sans-serif" font-size="16" font-weight="800" fill="#FFFFFF">Multimodal Intent</text>
+      <text x="72" y="58" font-family="monospace" font-size="11" fill="#FDBA74">Beyond Linear Chatboxes</text>
+
+      <rect x="20" y="78" width="250" height="82" rx="12" fill="#241208" stroke="#EA580C" stroke-opacity="0.4"/>
+      <text x="32" y="102" font-family="monospace" font-size="11" fill="#FED7AA">Visual Screenshot Sketching</text>
+      <text x="32" y="122" font-family="monospace" font-size="11" fill="#A8A29E">Inline @Selection &amp; Problems</text>
+      <text x="32" y="142" font-family="monospace" font-size="11" fill="#A8A29E">Autonomy Spectrum Dials</text>
+
+      <rect x="20" y="176" width="250" height="36" rx="10" fill="#291207" stroke="#FB923C" stroke-width="1"/>
+      <text x="145" y="199" text-anchor="middle" font-family="monospace" font-size="11" font-weight="700" fill="#FED7AA">HIGH-BANDWIDTH INPUT</text>
+    </g>
+
+    <g transform="translate(325, 0)">
+      <rect x="0" y="0" width="360" height="275" rx="26" fill="#1F0D05" stroke="url(#borderGrad)" stroke-width="2.5" filter="url(#cardShadow)"/>
+      <rect x="24" y="24" width="48" height="48" rx="14" fill="#EA580C"/>
+      <text x="48" y="54" text-anchor="middle" font-family="monospace" font-size="14" font-weight="900" fill="#FFFFFF">GEN</text>
+      <text x="86" y="44" font-family="sans-serif" font-size="17" font-weight="800" fill="#FFFFFF">Generative UI Canvas</text>
+      <text x="86" y="64" font-family="monospace" font-size="11" fill="#FDBA74">Typed JSON-RPC Event Stream</text>
+
+      <g transform="translate(24, 88)">
+        <rect x="0" y="0" width="312" height="72" rx="12" fill="#291207" stroke="#EA580C" stroke-opacity="0.4"/>
+        <text x="156" y="26" text-anchor="middle" font-family="monospace" font-size="12" font-weight="700" fill="#FED7AA">Bidirectional Shared State</text>
+        <text x="156" y="48" text-anchor="middle" font-family="monospace" font-size="11" fill="#D6D3D1">Live Plan Cards • Parallel Tabs</text>
+      </g>
+
+      <g transform="translate(24, 176)">
+        <rect x="0" y="0" width="312" height="74" rx="14" fill="#140702" stroke="#22C55E" stroke-opacity="0.6"/>
+        <text x="156" y="28" text-anchor="middle" font-family="monospace" font-size="12" font-weight="700" fill="#4ADE80">Human-on-the-Loop Flow</text>
+        <text x="156" y="52" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#D6D3D1">Zero Approval Fatigue • Glass-Box</text>
+      </g>
+    </g>
+
+    <g transform="translate(720, 15)">
+      <rect x="0" y="0" width="290" height="245" rx="22" fill="#180C08" stroke="#EA580C" stroke-width="1.8" filter="url(#cardShadow)"/>
+      <circle cx="42" cy="42" r="18" fill="#2E1306" stroke="#FB713B" stroke-width="1.5"/>
+      <text x="42" y="47" text-anchor="middle" font-family="monospace" font-size="12" font-weight="800" fill="#FFFFFF">REV</text>
+      <text x="72" y="40" font-family="sans-serif" font-size="16" font-weight="800" fill="#FFFFFF">Instant Reversibility</text>
+      <text x="72" y="58" font-family="monospace" font-size="11" fill="#4ADE80">Non-Destructive Autonomy</text>
+
+      <rect x="20" y="78" width="250" height="82" rx="12" fill="#241208" stroke="#EA580C" stroke-opacity="0.4"/>
+      <text x="32" y="102" font-family="monospace" font-size="11" fill="#4ADE80">✓ Per-Hunk Keep / Undo</text>
+      <text x="32" y="122" font-family="monospace" font-size="11" fill="#FED7AA">✓ Pre-Turn Checkpoints</text>
+      <text x="32" y="142" font-family="monospace" font-size="11" fill="#A8A29E">✓ Side-by-Side Diff Audit</text>
+
+      <rect x="20" y="176" width="250" height="36" rx="10" fill="#052E16" stroke="#22C55E" stroke-width="1"/>
+      <text x="145" y="199" text-anchor="middle" font-family="monospace" font-size="11" font-weight="700" fill="#4ADE80">REVERSIBLE BY DESIGN</text>
+    </g>
+  </g>
+
+  <g transform="translate(64, 515)">
+    <line x1="0" y1="-22" x2="1072" y2="-22" stroke="#EA580C" stroke-opacity="0.22" stroke-width="1"/>
+    <text x="0" y="24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="35" font-weight="800" fill="#FFFFFF" letter-spacing="-0.8">Agentic UX &amp; Generative UI Architecture</text>
+    <text x="0" y="62" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18.5" font-weight="500" fill="#D6D3D1">Shared Mutable State, Progressive Autonomy &amp; Granular Reversibility in AI-Native Apps</text>
+    <text x="1072" y="62" text-anchor="end" font-family="monospace" font-size="15" font-weight="700" fill="#FB713B">kd.io.vn/blog</text>
+  </g>
+</svg>
