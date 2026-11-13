@@ -29,6 +29,7 @@ export interface AppItem {
   openVsxUrl?: string;
   protocolUrl?: string;
   installCommand?: string;
+  researchBlogSlug?: string;
   iconImage?: string;
   featureGraphic?: {
     vi: string;
@@ -78,7 +79,7 @@ export const appsData: AppItem[] = [
       en: 'ACP Protocol • Git Worktrees',
     },
     platformBadge: 'VS Code ≥ 1.123 • MIT',
-    version: '0.0.1',
+    version: '0.0.6',
     size: 'Open Source (MIT)',
     osRequirement: 'VS Code ≥ 1.123 (macOS • Linux • Windows)',
     lastUpdated: 'Tháng 11, 2026',
@@ -89,6 +90,7 @@ export const appsData: AppItem[] = [
     openVsxUrl: 'https://open-vsx.org/extension/kd-labs/kd-code',
     protocolUrl: 'https://agentclientprotocol.com',
     installCommand: 'npm install && npm run reinstall',
+    researchBlogSlug: 'kd-code-acp-multi-agent-git-worktrees',
     iconImage: '/assets/kd-code/icon.png',
     shortDescription: {
       vi: 'Tiện ích mở rộng VS Code điều phối các Coding Agent qua giao thức chuẩn Agent Client Protocol (ACP). Cài đặt 1-click Claude, Codex, OpenCode và chạy đối sánh song song (Best-of-N) trên các Git Worktree độc lập.',
@@ -123,8 +125,8 @@ export const appsData: AppItem[] = [
       ],
     },
     whatsNew: {
-      vi: '• Ra mắt mã nguồn mở KD Code v0.0.1 theo giấy phép MIT tại github.com/kd-labs-io/kd-code-extension\n• Hỗ trợ đầy đủ Agent Client Protocol (ACP) & cài đặt tự động từ ACP Registry\n• Chế độ Git Worktree tự động, Best-of-N Compare và tạo Pull Request qua GitHub CLI\n• Công cụ chẩn đoán môi trường (Doctor), thống kê chi phí ccusage và giao diện song ngữ Anh - Việt',
-      en: '• Open-source release of KD Code v0.0.1 under the MIT License at github.com/kd-labs-io/kd-code-extension\n• Full Agent Client Protocol (ACP) client implementation & 1-click ACP Registry installer\n• Automated Git Worktree isolation, Best-of-N parallel comparison, and GitHub CLI PR drafting\n• Built-in Setup Doctor, ccusage token cost analytics, and bilingual English/Vietnamese UI',
+      vi: '• Ra mắt mã nguồn mở KD Code v0.0.6 theo giấy phép MIT tại github.com/kd-labs-io/kd-code-extension\n• Hỗ trợ đầy đủ Agent Client Protocol (ACP) & cài đặt tự động từ ACP Registry\n• Chế độ Git Worktree tự động, Best-of-N Compare và tạo Pull Request qua GitHub CLI\n• Công cụ chẩn đoán môi trường (Doctor), thống kê chi phí ccusage và giao diện song ngữ Anh - Việt',
+      en: '• Open-source release of KD Code v0.0.6 under the MIT License at github.com/kd-labs-io/kd-code-extension\n• Full Agent Client Protocol (ACP) client implementation & 1-click ACP Registry installer\n• Automated Git Worktree isolation, Best-of-N parallel comparison, and GitHub CLI PR drafting\n• Built-in Setup Doctor, ccusage token cost analytics, and bilingual English/Vietnamese UI',
     },
     securityPledge: {
       vi: 'Mọi thiết lập thực thi (Custom Agents, MCP Servers, biến môi trường, đường dẫn Node/ccusage) chỉ được áp dụng ở phạm vi máy (Machine Scope) — ngăn chặn hoàn toàn việc một workspace độc hại tự ý thực thi mã. Lệnh khởi tạo worktree luôn yêu cầu xác nhận lại mỗi khi nội dung tệp cấu hình thay đổi.',
@@ -156,6 +158,7 @@ export const appsData: AppItem[] = [
     appStoreUrl: 'https://apps.apple.com/us/app/simple-otp/id6816673973',
     googlePlayUrl: '#',
     githubUrl: 'https://github.com/kd-labs-io/simple-otp',
+    researchBlogSlug: 'simple-otp',
     iconImage: '/assets/simple-otp/icon.png',
     featureGraphic: {
       vi: '/assets/simple-otp/banners/vi/00_feature_graphic.png',

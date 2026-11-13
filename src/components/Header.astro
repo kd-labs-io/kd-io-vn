@@ -20,6 +20,7 @@ const pressUrl = currentLang === 'vi' ? '/press/' : `/${currentLang}/press/`;
 const privacyUrl = currentLang === 'vi' ? '/privacy/' : `/${currentLang}/privacy/`;
 const blogUrl = currentLang === 'vi' ? '/blog/' : `/${currentLang}/blog/`;
 
+const isAppsActive = Astro.url.pathname.includes('/apps/');
 const isBlogActive = Astro.url.pathname.includes('/blog');
 const isPressActive = Astro.url.pathname.includes('/press');
 const isPrivacyActive = Astro.url.pathname.includes('/privacy');
@@ -67,7 +68,11 @@ const isPrivacyActive = Astro.url.pathname.includes('/privacy');
         >
           <a
             href={isHomePage ? '#showcase' : `${homeUrl}#showcase`}
-            class="px-3.5 py-1.5 rounded-full text-stone-600 dark:text-stone-300 hover:text-stone-950 dark:hover:text-white hover:bg-white/80 dark:hover:bg-stone-800/70 transition-all duration-150"
+            class={`px-3.5 py-1.5 rounded-full transition-all duration-150 ${
+              isAppsActive
+                ? 'bg-white dark:bg-stone-800 text-orange-600 dark:text-orange-400 font-semibold shadow-2xs'
+                : 'text-stone-600 dark:text-stone-300 hover:text-stone-950 dark:hover:text-white hover:bg-white/80 dark:hover:bg-stone-800/70'
+            }`}
           >
             {t.nav.apps}
           </a>
@@ -158,7 +163,11 @@ const isPrivacyActive = Astro.url.pathname.includes('/privacy');
     >
       <a
         href={isHomePage ? '#showcase' : `${homeUrl}#showcase`}
-        class="flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-sm font-medium text-stone-700 dark:text-stone-200 hover:bg-orange-500/10 hover:text-orange-600 dark:hover:text-orange-400 transition-colors"
+        class={`flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-sm font-medium transition-colors ${
+          isAppsActive
+            ? 'bg-orange-500/10 text-orange-600 dark:text-orange-400 font-semibold'
+            : 'text-stone-700 dark:text-stone-200 hover:bg-orange-500/10 hover:text-orange-600 dark:hover:text-orange-400'
+        }`}
       >
         <span>{t.nav.apps}</span>
         <svg class="w-4 h-4 text-stone-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
